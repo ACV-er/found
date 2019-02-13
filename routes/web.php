@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/lost', 'LAFController@lostList');
+Route::get('/lost/{id}', 'LAFController@lost');
+
+Route::get('/found', 'LAFController@lostList');
+Route::get('/found/{id}', 'LAFController@lost');
+
+Route::post('/submit/lost', 'LAFController@submitLost');
+Route::post('/submit/found', 'LAFController@submitFound');

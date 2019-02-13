@@ -53,12 +53,13 @@ class LAFController extends Controller
     private function dataHandle($request) {
         $data = $request->only(['title', 'description', 'stu_card', 'card_id', 'address', 'date']);
         if($request->has(['title', 'description', 'stu_card', 'address', 'date']) != true) {
-            return $this->msg(1, null);
+            die($this->msg('1', null));
         }
 
-        $data['solve'] = 0;
         $data['img'] = '1232333';
         $data['announcer'] = 'dhd';
+        $data['solve'] = 0;
+
         return $data;
     }
 
@@ -76,6 +77,32 @@ class LAFController extends Controller
             $this->dataHandle($request)
         );
         $result = $result->save();
+
+        return $result?$this->msg('0', null):$this->msg('2', null);
+    }
+
+    public function updateLost(Request $request) {
+        $data = $this->dataHandle($request);
+        $result = lost::query()->where('id', $request->route('id'))->update($data);
+
+        return $result?$this->msg('0', null):$this->msg('2', null);
+    }
+
+    public function updateFound(Request $request) {
+        $data = $this->dataHandle($request);
+        $result = lost::query()->where('id', $request->route('id'))->update($data);
+
+        return $result?$this->msg('0', null):$this->msg('2', null);
+    }
+
+    public function finishLost(Request $request) {
+        $result = lost::query()->where('id', $request->route('id'))->update(["solve"=>true]);
+
+        return $result?$this->msg('0', null):$this->msg('2', null);
+    }
+
+    public function finishFound(Request $request) {
+        $result = found::query()->where('id', $request->route('id'))->update(["solve"=>true]);
 
         return $result?$this->msg('0', null):$this->msg('2', null);
     }

@@ -23,3 +23,9 @@ Route::get('/found/{id}', 'LAFController@lost');
 
 Route::post('/submit/lost', 'LAFController@submitLost');
 Route::post('/submit/found', 'LAFController@submitFound');
+
+Route::post('/update/lost/{id}', 'LAFController@updateLost');
+Route::post('/update/found/{id}', 'LAFController@updateFound');
+
+Route::match(['get', 'post'], '/finish/lost/{id}', 'LAFController@finishLost');
+Route::match(['get', 'post'], '/finish/found/{id}', 'LAFController@finishFound');

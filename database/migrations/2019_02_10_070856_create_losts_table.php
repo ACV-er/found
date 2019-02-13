@@ -25,6 +25,7 @@ class CreateLostsTable extends Migration
             $table->date('date');
             $table->boolean('solve');
             $table->timestamps();
+            $table->foreign('announcer')->references('stu_id')->on('users');
         });
     }
 

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nickname', 'password', 'class', 'wx', 'qq', 'phone', 'stu_id',
     ];
 
     /**
@@ -27,6 +27,8 @@ class User extends Authenticatable
     protected $hidden = [
     ];
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -36,14 +38,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function info() {
+        $result = array(
+            'nickname' => $this->nickname,
+            'class' => $this->class,
+            'qq' => $this->qq,
+            'wx' => $this->wx,
+            'phone' => $this->phone,
+        );
+
+        return $result;
+    }
+
     public function lost()
     {
-        return $this->hasMany('App\lost', 'announcer', 'stu_id');
+        return $this->hasMany('App\lost', 'user_id', 'id');
     }
 
     public function found()
     {
-        return $this->hasMany('App\found', 'announcer', 'stu_id');
+        return $this->hasMany('App\found', 'user_id', 'id');
     }
 
 }

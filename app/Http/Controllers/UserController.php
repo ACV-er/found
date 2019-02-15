@@ -63,6 +63,7 @@
             $data = $request->only(array_keys($mod));
             $this->check($mod, $data);
             $user = User::query()->where('stu_id', $data['stu_id'])->first();
+
             if (!$user) {
                 // 该用户未在数据库中 用户名错误 或 用户从未登录
                 //利用三翼api确定用户账号密码是否正确
@@ -122,11 +123,12 @@
             if( empty($request->only(['qq', 'wx', 'phone'])) ) {
                 die($this->msg(3, '???'));
             }
+            
             $data = $request->only(array_keys($mod));
             $this->check($mod, $data);
 
-//            $user = User::query()->where('id', $request->session()->get('id'))->update($data);
-            $user = User::query()->where('id', 4)->update($data);
+            $user = User::query()->where('id', $request->session()->get('id'))->update($data);
+//            $user = User::query()->where('id', 4)->update($data);
             if($user) {
                 return $this->msg(0, null);
             } else {
@@ -136,8 +138,8 @@
 
         public function getUserLost(Request $request)
         {
-//            $List = lost::query()->where('user_id', $request->session()->get('id'))->get();
-            $List = lost::query()->where('user_id', 4)->get();
+            $List = lost::query()->where('user_id', $request->session()->get('id'))->get();
+//            $List = lost::query()->where('user_id', 4)->get();
             return $List;
         }
 
@@ -146,5 +148,8 @@
 //            $List = found::query()->where('user_id', $request->session()->get('id'))->get();
             $List = found::query()->where('user_id', 4)->get();
             return $List;
+        }
+        public function logintest() {
+            return session('id');
         }
     }

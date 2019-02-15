@@ -26,6 +26,7 @@ Route::group(['middleware'=>'cookie'], function (){
     Route::post('/user/update', 'UserController@updateUserInfo');
     Route::get('/user/lost', 'UserController@getUserLost');
     Route::get('/user/found', 'UserController@getUserFound');
+    Route::get('/logintest', 'UserController@logintest');
 
     Route::post('/submit/lost', 'LAFController@submitLost');
     Route::post('/submit/found', 'LAFController@submitFound');

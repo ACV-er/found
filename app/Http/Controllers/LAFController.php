@@ -74,7 +74,7 @@ class LAFController extends Controller
         }
 
         $data['img'] = '1232333';
-        $data['user_id'] = 1;
+        $data['user_id'] = session('id');
         $data['solve'] = 0;
 
         return $data;
@@ -117,13 +117,17 @@ class LAFController extends Controller
     }
 
     public function finishLost(Request $request) {
-        $result = lost::query()->where('id', $request->route('id'))->update(["solve"=>true]);
+        $result = lost::query()->where('id', $request->route('id'))->first();
+        //插入验证登陆者
+        $result->update(["solve"=>true]);
 
         return $result?$this->msg(0, null):$this->msg(2, __LINE__);
     }
 
     public function finishFound(Request $request) {
-        $result = found::query()->where('id', $request->route('id'))->update(["solve"=>true]);
+        $result = found::query()->where('id', $request->route('id'))->first();
+        //插入验证登陆者
+        $result->update(["solve"=>true]);
 
         return $result?$this->msg(0, null):$this->msg(2, __LINE__);
     }

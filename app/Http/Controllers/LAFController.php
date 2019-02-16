@@ -41,9 +41,10 @@ class LAFController extends Controller
     }
 
     public function lostList(){
-        $result = DB::table('losts')->get()
-            ->where('updated_at', '>',date('Y-m-d H:i:s', time() - 86400 * 7)) //86400秒一天
-            ->where('solve', false);
+        $result = DB::table('losts')->where('updated_at', '>',date('Y-m-d H:i:s', time() - 86400 * 7)) //86400秒一天
+            ->where('solve', false)
+            ->orderBy('updated_at', 'desc')
+            ->get();
 
         return $this->msg(0, $result);
     }
@@ -57,9 +58,10 @@ class LAFController extends Controller
     }
 
     public function foundList(){
-        $result = DB::table('founds')->get()
-            ->where('updated_at', '>',date('Y-m-d H:i:s', time() - 86400 * 7)) //86400秒一天
-            ->where('solve', false);
+        $result = DB::table('founds')->where('updated_at', '>',date('Y-m-d H:i:s', time() - 86400 * 7)) //86400秒一天
+            ->where('solve', false)
+            ->orderBy('updated_at', 'desc')
+            ->get();
 
         return $this->msg(0, $result);
     }
@@ -130,7 +132,9 @@ class LAFController extends Controller
     public function updateLost(Request $request) {
         $data = $this->dataHandle($request);
         $result = lost::query()->where('id', $request->route('id'))->first();
-        //插入验证登陆者
+        if(!$result->user_id == session('id')) {
+            die($this->msg(2, __LINE__));
+        }
         if($result->img != null && file_exists(public_path().'/upload/laf/'.$result->img)) { //更新图片时删除以前的图片
             unlink(public_path().'/upload/laf/'.$result->img);
         }
@@ -142,7 +146,9 @@ class LAFController extends Controller
     public function updateFound(Request $request) {
         $data = $this->dataHandle($request);
         $result = found::query()->where('id', $request->route('id'))->first();
-        //插入验证登陆者
+        if(!$result->user_id == session('id')) {
+            die($this->msg(2, __LINE__));
+        }
         if($result->img != null && file_exists(public_path().'/upload/laf/'.$result->img)) { //更新图片时删除以前的图片
             unlink(public_path().'/upload/laf/'.$result->img);
         }
@@ -153,7 +159,9 @@ class LAFController extends Controller
 
     public function finishLost(Request $request) {
         $result = lost::query()->where('id', $request->route('id'))->first();
-        //插入验证登陆者
+        if(!$result->user_id == session('id')) {
+            die($this->msg(2, __LINE__));
+        }
         $result->update(["solve"=>true]);
 
         return $result?$this->msg(0, null):$this->msg(2, __LINE__);
@@ -161,7 +169,9 @@ class LAFController extends Controller
 
     public function finishFound(Request $request) {
         $result = found::query()->where('id', $request->route('id'))->first();
-        //插入验证登陆者
+        if(!$result->user_id == session('id')) {
+            die($this->msg(2, __LINE__));
+        }
         $result->update(["solve"=>true]);
 
         return $result?$this->msg(0, null):$this->msg(2, __LINE__);

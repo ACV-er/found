@@ -34,7 +34,10 @@ class LAFController extends Controller
     }
 
     public function lost($id){
-        return DB::table('losts')->get()->where('id', 'id');
+        $lost = lost::query()->where('id', $id)->first();
+        $result = array_merge($lost->toArray(), $lost->userInfo());
+
+        return $this->msg(0, $result);
     }
 
     public function lostList(){
@@ -42,12 +45,15 @@ class LAFController extends Controller
             ->where('updated_at', '>',date('Y-m-d H:i:s', time() - 86400 * 7)) //86400秒一天
             ->where('solve', false);
 
-        return $result;
+        return $this->msg(0, $result);
     }
 
 
     public function found($id){
-        return DB::table('founds')->get()->where('id', 'id');
+        $found = found::query()->where('id', $id)->first();
+        $result = array_merge($found->toArray(), $found->userInfo());
+
+        return $this->msg(0, $result);
     }
 
     public function foundList(){
@@ -55,7 +61,22 @@ class LAFController extends Controller
             ->where('updated_at', '>',date('Y-m-d H:i:s', time() - 86400 * 7)) //86400秒一天
             ->where('solve', false);
 
-        return $result;
+        return $this->msg(0, $result);
+    }
+
+    protected function saveImg($file){
+        $allow_ext = ['jpg', 'jpeg', 'png', 'gif'];
+
+        $extension = $file->getClientOriginalExtension();
+        if(in_array($extension, $allow_ext)) {
+            $savePath = public_path().'/upload/laf';
+            $filename = time().rand(0,100).'.'.$extension;
+            $file->move($savePath, $filename);
+
+            return $filename;
+        } else {
+            return false;
+        }
     }
 
     private function dataHandle($request) {
@@ -67,14 +88,22 @@ class LAFController extends Controller
             'address' => '/[\s\S]{0,50}/',
             'date' => '/^[\d]{4}-[\d]{2}-[\d]{2}$/',
         );
+
         $data = $request->only(array_keys($mod));
         $this->check($mod, $data);
-        if($request->has(['title', 'description', 'stu_card', 'address', 'date']) != true) {
-            die($this->msg(1, null));
+        if(!$request->has(['title', 'description', 'stu_card', 'address', 'date'])) {
+            die($this->msg(1, __LINE__));
+        }
+        if($request->has(['img'])) {
+            $path = $this->saveImg($request->file('img'));
+            if(!$path) {
+                die($this->msg(2, __LINE__));
+            }
+            $data['img'] = $path;
         }
 
-        $data['img'] = '1232333';
         $data['user_id'] = session('id');
+//        $data['user_id'] = 4;
         $data['solve'] = 0;
 
         return $data;
@@ -102,6 +131,9 @@ class LAFController extends Controller
         $data = $this->dataHandle($request);
         $result = lost::query()->where('id', $request->route('id'))->first();
         //插入验证登陆者
+        if($result->img != null && file_exists(public_path().'/upload/laf/'.$result->img)) { //更新图片时删除以前的图片
+            unlink(public_path().'/upload/laf/'.$result->img);
+        }
         $result->update($data);
 
         return $result?$this->msg(0, null):$this->msg(2, __LINE__);
@@ -111,6 +143,9 @@ class LAFController extends Controller
         $data = $this->dataHandle($request);
         $result = found::query()->where('id', $request->route('id'))->first();
         //插入验证登陆者
+        if($result->img != null && file_exists(public_path().'/upload/laf/'.$result->img)) { //更新图片时删除以前的图片
+            unlink(public_path().'/upload/laf/'.$result->img);
+        }
         $result->update($data);
 
         return $result?$this->msg(0, null):$this->msg(2, __LINE__);

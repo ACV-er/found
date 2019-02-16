@@ -19,7 +19,7 @@ class CreateLostsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title', 90);
             $table->string('description', 300);
-            $table->string('img', 30);
+            $table->string('img', 30)->nullable();
             $table->boolean('stu_card');
             $table->string('card_id', 30)->nullable();
             $table->string('address', 300);

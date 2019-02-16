@@ -55,7 +55,7 @@
         {
             $mod = array(
                 'stu_id' => '/^20[\d]{8,10}$/',
-                'password' => '/^[\w]{8,20}$/',
+                'password' => '/^[^\s]{8,20}$/',
             );
             if (!$request->has(array_keys($mod))) {
                 die($this->msg(1, __LINE__));
@@ -108,6 +108,21 @@
 
         }
 
+        protected function saveImg($file){
+            $allow_ext = ['jpg', 'jpeg', 'png', 'gif'];
+
+            $extension = $file->getClientOriginalExtension();
+            if(in_array($extension, $allow_ext)) {
+                $savePath = public_path().'/upload/avatar';
+                $filename = session('id').'.jpg';
+                $file->move($savePath, $filename);
+
+                return $filename;
+            } else {
+                return false;
+            }
+        }
+
         public function updateUserInfo(Request $request)
         {
             $mod = array(
@@ -123,9 +138,15 @@
             if( empty($request->only(['qq', 'wx', 'phone'])) ) {
                 die($this->msg(3, '???'));
             }
-            
+
             $data = $request->only(array_keys($mod));
             $this->check($mod, $data);
+            if($request->has(['avatar'])) {
+                $avatar = $this->saveImg($request->file('avatar'));
+                if(!$avatar) {
+                    die($this->msg(3, '头像格式有误'));
+                }
+            }
 
             $user = User::query()->where('id', $request->session()->get('id'))->update($data);
 //            $user = User::query()->where('id', 4)->update($data);

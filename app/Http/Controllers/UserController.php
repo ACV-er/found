@@ -159,16 +159,14 @@
 
         public function getUserLost(Request $request)
         {
-            $List = lost::query()->where('user_id', $request->session()->get('id'))->get();
-//            $List = lost::query()->where('user_id', 4)->get();
-            return $List;
+            $List = lost::query()->where('user_id', session('id'))->get();
+            return $this->msg(0, $List);
         }
 
         public function getUserFound(Request $request)
         {
-//            $List = found::query()->where('user_id', $request->session()->get('id'))->get();
-            $List = found::query()->where('user_id', 4)->get();
-            return $List;
+            $List = found::query()->where('user_id', session('id'))->get();
+            return $this->msg(0, $List);
         }
         public function logintest() {
             return session('id');

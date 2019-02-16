@@ -20,6 +20,7 @@ class Cookie //允许跨域cookie
         $allow_origin = [
             'http://localhost',
             'http://127.0.0.1',
+            'http://111.230.25.31',
         ];
         if (in_array($origin, $allow_origin)) {
             $response->header('Access-Control-Allow-Origin', $origin);

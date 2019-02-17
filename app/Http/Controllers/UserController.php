@@ -55,6 +55,7 @@
 
         public function login(Request $request)
         {
+            session(['login' => false, 'id' => null]);
             $mod = array(
                 'stu_id' => '/^20[\d]{8,10}$/',
                 'password' => '/^[^\s]{8,20}$/',
@@ -172,6 +173,7 @@
             $List = found::query()->where('user_id', session('id'))->get();
             return $this->msg(0, $List);
         }
+
         public function logintest() {
             return session('id');
         }

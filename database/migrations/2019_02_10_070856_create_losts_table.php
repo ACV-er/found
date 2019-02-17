@@ -24,7 +24,8 @@ class CreateLostsTable extends Migration
             $table->string('card_id', 30)->nullable();
             $table->string('address', 300);
             $table->date('date');
-            $table->boolean('solve');
+            $table->boolean('solve')->default(false);
+            $table->boolean('mark')->default(false);
             $table->timestamps();
         });
     }

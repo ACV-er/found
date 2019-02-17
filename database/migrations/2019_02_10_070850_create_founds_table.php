@@ -25,6 +25,7 @@ class CreateFoundsTable extends Migration
             $table->string('address', 300);
             $table->date('date');
             $table->boolean('solve');
+            $table->boolean('mark');
             $table->timestamps();
         });
     }

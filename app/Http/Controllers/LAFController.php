@@ -110,7 +110,6 @@ class LAFController extends Controller
 
         $data['user_id'] = session('id');
 //        $data['user_id'] = 4;
-        $data['solve'] = 0;
 
         return $data;
     }

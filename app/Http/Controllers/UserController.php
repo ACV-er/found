@@ -112,6 +112,15 @@
             }
 
         }
+        public function getUserInfo() {
+            $user = User::query()->where('id', session('id'))->first();
+
+            if($user) {
+                return $this->msg(0, $user->info());
+            } else {
+                return $this->msg(4, __LINE__);
+            }
+        }
 
         protected function saveImg($file){
             $allow_ext = ['jpg', 'jpeg', 'png', 'gif'];

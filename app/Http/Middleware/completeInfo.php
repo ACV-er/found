@@ -35,12 +35,12 @@ class completeInfo
     public function handle($request, Closure $next)
     {
         if(session('login') === false) {
-            return $this->msg(3, __LINE__);
+            return redirect()->back()->with($this->msg(3, __LINE__));
         }
 
         $info = User::query()->where('id', session('id'))->first();
         if($info->qq == null && $info->wx == null && $info->pnone == null) {
-            return $this->msg(4, __LINE__);
+            return redirect()->back()->with($this->msg(3, __LINE__));
         }
 
         return $next($request);

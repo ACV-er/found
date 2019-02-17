@@ -34,7 +34,7 @@ class loginCheck
     public function handle($request, Closure $next)
     {
         if(session('login') === false) {
-            return $this->msg(3, __LINE__);
+            return redirect()->back()->with($this->msg(3, __LINE__));
         }
 
         return $next($request);

@@ -121,7 +121,7 @@ class LAFController extends Controller
         );
         $result = $result->save();
 
-        return $result?$this->msg(0, null):$this->msg(2, __LINE__);
+        return $result?$this->msg(0, $result):$this->msg(2, __LINE__);
     }
 
     public function submitFound(Request $request) {

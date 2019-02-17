@@ -12,9 +12,11 @@ class LAFController extends Controller
     public function check($mod, $data_array) { //$mod为数据数组键名对应数据的正则, $data_array为数据数组
         foreach ($data_array as $key=>$value) { //$data_array的键名在$mod数组中必有对应  若无请检查调用时有无逻辑漏洞
             if(!preg_match($mod[$key], $value)) {
-                die(''); //此处数据有误
+                return false; //此处数据有误
             }
         }
+
+        return true;
     }
 
     public function msg($code, $msg) {
@@ -92,14 +94,16 @@ class LAFController extends Controller
         );
 
         $data = $request->only(array_keys($mod));
-        $this->check($mod, $data);
+        if(!$this->check($mod, $data)) {
+            return $this->msg(3, '数据格式错误'.__LINE__);
+        };
         if(!$request->has(['title', 'description', 'stu_card', 'address', 'date'])) {
-            die($this->msg(1, __LINE__));
+            return $this->msg(1, __LINE__);
         }
         if($request->has(['img'])) {
             $path = $this->saveImg($request->file('img'));
             if(!$path) {
-                die($this->msg(2, __LINE__));
+                return $this->msg(2, __LINE__);
             }
             $data['img'] = $path;
         }
@@ -133,7 +137,7 @@ class LAFController extends Controller
         $data = $this->dataHandle($request);
         $result = lost::query()->where('id', $request->route('id'))->first();
         if(!$result->user_id == session('id')) {
-            die($this->msg(2, __LINE__));
+            return $this->msg(2, __LINE__);
         }
         if($result->img != null && file_exists(public_path().'/upload/laf/'.$result->img)) { //更新图片时删除以前的图片
             unlink(public_path().'/upload/laf/'.$result->img);
@@ -147,7 +151,7 @@ class LAFController extends Controller
         $data = $this->dataHandle($request);
         $result = found::query()->where('id', $request->route('id'))->first();
         if(!$result->user_id == session('id')) {
-            die($this->msg(2, __LINE__));
+            return $this->msg(2, __LINE__);
         }
         if($result->img != null && file_exists(public_path().'/upload/laf/'.$result->img)) { //更新图片时删除以前的图片
             unlink(public_path().'/upload/laf/'.$result->img);
@@ -160,7 +164,7 @@ class LAFController extends Controller
     public function finishLost(Request $request) {
         $result = lost::query()->where('id', $request->route('id'))->first();
         if(!$result->user_id == session('id')) {
-            die($this->msg(2, __LINE__));
+            return $this->msg(2, __LINE__);
         }
         $result->update(["solve"=>true]);
 
@@ -170,7 +174,7 @@ class LAFController extends Controller
     public function finishFound(Request $request) {
         $result = found::query()->where('id', $request->route('id'))->first();
         if(!$result->user_id == session('id')) {
-            die($this->msg(2, __LINE__));
+            return $this->msg(2, __LINE__);
         }
         $result->update(["solve"=>true]);
 

@@ -14,9 +14,11 @@
         { //$mod为数据数组键名对应数据的正则, $data_array为数据数组
             foreach ($data_array as $key => $value) { //$data_array的键名在$mod数组中必有对应  若无请检查调用时有无逻辑漏洞
                 if (!preg_match($mod[$key], $value)) {
-                    die($this->msg(3, $mod[$key].' => '.$value)); //此处数据有误
+                    return false; //此处数据有误
                 }
             }
+
+            return true;
         }
 
         public function msg($code, $msg)
@@ -58,10 +60,12 @@
                 'password' => '/^[^\s]{8,20}$/',
             );
             if (!$request->has(array_keys($mod))) {
-                die($this->msg(1, __LINE__));
+                return $this->msg(1, __LINE__);
             }
             $data = $request->only(array_keys($mod));
-            $this->check($mod, $data);
+            if(!$this->check($mod, $data)) {
+                return $this->msg(3, '数据格式错误'.__LINE__);
+            };
             $user = User::query()->where('stu_id', $data['stu_id'])->first();
 
             if (!$user) {
@@ -133,10 +137,10 @@
                 'class' => '/^[^\s]{5,30}$/'
             );
             if (!$request->has(['nickname'])) {
-                die($this->msg(1, __LINE__));
+                return $this->msg(1, __LINE__);
             }
             if( empty($request->only(['qq', 'wx', 'phone'])) ) {
-                die($this->msg(3, '???'));
+                return $this->msg(3, '???'.__LINE__);
             }
 
             $data = $request->only(array_keys($mod));
@@ -144,7 +148,7 @@
             if($request->has(['avatar'])) {
                 $avatar = $this->saveImg($request->file('avatar'));
                 if(!$avatar) {
-                    die($this->msg(3, '头像格式有误'));
+                    return $this->msg(3, '头像格式有误');
                 }
             }
 

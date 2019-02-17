@@ -23,10 +23,13 @@ Route::get('/found/{id}', 'LAFController@lost');
 
 Route::group(['middleware'=>'cookie'], function (){
     Route::post('/login', 'UserController@login');
-    Route::post('/user/update', 'UserController@updateUserInfo');
-    Route::get('/user/lost', 'UserController@getUserLost');
-    Route::get('/user/found', 'UserController@getUserFound');
     Route::get('/logintest', 'UserController@logintest');
+
+    Route::group(['middleware'=>'loginCheck'], function () {
+        Route::post('/user/update', 'UserController@updateUserInfo');
+        Route::get('/user/lost', 'UserController@getUserLost');
+        Route::get('/user/found', 'UserController@getUserFound');
+    });
 
     Route::group(['middleware'=>'checkInfo'], function () {
         Route::post('/submit/lost', 'LAFController@submitLost');

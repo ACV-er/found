@@ -18,8 +18,8 @@ class loginCheck
             0 => '成功',
             1 => '缺失参数',
             2 => '错误访问',
-            3 => '未登录',
-            4 => '未完善信息'
+            6 => '未登录',
+            7 => '未完善信息'
         );
 
         $result = array(
@@ -34,7 +34,7 @@ class loginCheck
     public function handle($request, Closure $next)
     {
         if(session('login') === false) {
-            return redirect()->back()->with($this->msg(3, __LINE__));
+            return response($this->msg(6, __LINE__), 200);
         }
 
         return $next($request);

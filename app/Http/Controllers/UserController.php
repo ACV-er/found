@@ -171,16 +171,25 @@
             }
         }
 
-        public function getUserLost(Request $request)
+        public function getUserLost()
         {
             $List = lost::query()->where('user_id', session('id'))->get();
-            return $this->msg(0, $List);
+            return $List;
         }
 
-        public function getUserFound(Request $request)
+        public function getUserFound()
         {
             $List = found::query()->where('user_id', session('id'))->get();
-            return $this->msg(0, $List);
+            return $List;
+        }
+
+        public function getUserLAF() {
+            return $this->msg(0,
+                array(
+                    'lost' => $this->getUserLost(),
+                    'found' => $this->getUserFound()
+                )
+            );
         }
 
         public function logintest() {

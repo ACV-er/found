@@ -121,22 +121,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="158" column="14" lean-forward="true" selection-start-line="158" selection-start-column="14" selection-end-line="158" selection-end-column="14" />
+            <state relative-caret-position="340">
+              <caret line="134" column="20" lean-forward="true" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
               <folding>
                 <element signature="e#48#62#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LAFController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="98" column="10" lean-forward="true" selection-start-line="96" selection-start-column="8" selection-end-line="98" selection-end-column="10" />
-              <folding>
-                <element signature="e#40#53#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -168,6 +156,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>die</find>
+      <find>check</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -420,12 +409,12 @@
       <workItem from="1549937591685" duration="6513000" />
       <workItem from="1550041736040" duration="4000000" />
       <workItem from="1550049250884" duration="44070000" />
-      <workItem from="1551094624421" duration="6749000" />
+      <workItem from="1551094624421" duration="7840000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70377000" />
+    <option name="totallyTimeSpent" value="71468000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1916" height="902" extended-state="6" />
@@ -593,13 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="508">
@@ -650,18 +632,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LAFController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="98" column="10" lean-forward="true" selection-start-line="96" selection-start-column="8" selection-end-line="98" selection-end-column="10" />
+        <state relative-caret-position="267">
+          <caret line="98" column="10" lean-forward="true" selection-start-line="98" selection-start-column="10" selection-end-line="98" selection-end-column="10" />
           <folding>
             <element signature="e#40#53#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="158" column="14" lean-forward="true" selection-start-line="158" selection-start-column="14" selection-end-line="158" selection-end-column="14" />
+        <state relative-caret-position="340">
+          <caret line="134" column="20" lean-forward="true" selection-start-line="134" selection-start-column="20" selection-end-line="134" selection-end-column="20" />
           <folding>
             <element signature="e#48#62#0#PHP" expanded="true" />
           </folding>

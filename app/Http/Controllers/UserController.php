@@ -154,7 +154,9 @@
             }
 
             $data = $request->only(array_keys($mod));
-            $this->check($mod, $data);
+            if(!$this->check($mod, $data)) {
+                return $this->msg(3, '数据格式错误'.__LINE__);
+            };
             if($request->has(['avatar'])) {
                 $avatar = $this->saveImg($request->file('avatar'));
                 if(!$avatar) {

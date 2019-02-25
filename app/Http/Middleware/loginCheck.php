@@ -33,7 +33,7 @@ class loginCheck
 
     public function handle($request, Closure $next)
     {
-        if(session('login') === false) {
+        if(session('login') !== true) {
             return response($this->msg(6, __LINE__), 200);
         }
 

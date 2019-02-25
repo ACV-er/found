@@ -41,6 +41,7 @@ class User extends Authenticatable
     public function info() {
         $result = array(
             'user_id' => $this->id,
+            'stu_id' => $this->stu_id,
             'nickname' => $this->nickname,
             'class' => $this->class,
             'qq' => $this->qq,

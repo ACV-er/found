@@ -194,4 +194,24 @@ class LAFController extends Controller
 
         return $result?$this->msg(0, null):$this->msg(2, __LINE__);
     }
+
+    public function markLost(Request $request) {
+        $result = lost::query()->where('id', $request->route('id'))->first();
+        if(!$result->user_id == session('id')) {
+            return $this->msg(2, __LINE__);
+        }
+        $result->update(["mark"=>true]);
+
+        return $result?$this->msg(0, null):$this->msg(2, __LINE__);
+    }
+
+    public function markFound(Request $request) {
+        $result = found::query()->where('id', $request->route('id'))->first();
+        if(!$result->user_id == session('id')) {
+            return $this->msg(2, __LINE__);
+        }
+        $result->update(["mark"=>true]);
+
+        return $result?$this->msg(0, null):$this->msg(2, __LINE__);
+    }
 }

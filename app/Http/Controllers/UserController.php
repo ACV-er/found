@@ -126,8 +126,8 @@
             $file = $request->file('avatar');
             $allow_ext = ['jpg', 'jpeg', 'png', 'gif'];
             $extension = $file->getClientOriginalExtension();
-            if($file->getClientSize() > 2048) {
-                return $this->msg(3, '文件大小'.__LINE__.$file->getClientSize());
+            if($file->getClientSize() > 2048000) { //2M
+                return $this->msg(3, '文件大小'.__LINE__);
             }
             if(in_array($extension, $allow_ext)) {
                 $savePath = public_path().'/upload/avatar';

@@ -87,6 +87,9 @@ class LAFController extends Controller
         $allow_ext = ['jpg', 'jpeg', 'png', 'gif'];
 
         $extension = $file->getClientOriginalExtension();
+        if($file->getClientSize() > 10240000) { //10M
+            return false;
+        }
         if(in_array($extension, $allow_ext)) {
             $savePath = public_path().'/upload/laf';
             $filename = time().rand(0,100).'.'.$extension;
@@ -105,13 +108,14 @@ class LAFController extends Controller
             'stu_card' => '/^1|0$/',
             'card_id' => '/^20[\d]{8,10}$/',
             'address' => '/[\s\S]{0,50}/',
-            'date' => '/^[\d]{4}-[\d]{2}-[\d]{2}$/',
+            'date' => '/^[\d]{4}/[\d]{2}/[\d]{2}$/',
         );
 
         $data = $request->only(array_keys($mod));
         if(!$this->check($mod, $data)) {
             return $this->msg(3, '数据格式错误'.__LINE__);
         };
+        $data['date'] = str_replace("/","-",$data['date']);
         if($data['date'] > date('Y-m-d H:i:s', time())) {
             return $this->msg(3, '数据格式错误'.__LINE__);
         }

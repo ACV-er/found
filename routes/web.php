@@ -33,7 +33,7 @@ Route::group(['middleware'=>'cookie'], function (){
 //        Route::get('/user/found', 'UserController@getUserFound');
         Route::get('/user/laf', 'UserController@getUserLAF');
         Route::get('/user/info', 'UserController@getUserInfo');
-//        Route::post('/user/avatar', 'UserController@saveAvatar');
+        Route::post('/user/avatar', 'UserController@saveAvatar');
 
         Route::match(['get', 'post'], '/mark/lost/{id}', 'LAFController@markLost');
         Route::match(['get', 'post'], '/mark/found/{id}', 'LAFController@markFound');

@@ -21,6 +21,8 @@ Route::get('/lost/{id}', 'LAFController@lost');
 Route::get('/found', 'LAFController@lostList');
 Route::get('/found/{id}', 'LAFController@lost');
 
+Route::get('/laf', 'LAFController@laf');
+
 Route::group(['middleware'=>'cookie'], function (){
     Route::post('/login', 'UserController@login');
     Route::get('/logintest', 'UserController@logintest');
@@ -31,7 +33,7 @@ Route::group(['middleware'=>'cookie'], function (){
 //        Route::get('/user/found', 'UserController@getUserFound');
         Route::get('/user/laf', 'UserController@getUserLAF');
         Route::get('/user/info', 'UserController@getUserInfo');
-        Route::post('user/avatar', 'UserController@saveAvatar');
+        Route::post('/user/avatar', 'UserController@saveAvatar');
     });
 
     Route::group(['middleware'=>'checkInfo'], function () {

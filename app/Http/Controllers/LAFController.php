@@ -68,6 +68,21 @@ class LAFController extends Controller
         return $this->msg(0, $result);
     }
 
+    public function laf() {
+        $result = array(
+            'lost' => DB::table('losts')->where('updated_at', '>',date('Y-m-d H:i:s', time() - 86400 * 7)) //86400秒一天
+                        ->where('solve', false)
+                        ->orderBy('updated_at', 'desc')
+                        ->get(),
+            'found' => DB::table('founds')->where('updated_at', '>',date('Y-m-d H:i:s', time() - 86400 * 7)) //86400秒一天
+                        ->where('solve', false)
+                        ->orderBy('updated_at', 'desc')
+                        ->get()
+        );
+
+        return $this->msg(0, $result);
+    }
+
     protected function saveImg($file){
         $allow_ext = ['jpg', 'jpeg', 'png', 'gif'];
 

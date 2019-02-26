@@ -123,6 +123,9 @@
         }
 
         protected function saveAvatar(Request $request){
+            if(!$request->has('avatar')) {
+                return $this->msg(3, '无头像文件'.__LINE__);
+            }
             $allow_ext = ['jpg', 'jpeg', 'png', 'gif'];
             $file = $request->file('avatar');
             $extension = $file->getClientOriginalExtension();

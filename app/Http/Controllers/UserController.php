@@ -122,24 +122,20 @@
             }
         }
 
-        protected function saveAvatar(Request $request){
-            if(!$request->has('avatar')) {
-                return $this->msg(3, '无头像文件'.__LINE__);
-            }
+        protected function saveImg($file){
             $allow_ext = ['jpg', 'jpeg', 'png', 'gif'];
-            $file = $request->file('avatar');
             $extension = $file->getClientOriginalExtension();
             if($file->getClientSize() > 2048) {
-                return $this->msg(3, '文件过大'.__LINE__);
+                return false;
             }
             if(in_array($extension, $allow_ext)) {
                 $savePath = public_path().'/upload/avatar';
                 $filename = session('id').'.jpg';
                 $file->move($savePath, $filename);
                 User::query()->where('id', session('id'))->update(['avatar']);
-                return $this->msg(0, '成功');
+                return true;
             } else {
-                return $this->msg(3, '头像格式有误');
+                return false;
             }
         }
 
@@ -163,12 +159,12 @@
             if(!$this->check($mod, $data)) {
                 return $this->msg(3, '数据格式错误'.__LINE__);
             };
-//            if($request->has(['avatar'])) { //头像设置为单独接口
-//                $avatar = $this->saveImg($request->file('avatar'));
-//                if(!$avatar) {
-//                    return $this->msg(3, '头像格式有误');
-//                }
-//            }
+            if($request->has(['avatar'])) { //头像设置为单独接口
+                $avatar = $this->saveImg($request->file('avatar'));
+                if(!$avatar) {
+                    return $this->msg(3, '头像格式有误');
+                }
+            }
 
             $user = User::query()->where('id', $request->session()->get('id'))->update($data);
 //            $user = User::query()->where('id', 4)->update($data);

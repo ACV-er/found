@@ -23,7 +23,7 @@ class LAFController extends Controller
         $status = array(
             0 => '成功',
             1 => '缺失参数',
-            2 => '错误访问'
+            3 => '错误访问'
         );
 
         $result = array(
@@ -112,13 +112,16 @@ class LAFController extends Controller
         if(!$this->check($mod, $data)) {
             return $this->msg(3, '数据格式错误'.__LINE__);
         };
+        if($data['date'] > date('Y-m-d H:i:s', time())) {
+            return $this->msg(3, '数据格式错误'.__LINE__);
+        }
         if(!$request->has(['title', 'description', 'stu_card', 'address', 'date'])) {
             return $this->msg(1, __LINE__);
         }
         if($request->has(['img'])) {
             $path = $this->saveImg($request->file('img'));
             if(!$path) {
-                return $this->msg(2, __LINE__);
+                return $this->smg(3, __LINE__);
             }
             $data['img'] = $path;
         }
@@ -135,7 +138,7 @@ class LAFController extends Controller
         );
         $result = $result->save();
 
-        return $result?$this->msg(0, $result):$this->msg(2, __LINE__);
+        return $result?$this->msg(0, $result):$this->smg(3, __LINE__);
     }
 
     public function submitFound(Request $request) {
@@ -144,74 +147,74 @@ class LAFController extends Controller
         );
         $result = $result->save();
 
-        return $result?$this->msg(0, null):$this->msg(2, __LINE__);
+        return $result?$this->msg(0, null):$this->smg(3, __LINE__);
     }
 
     public function updateLost(Request $request) {
         $data = $this->dataHandle($request);
         $result = lost::query()->where('id', $request->route('id'))->first();
         if(!$result->user_id == session('id')) {
-            return $this->msg(2, __LINE__);
+            return $this->smg(3, __LINE__);
         }
         if($result->img != null && file_exists(public_path().'/upload/laf/'.$result->img)) { //更新图片时删除以前的图片
             unlink(public_path().'/upload/laf/'.$result->img);
         }
         $result->update($data);
 
-        return $result?$this->msg(0, null):$this->msg(2, __LINE__);
+        return $result?$this->msg(0, null):$this->smg(3, __LINE__);
     }
 
     public function updateFound(Request $request) {
         $data = $this->dataHandle($request);
         $result = found::query()->where('id', $request->route('id'))->first();
         if(!$result->user_id == session('id')) {
-            return $this->msg(2, __LINE__);
+            return $this->smg(3, __LINE__);
         }
         if($result->img != null && file_exists(public_path().'/upload/laf/'.$result->img)) { //更新图片时删除以前的图片
             unlink(public_path().'/upload/laf/'.$result->img);
         }
         $result->update($data);
 
-        return $result?$this->msg(0, null):$this->msg(2, __LINE__);
+        return $result?$this->msg(0, null):$this->smg(3, __LINE__);
     }
 
     public function finishLost(Request $request) {
         $result = lost::query()->where('id', $request->route('id'))->first();
         if(!$result->user_id == session('id')) {
-            return $this->msg(2, __LINE__);
+            return $this->smg(3, __LINE__);
         }
         $result->update(["solve"=>true]);
 
-        return $result?$this->msg(0, null):$this->msg(2, __LINE__);
+        return $result?$this->msg(0, null):$this->smg(3, __LINE__);
     }
 
     public function finishFound(Request $request) {
         $result = found::query()->where('id', $request->route('id'))->first();
         if(!$result->user_id == session('id')) {
-            return $this->msg(2, __LINE__);
+            return $this->smg(3, __LINE__);
         }
         $result->update(["solve"=>true]);
 
-        return $result?$this->msg(0, null):$this->msg(2, __LINE__);
+        return $result?$this->msg(0, null):$this->smg(3, __LINE__);
     }
 
     public function markLost(Request $request) {
         $result = lost::query()->where('id', $request->route('id'))->first();
         if(!$result->user_id == session('id')) {
-            return $this->msg(2, __LINE__);
+            return $this->smg(3, __LINE__);
         }
         $result->update(["mark"=>true]);
 
-        return $result?$this->msg(0, null):$this->msg(2, __LINE__);
+        return $result?$this->msg(0, null):$this->smg(3, __LINE__);
     }
 
     public function markFound(Request $request) {
         $result = found::query()->where('id', $request->route('id'))->first();
         if(!$result->user_id == session('id')) {
-            return $this->msg(2, __LINE__);
+            return $this->smg(3, __LINE__);
         }
         $result->update(["mark"=>true]);
 
-        return $result?$this->msg(0, null):$this->msg(2, __LINE__);
+        return $result?$this->msg(0, null):$this->smg(3, __LINE__);
     }
 }

@@ -133,7 +133,7 @@
                 $savePath = public_path().'/upload/avatar';
                 $filename = session('id').'.jpg';
                 $file->move($savePath, $filename);
-                User::query()->where('id', session('id'))->update(['avatar']);
+                User::query()->where('id', session('id'))->update(['avatar'=>$filename]);
                 return $this->msg(0, '成功');
             } else {
                 return $this->msg(3, '文件格式错误');

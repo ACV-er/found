@@ -31,6 +31,7 @@ Route::group(['middleware'=>'cookie'], function (){
 //        Route::get('/user/found', 'UserController@getUserFound');
         Route::get('/user/laf', 'UserController@getUserLAF');
         Route::get('/user/info', 'UserController@getUserInfo');
+        Route::post('user/avatar', 'UserController@saveAvatar');
     });
 
     Route::group(['middleware'=>'checkInfo'], function () {

@@ -47,6 +47,7 @@ class User extends Authenticatable
             'qq' => $this->qq,
             'wx' => $this->wx,
             'phone' => $this->phone,
+            'avatar' => $this->avatar
         );
 
         return $result;

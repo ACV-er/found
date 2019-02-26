@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('qq')->nullable();
             $table->string('phone')->nullable();
             $table->string('wx')->nullable();
+            $table->string('avatar', 15)->default('default.jpg');
             $table->timestamps();
         });
     }

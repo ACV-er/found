@@ -122,7 +122,7 @@
             }
         }
 
-        protected function saveImg(Request $request){
+        protected function saveAvatar(Request $request){
             $file = $request->file('avatar');
             $allow_ext = ['jpg', 'jpeg', 'png', 'gif'];
             $extension = $file->getClientOriginalExtension();

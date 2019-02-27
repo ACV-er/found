@@ -144,11 +144,11 @@
         public function updateUserInfo(Request $request)
         {
             $mod = array(
-                'nickname' => '/^[^\s]{2,16}$/',
+                'nickname' => '/^[^\s]{2,30}$/',
                 'phone' => '/^1[0-9]{10}$/',
                 'qq' => '/^[0-9]{5,13}$/',
                 'wx' => '/^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/',
-                'class' => '/^[^\s]{5,30}$/'
+                'class' => '/^[^\s]{5,60}$/'
             );
             if (!$request->has(['nickname'])) {
                 return $this->msg(1, __LINE__);

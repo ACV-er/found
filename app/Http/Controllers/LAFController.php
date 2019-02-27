@@ -103,11 +103,11 @@ class LAFController extends Controller
 
     private function dataHandle($request) {
         $mod = array(
-            'title' => '/^[\s\S]{0,100}$/',
-            'description' => '/^[\s\S]{0,200}$/',
+            'title' => '/^[\s\S]{0,300}$/',
+            'description' => '/^[\s\S]{0,600}$/',
             'stu_card' => '/^1|0$/',
             'card_id' => '/^20[\d]{8,10}$/',
-            'address' => '/[\s\S]{0,50}/',
+            'address' => '/[\s\S]{0,90}/',
             'date' => '/^[\d]{4}-[\d]{2}-[\d]{2}$/',
         );
 

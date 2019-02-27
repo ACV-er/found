@@ -14,7 +14,7 @@
         { //$mod为数据数组键名对应数据的正则, $data_array为数据数组
             foreach ($data_array as $key => $value) { //$data_array的键名在$mod数组中必有对应  若无请检查调用时有无逻辑漏洞
                 if (!preg_match($mod[$key], $value)) {
-                    echo $value;
+                    echo $mod[$key].$value;
                     return false; //此处数据有误
                 }
             }

@@ -121,7 +121,7 @@ class LAFController extends Controller
         if(!$request->has(['title', 'description', 'stu_card', 'address', 'date'])) {
             return $this->msg(1, __LINE__);
         }
-        if($request->hasFile(['img']) && $request->) {
+        if($request->hasFile(['img'])) {
             $path = $this->saveImg($request->file('img'));
             if(!$path) {
                 return $this->smg(3, __LINE__);

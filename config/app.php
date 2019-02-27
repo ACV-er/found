@@ -67,8 +67,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
-
+//    'timezone' => 'UTC',
+    'timezone' => 'Asia/Shanghai', //东八区
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration

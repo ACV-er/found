@@ -115,11 +115,12 @@ class LAFController extends Controller
         if(!$this->check($mod, $data)) {
             return $this->msg(3, '数据格式错误'.__LINE__);
         };
-        if($data['date'] > date('Y-m-d H:i:s', time())) {
-            return $this->msg(3, '数据格式错误'.__LINE__);
-        }
+
         if(!$request->has(['title', 'description', 'stu_card', 'address', 'date'])) {
             return $this->msg(1, __LINE__);
+        }
+        if($data['date'] > date('Y-m-d H:i:s', time())) {
+            return $this->msg(3, '数据格式错误'.__LINE__);
         }
         if($request->hasFile(['img'])) {
             $path = $this->saveImg($request->file('img'));

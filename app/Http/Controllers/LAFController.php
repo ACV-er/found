@@ -137,18 +137,22 @@ class LAFController extends Controller
     }
 
     public function submitLost(Request $request) {
-        $result = new lost(
-            $this->dataHandle($request)
-        );
+        $data = $this->dataHandle($request);
+        if(!is_array($data)) {
+            return $data;
+        }
+        $result = new lost($data);
         $result = $result->save();
 
         return $result?$this->msg(0, $result):$this->smg(3, __LINE__);
     }
 
     public function submitFound(Request $request) {
-        $result = new found(
-            $this->dataHandle($request)
-        );
+        $data = $this->dataHandle($request);
+        if(!is_array($data)) {
+            return $data;
+        }
+        $result = new found($data);
         $result = $result->save();
 
         return $result?$this->msg(0, null):$this->smg(3, __LINE__);
@@ -156,6 +160,9 @@ class LAFController extends Controller
 
     public function updateLost(Request $request) {
         $data = $this->dataHandle($request);
+        if(!is_array($data)) {
+            return $data;
+        }
         $result = lost::query()->where('id', $request->route('id'))->first();
         if(!$result->user_id == session('id')) {
             return $this->smg(3, __LINE__);
@@ -170,6 +177,9 @@ class LAFController extends Controller
 
     public function updateFound(Request $request) {
         $data = $this->dataHandle($request);
+        if(!is_array($data)) {
+            return $data;
+        }
         $result = found::query()->where('id', $request->route('id'))->first();
         if(!$result->user_id == session('id')) {
             return $this->smg(3, __LINE__);

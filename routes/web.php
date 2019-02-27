@@ -15,20 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/lost', 'LAFController@lostList');
-Route::get('/lost/{id}', 'LAFController@lost');
-
-Route::get('/found', 'LAFController@lostList');
-Route::get('/found/{id}', 'LAFController@lost');
-
-Route::get('/laf', 'LAFController@laf');
 
 Route::group(['middleware'=>'cookie'], function (){
     Route::post('/login', 'UserController@login');
     Route::get('/logintest', 'UserController@logintest');
+    Route::get('/lost', 'LAFController@lostList');
+    Route::get('/lost/{id}', 'LAFController@lost');
+
+    Route::get('/found', 'LAFController@lostList');
+    Route::get('/found/{id}', 'LAFController@lost');
 
     Route::group(['middleware'=>'loginCheck'], function () {
         Route::post('/user/update', 'UserController@updateUserInfo');
+        Route::get('/laf', 'LAFController@laf');
 //        Route::get('/user/lost', 'UserController@getUserLost');
 //        Route::get('/user/found', 'UserController@getUserFound');
         Route::get('/user/laf', 'UserController@getUserLAF');

@@ -4,6 +4,7 @@
 
     use App\found;
     use App\lost;
+    use App\Post;
     use Illuminate\Http\Request;
     use App\User;
 
@@ -180,25 +181,29 @@
             }
         }
 
-        public function getUserLost()
-        {
-            $List = lost::query()->where('user_id', session('id'))->get();
-            return $List;
-        }
+//        public function getUserLost()
+//        {
+//            $List = lost::query()->where('user_id', session('id'))->get();
+//            return $List;
+//        }
+//
+//        public function getUserFound()
+//        {
+//            $List = found::query()->where('user_id', session('id'))->get();
+//            return $List;
+//        }
 
-        public function getUserFound()
-        {
-            $List = found::query()->where('user_id', session('id'))->get();
-            return $List;
-        }
-
-        public function getUserLAF() {
-            return $this->msg(0,
-                array(
-                    'lost' => $this->getUserLost(),
-                    'found' => $this->getUserFound()
-                )
-            );
+//        public function getUserLAF() {
+//            return $this->msg(0,
+//                array(
+//                    'lost' => $this->getUserLost(),
+//                    'found' => $this->getUserFound()
+//                )
+//            );
+//        }
+        public function getUserPost() {
+            $list = Post::query()->where('user_id', session('id'))->get();
+            return $this->msg(0, $list);
         }
 
         public function logintest() {

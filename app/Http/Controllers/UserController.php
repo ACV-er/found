@@ -145,7 +145,8 @@
             }
         }
 
-        public function updateUserInfo(Request $request)
+
+        public function updateInfo($request)
         {
             $mod = array(
                 'nickname' => '/^[^\s]{2,30}$/',
@@ -165,15 +166,9 @@
             if(!$this->check($mod, $data)) {
                 return $this->msg(3, '数据格式错误'.__LINE__);
             };
-//            if($request->has(['avatar'])) { //头像设置为单独接口
-//                $avatar = $this->saveImg($request->file('avatar'));
-//                if(!$avatar) {
-//                    return $this->msg(3, '头像格式有误');
-//                }
-//            }
 
             $user = User::query()->where('id', $request->session()->get('id'))->update($data);
-//            $user = User::query()->where('id', 4)->update($data);
+
             if($user) {
                 return $this->msg(0, null);
             } else {

@@ -22,7 +22,8 @@ class LAFController extends Controller
         $status = array(
             0 => '成功',
             1 => '缺失参数',
-            3 => '错误访问'
+            3 => '错误访问',
+            4 => '未知错误'
         );
 
         $result = array(
@@ -146,7 +147,35 @@ class LAFController extends Controller
             }
 
             $data['user_id'] = session('id');
-    //        $data['user_id'] = 4;
+
+
+            // 在发布的时候可以更新个人信息 诡异写法, 本人拒绝
+            $mod = array(
+                'nickname' => '/^[^\s]{2,30}$/',
+                'phone' => '/^1[0-9]{10}$/',
+                'qq' => '/^[0-9]{5,13}$/',
+                'wx' => '/^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/',
+                'class' => '/^[^\s]{5,60}$/'
+            );
+            if (!$request->has(['nickname'])) {
+                return $this->msg(1, __LINE__);
+            }
+            if( empty($request->only(['qq', 'wx', 'phone'])) ) {
+                return $this->msg(3, '???'.__LINE__);
+            }
+
+            $data = $request->only(array_keys($mod));
+            if(!$this->check($mod, $data)) {
+                return $this->msg(3, '数据格式错误'.__LINE__);
+            };
+
+            $user = User::query()->where('id', $request->session()->get('id'))->update($data);
+
+            if(!$user) {
+                return $this->msg(4, '数据更新失败'.__LINE__);
+            }
+
+            //诡异写法结束
 
             return $data;
         }

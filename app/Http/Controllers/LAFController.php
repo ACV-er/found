@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use App\User;
+
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class LAFController extends Controller
 {
@@ -98,7 +101,7 @@ class LAFController extends Controller
             return $this->msg(0, $result);
         }
 
-        protected function saveImg($file){
+        protected function saveImg(UploadedFile $file = null){
             $allow_ext = ['jpg', 'jpeg', 'png', 'gif'];
 
             $extension = $file->getClientOriginalExtension();
@@ -116,7 +119,37 @@ class LAFController extends Controller
             }
         }
 
-        private function dataHandle($request) {
+        private function dataHandle(Request $request = null) {
+
+            // 在发布的时候可以更新个人信息 诡异写法, 本人拒绝
+            $mod = array(
+                'nickname' => '/^[^\s]{2,30}$/',
+                'phone' => '/^1[0-9]{10}$/',
+                'qq' => '/^[0-9]{5,13}$/',
+                'wx' => '/^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/',
+                'class' => '/^[^\s]{5,60}$/'
+            );
+            if (!$request->has(['nickname'])) {
+                return $this->msg(1, __LINE__);
+            }
+            if( empty($request->only(['qq', 'wx', 'phone'])) ) {
+                return $this->msg(3, '???'.__LINE__);
+            }
+
+            $data = $request->only(array_keys($mod));
+            if(!$this->check($mod, $data)) {
+                return $this->msg(3, '数据格式错误'.__LINE__);
+            };
+
+            $user = User::query()->where('id', $request->session()->get('id'))->update($data);
+
+            if(!$user) {
+                return $this->msg(4, '数据更新失败'.__LINE__);
+            }
+
+            //诡异写法结束
+
+
             $mod = array(
                 'title' => '/^[\s\S]{0,300}$/',
                 'description' => '/^[\s\S]{0,600}$/',
@@ -147,35 +180,6 @@ class LAFController extends Controller
             }
 
             $data['user_id'] = session('id');
-
-
-            // 在发布的时候可以更新个人信息 诡异写法, 本人拒绝
-            $mod = array(
-                'nickname' => '/^[^\s]{2,30}$/',
-                'phone' => '/^1[0-9]{10}$/',
-                'qq' => '/^[0-9]{5,13}$/',
-                'wx' => '/^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/',
-                'class' => '/^[^\s]{5,60}$/'
-            );
-            if (!$request->has(['nickname'])) {
-                return $this->msg(1, __LINE__);
-            }
-            if( empty($request->only(['qq', 'wx', 'phone'])) ) {
-                return $this->msg(3, '???'.__LINE__);
-            }
-
-            $data = $request->only(array_keys($mod));
-            if(!$this->check($mod, $data)) {
-                return $this->msg(3, '数据格式错误'.__LINE__);
-            };
-
-            $user = User::query()->where('id', $request->session()->get('id'))->update($data);
-
-            if(!$user) {
-                return $this->msg(4, '数据更新失败'.__LINE__);
-            }
-
-            //诡异写法结束
 
             return $data;
         }

@@ -2,8 +2,6 @@
 
     namespace App\Http\Controllers;
 
-    use App\found;
-    use App\lost;
     use App\Post;
     use Illuminate\Http\Request;
     use App\User;
@@ -146,7 +144,7 @@
         }
 
 
-        public function updateInfo($request)
+        public function updateInfo(Request $request = null)
         {
             $mod = array(
                 'nickname' => '/^[^\s]{2,30}$/',

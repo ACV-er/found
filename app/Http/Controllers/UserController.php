@@ -144,7 +144,7 @@
         }
 
 
-        public function updateUserInfo(Request $request = null)
+        public function updateUserInfo(Request $request)
         {
             $mod = array(
                 'nickname' => '/^[^\s]{2,30}$/',

@@ -13,7 +13,6 @@
         { //$mod为数据数组键名对应数据的正则, $data_array为数据数组
             foreach ($data_array as $key => $value) { //$data_array的键名在$mod数组中必有对应  若无请检查调用时有无逻辑漏洞
                 if (!preg_match($mod[$key], $value)) {
-                    echo $mod[$key].$value;
                     return false; //此处数据有误
                 }
             }
@@ -148,15 +147,17 @@
         {
             $mod = array(
                 'nickname' => '/^[^\s]{2,30}$/',
-                'phone' => '/^1[0-9]{10}$/',
-                'qq' => '/^[0-9]{5,13}$/',
-                'wx' => '/^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/',
+                'phone' => '/(^1[0-9]{10}$)|(^$)/',
+                'qq' => '/(^[0-9]{5,13}$)|(^$)/',
+                'wx' => '/(^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$)|(^$)/',
                 'class' => '/^[^\s]{5,60}$/'
             );
             if (!$request->has(['nickname'])) {
                 return $this->msg(1, __LINE__);
             }
-            if( empty($request->only(['qq', 'wx', 'phone'])) ) {
+
+            $contact = $request->only(['qq', 'wx', 'phone']);
+            if( $contact['qq'] && $contact['wx'] && $contact['phone']) {
                 return $this->msg(3, '???'.__LINE__);
             }
 

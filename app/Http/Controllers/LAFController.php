@@ -124,17 +124,20 @@ class LAFController extends Controller
             // 在发布的时候可以更新个人信息 诡异写法, 本人拒绝
             $mod = array(
                 'nickname' => '/^[^\s]{2,30}$/',
-                'phone' => '/^1[0-9]{10}$/',
-                'qq' => '/^[0-9]{5,13}$/',
-                'wx' => '/^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$/',
+                'phone' => '/(^1[0-9]{10}$)|(^$)/',
+                'qq' => '/(^[0-9]{5,13}$)|(^$)/',
+                'wx' => '/(^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$)|(^$)/',
                 'class' => '/^[^\s]{5,60}$/'
             );
             if (!$request->has(['nickname'])) {
                 return $this->msg(1, __LINE__);
             }
-            if( empty($request->only(['qq', 'wx', 'phone'])) ) {
+
+            $contact = $request->only(['qq', 'wx', 'phone']);
+            if( $contact['qq'] && $contact['wx'] && $contact['phone']) {
                 return $this->msg(3, '???'.__LINE__);
             }
+
 
             $data = $request->only(array_keys($mod));
             if(!$this->check($mod, $data)) {

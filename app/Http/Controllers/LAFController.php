@@ -14,6 +14,7 @@ class LAFController extends Controller
     public function check($mod, $data_array) { //$mod为数据数组键名对应数据的正则, $data_array为数据数组
         foreach ($data_array as $key=>$value) { //$data_array的键名在$mod数组中必有对应  若无请检查调用时有无逻辑漏洞
             if(!preg_match($mod[$key], $value)) {
+                echo $mod[$key];
                 return false; //此处数据有误
             }
         }
@@ -124,7 +125,7 @@ class LAFController extends Controller
             // 在发布的时候可以更新个人信息 诡异写法, 本人拒绝
             $mod = array(
                 'nickname' => '/^[^\s]{2,30}$/',
-                'phone' => '/(^1[0-9]{10}$)|(^$)/',
+                'phone' => '/(^1[0-9]{10}$)|(^$)/', //后面的 |(^$) 用来匹配 null
                 'qq' => '/(^[0-9]{5,13}$)|(^$)/',
                 'wx' => '/(^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$)|(^$)/',
                 'class' => '/^[^\s]{5,60}$/'
@@ -134,7 +135,7 @@ class LAFController extends Controller
             }
 
             $contact = $request->only(['qq', 'wx', 'phone']);
-            if( $contact['qq'] && $contact['wx'] && $contact['phone']) {
+            if( $contact['qq'] && $contact['wx'] && $contact['phone']) { //三者必填其一
                 return $this->msg(3, '???'.__LINE__);
             }
 

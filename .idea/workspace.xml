@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="52ba9191-0ce8-4329-9c24-d31308c01ce5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LAFController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LAFController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +38,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key=".env file" value="88" />
-          <entry key="PHP" value="8706" />
+          <entry key="PHP" value="8752" />
           <entry key="PLAIN_TEXT" value="12" />
         </counts>
       </usages-collector>
@@ -117,8 +116,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LAFController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
+            <state relative-caret-position="272">
+              <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
               <folding>
                 <element signature="e#40#53#0#PHP" expanded="true" />
               </folding>
@@ -419,12 +418,12 @@
       <workItem from="1550049250884" duration="44070000" />
       <workItem from="1551094624421" duration="15856000" />
       <workItem from="1551186520579" duration="10582000" />
-      <workItem from="1551332889458" duration="11580000" />
+      <workItem from="1551332889458" duration="12153000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101646000" />
+    <option name="totallyTimeSpent" value="102219000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1713" height="900" extended-state="0" />
@@ -705,8 +704,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LAFController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="139" lean-forward="true" selection-start-line="139" selection-end-line="139" />
+        <state relative-caret-position="272">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
           <folding>
             <element signature="e#40#53#0#PHP" expanded="true" />
           </folding>

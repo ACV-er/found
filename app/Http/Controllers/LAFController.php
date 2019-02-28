@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\lost;
-use App\found;
 use App\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 class LAFController extends Controller
 {
     //
@@ -133,7 +131,7 @@ class LAFController extends Controller
                 return $this->msg(3, '数据格式错误'.__LINE__);
             };
 
-            if(!$request->has(['title', 'description', 'stu_card', 'address', 'date'])) {
+            if(!$request->has(['title', 'description', 'stu_card', 'address', 'date', 'type'])) {
                 return $this->msg(1, __LINE__);
             }
             if($data['date'] > date('Y-m-d H:i:s', time())) {

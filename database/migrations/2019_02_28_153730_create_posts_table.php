@@ -25,8 +25,8 @@ class CreatePostsTable extends Migration
             $table->string('card_id', 30)->nullable();
             $table->string('address', 300);
             $table->date('date');
-            $table->boolean('solve');
-            $table->boolean('mark');
+            $table->boolean('solve')->default(0);
+            $table->boolean('mark')->default(0);
             $table->timestamps();
         });
     }

@@ -157,7 +157,7 @@
             }
 
             $contact = $request->only(['qq', 'wx', 'phone']);
-            if( $contact['qq'] && $contact['wx'] && $contact['phone']) {
+            if( !$contact['qq'] && !$contact['wx'] && !$contact['phone']) {
                 return $this->msg(3, '???'.__LINE__);
             }
 

@@ -36,7 +36,7 @@
 
         Route::group(['middleware' => 'checkInfo'], function () {
 
-            Route::post('/submit', 'LAFController@submitPost');
+            Route::post('/submit', 'LAFController@submitPost')->middleware('deduplicate');
 
             Route::post('/update/{id}', 'LAFController@updatePost');
 

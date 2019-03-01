@@ -86,9 +86,9 @@
                 'phone' => '/(^1[0-9]{10}$)|(^$)/', //后面的 |(^$) 用来匹配 null
                 'qq' => '/(^[0-9]{5,13}$)|(^$)/',
                 'wx' => '/(^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$)|(^$)/',
-                'class' => '/^[^\s]{5,60}$/'
+                'class' => '/(^[^\s]{5,60}$)|(^$)/'
             );
-            if (!$request->has(['nickname'])) {
+            if (!$request->has(['nickname', 'qq', 'wx', 'phone', 'class'])) {
                 return $this->msg(1, __LINE__);
             }
 
@@ -148,6 +148,7 @@
 
         public function submitPost(Request $request) //发布帖子
         {
+
             $data = $this->dataHandle($request);
             if (!is_array($data)) {
                 return $data;
@@ -155,7 +156,13 @@
             $result = new Post($data);
             $result = $result->save();
 
-            return $result ? $this->msg(0, $result) : $this->msg(3, __LINE__);
+            if($result){
+                session(['time' => time()]); //防止重复提交
+
+                return $this->msg(0, $result);
+            } else {
+                return $this->msg(3, __LINE__);
+            }
         }
 
         public function updatePost(Request $request) //更新帖子

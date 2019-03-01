@@ -63,6 +63,7 @@ class Kernel extends HttpKernel
         'cookie' => \App\Http\Middleware\Cookie::class,
         'checkInfo' => \App\Http\Middleware\completeInfo::class,
         'loginCheck' => \App\Http\Middleware\loginCheck::class,
+        'deduplicate' => \App\Http\Middleware\Deduplicate::class,
     ];
 
     /**

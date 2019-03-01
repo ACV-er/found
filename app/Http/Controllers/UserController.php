@@ -63,8 +63,8 @@
                 return $this->msg(1, __LINE__);
             }
             $data = $request->only(array_keys($mod));
-            if(!$this->check($mod, $data)) {
-                return $this->msg(3, '数据格式错误'.__LINE__);
+            if (!$this->check($mod, $data)) {
+                return $this->msg(3, '数据格式错误' . __LINE__);
             };
             $user = User::query()->where('stu_id', $data['stu_id'])->first();
 
@@ -111,31 +111,34 @@
             }
 
         }
-        public function getUserInfo() {
+
+        public function getUserInfo()
+        {
             $user = User::query()->where('id', session('id'))->first();
 
-            if($user) {
+            if ($user) {
                 return $this->msg(0, $user->info());
             } else {
                 return $this->msg(4, __LINE__);
             }
         }
 
-        protected function saveAvatar(Request $request){
-            if(!$request->hasFile('avatar')) {
+        protected function saveAvatar(Request $request)
+        {
+            if (!$request->hasFile('avatar')) {
                 return $this->msg(3, '文件格式错误');
             }
             $file = $request->file('avatar');
             $allow_ext = ['jpg', 'jpeg', 'png', 'gif'];
             $extension = $file->getClientOriginalExtension();
-            if($file->getClientSize() > 2048000) { //2M
-                return $this->msg(3, '文件大小'.__LINE__);
+            if ($file->getSize() > 2048000) { //2M
+                return $this->msg(3, '文件大小' . __LINE__);
             }
-            if(in_array($extension, $allow_ext)) {
-                $savePath = public_path().'/upload/avatar';
-                $filename = session('id').'.jpg';
+            if (in_array($extension, $allow_ext)) {
+                $savePath = public_path() . '/upload/avatar';
+                $filename = session('id') . '.jpg';
                 $file->move($savePath, $filename);
-                User::query()->where('id', session('id'))->update(['avatar'=>$filename]);
+                User::query()->where('id', session('id'))->update(['avatar' => $filename]);
                 return $this->msg(0, '成功');
             } else {
                 return $this->msg(3, '文件格式错误');
@@ -157,50 +160,32 @@
             }
 
             $contact = $request->only(['qq', 'wx', 'phone']);
-            if( !$contact['qq'] && !$contact['wx'] && !$contact['phone']) {
-                return $this->msg(3, '???'.__LINE__);
+            if (!$contact['qq'] && !$contact['wx'] && !$contact['phone']) {
+                return $this->msg(3, '???' . __LINE__);
             }
 
             $data = $request->only(array_keys($mod));
-            if(!$this->check($mod, $data)) {
-                return $this->msg(3, '数据格式错误'.__LINE__);
+            if (!$this->check($mod, $data)) {
+                return $this->msg(3, '数据格式错误' . __LINE__);
             };
 
             $user = User::query()->where('id', $request->session()->get('id'))->update($data);
 
-            if($user) {
+            if ($user) {
                 return $this->msg(0, null);
             } else {
-                return $this->msg(4, '数据更新失败'.__LINE__);
+                return $this->msg(4, '数据更新失败' . __LINE__);
             }
         }
 
-//        public function getUserLost()
-//        {
-//            $List = lost::query()->where('user_id', session('id'))->get();
-//            return $List;
-//        }
-//
-//        public function getUserFound()
-//        {
-//            $List = found::query()->where('user_id', session('id'))->get();
-//            return $List;
-//        }
-
-//        public function getUserLAF() {
-//            return $this->msg(0,
-//                array(
-//                    'lost' => $this->getUserLost(),
-//                    'found' => $this->getUserFound()
-//                )
-//            );
-//        }
-        public function getUserPost() {
+        public function getUserPost()
+        {
             $list = Post::query()->where('user_id', session('id'))->get();
             return $this->msg(0, $list);
         }
 
-        public function logintest() {
+        public function logintest()
+        {
             return session('id');
         }
     }

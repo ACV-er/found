@@ -205,4 +205,22 @@
             return $result ? $this->msg(0, null) : $this->msg(3, __LINE__);
         }
 
+        public function search(Request $request) {
+            if(!$request->has(['keyword'])) {
+                return $this->msg(1, __LINE__);
+            }
+
+            $keyword = preg_replace("/^\xef\xbb\xbf/", '', $request->only('keyword')['keyword']);
+            $keyword = json_decode($keyword, true);
+
+            if(!is_array($keyword) || count($keyword) > 5) {
+                return $this->msg(3, __LINE__);
+            }
+            $str = join('|', $keyword);
+
+            $result = Post::query()->where('updated_at', '>', date('Y-m-d H:i:s', time() - 86400 * 7))//86400秒一天
+            ->where('solve', false)->whereRaw("concat(`address`,`title`,`description`) REGEXP ?", array($str))->get()->toArray();
+
+            return $this->msg(0, $result);
+        }
     }

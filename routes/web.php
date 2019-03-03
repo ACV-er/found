@@ -22,6 +22,7 @@
 
         Route::get('/laf', 'LAFController@postList');
         Route::get('/laf/{id}', 'LAFController@post');
+        Route::post('/search', 'LAFController@search');
 
         Route::group(['middleware' => 'loginCheck'], function () {
             Route::post('/user/update', 'UserController@updateUserInfo');

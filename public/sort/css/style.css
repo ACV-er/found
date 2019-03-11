@@ -1,0 +1,101 @@
+*{
+	font-family: '苹方 常规';
+}
+nav{
+	position: relative;
+	line-height: 50px;
+	background-color: #3E8FDE;
+	color:#fff;
+	text-align: center;
+	font-size: 20px;
+	height: 50px;
+}
+.back{
+	position:absolute;
+	left:5%;
+	top: 30%;
+}
+
+section{
+	box-sizing: border-box;
+	padding-left: 10%;
+	padding-right: 10%;
+	width: 100%;
+	margin-top:30px;
+}
+section>div:first-child{
+	margin-bottom: 30px;
+	padding-left:15px;
+	height: 20px;
+	border-left:8px solid #000;
+}
+section>div>button{
+	position:relative;
+	bottom: 5px;
+	float:right;
+}
+section>span>input[type="radio"] + label{
+	margin-left: 20px;
+	margin-bottom: 10px;
+	font-size:0.8em;
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	border-radius: 5px;
+	border:1px solid #bdbdbd;
+}
+section>span>input[type="radio"]:checked + label{
+	color:#007AFF;
+	border:1px solid #007AFF;
+}
+input[type="radio"] {
+   display: none;
+}
+section>span>input[type="checkbox"] + label{
+	margin-left: 20px;
+	margin-bottom: 10px;
+	font-size:0.8em;
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	border-radius: 10px;
+	border:1px solid #bdbdbd;
+}
+section>span>input[type="checkbox"]:checked + label{
+	color:#007AFF;
+	border:1px solid #007AFF;
+}
+input[type="checkbox"] {
+   display: none;
+}
+input[type="number"]{
+	font-size:14px;
+	border-radius: 10px;
+	width:60px;
+	height: 30px;
+}
+#submit{
+	margin-top: 30px;
+	width: 30%;
+	color:#fff;
+	border-radius: 15px;
+	background-color: #5677FC;
+	margin-left: 37%;
+	
+}
+select{
+	
+	border: 1px solid #bdbdbd!important;
+	width: 20%;
+	height: 30px;
+	padding: 3px;
+	display: inline;
+	
+}
+option{
+	text-align: center;
+}

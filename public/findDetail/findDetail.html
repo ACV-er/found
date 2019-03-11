@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link href="./css/style.css" rel="stylesheet">
+	    <link href="../css/header.css" rel="stylesheet">
+    	<script type="text/javascript" charset="utf-8">
+      		mui.init();
+    	</script>
+	</head>
+	<body>
+		
+		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>详情</nav>
+		<div id="detail">
+			<section class="markDetail">
+				<h3>{{information.title}}</h3>
+				<img v-bind:src="information.img" />
+				<div>{{information.description}}</div>
+				<p>时间:{{information.date}}</p>
+				<p>地点:{{information.address}}</p>
+				<p>班级:{{information.class}}</p>
+				<p>联系电话:{{information.phone}}</p>
+				<p>qq:{{information.qq}}</p>
+				<p>微信:{{information.wx}}</p>
+				<h5>发布者：{{information.nickname}}</h5>
+				<h5>发布时间：{{information.updated_at}}</h5>
+			</section>
+		</div>
+		<!--<button id="mark" @click="mark">标记</button>-->
+		
+	</body>
+	<script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="./js/findDetail.js"></script>
+</html>

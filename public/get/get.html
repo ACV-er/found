@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link href="./css/style.css" rel="stylesheet">
+	    <link href="../css/header.css" rel="stylesheet">
+    	<script type="text/javascript" charset="utf-8">
+      		mui.init();
+    	</script>
+	</head>
+	<body>
+		
+		<form id="head" class="head">
+			<div class="thingInformation">
+				<input type="text" placeholder="招领标题">
+				<textarea id="detail" placeholder="请输入物品详情" ></textarea>
+			</div>
+			<div class="imgInformation">
+				<label for="img" class="file">+</label>
+				<input id="fileBtn" type="file" name="img" v-on:change="upload('#fileBtn', '#img');" accept="image/*" capture="camera"/>
+				<img src="" id="img" />
+			</div>
+			
+			<div class="personInformation">
+				<span>
+					<input type="radio" name="kind" value="校园卡">
+					<label for="kind">校园卡</label>
+				</span>
+				<span>
+					<input type="radio" name="kind" value="其他" >
+					<label for="kind">其他</label>
+				</span>
+				<br />
+				<span>遗失时间</span>
+				<input type="date">
+				<br />
+				<span>遗失地点</span>
+				<select id="address">
+					<option v-for="item in address">{{item}}</option>
+				</select>
+				<br />
+				<i class="fa fa-user "></i>
+				<input type="text" placeholder="取一个昵称吧" style="margin-top: 20px;">
+				<br/>
+				<i class="fa fa-user " ></i>
+				<input type="text" placeholder="年级学院班级">
+				<br/>
+				<i class="fa fa-user "></i>
+				<input type="text" placeholder="手机号(选填)">
+				<br/>
+				<i class="fa fa-user "></i>
+				<input type="text" placeholder="QQ号(选填)">
+				<br/>
+				<i class="fa fa-user "></i>
+				<input type="text" placeholder="微信号(选填)">
+				<br/>
+			</div>
+			<button type="button">提交</button>
+		</form>
+	
+		
+	</body>
+	<script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="./js/get.js"></script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link href="./css/style.css" rel="stylesheet">
+	    <link href="../css/header.css" rel="stylesheet">
+    	<script type="text/javascript" charset="utf-8">
+      		mui.init();
+    	</script>
+	</head>
+	<body>
+		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>精准搜索</nav>
+		<div id="detail">
+			<section class="markDetail" v-for="item in detail">
+				<a v-bind:href="item.src">
+					<img v-bind:src="item.imgUrl" />
+					<div>{{item.title}}</div>
+					<p>发布者：{{item.master}}</p>
+					<p>遗失时间：{{item.time}}</p>
+				</a>
+			</section>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="./js/search.js"></script>
+</html>

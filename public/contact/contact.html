@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link href="./css/style.css" rel="stylesheet">
+	    <link href="../css/header.css" rel="stylesheet">
+	    
+    	<script type="text/javascript" charset="utf-8">
+      		mui.init();
+    	</script>
+    	
+	</head>
+	<body>
+		
+		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>规则说明</nav>
+		<section id="qa">
+			<div class="title"><i class="fa fa-file fa-2x"></i>常见QA</div>
+			<ul v-for="item in qa">
+				<li style="color:#0062CC">{{item.Q}}</li>
+				<li>{{item.A}}</li>
+			
+			</ul>
+		</section>
+		<section id="contact">
+			<div class="title"><i class="fa fa-file fa-2x"></i>用户协议</div>
+			<ul v-for="item in contact">
+				<h3>{{item[0]}}</h3>
+				<ol v-for="str in item[1]">{{str}}</ol>
+			
+			</ul>
+		</section>
+	</body>
+	<script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="./js/contact.js"></script>
+</html>

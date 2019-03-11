@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link href="./css/style.css" rel="stylesheet">
+	    <link href="../css/header.css" rel="stylesheet">
+	    
+    	<script type="text/javascript" charset="utf-8">
+      		mui.init();
+    	</script>
+    	
+	</head>
+	<body>
+		
+		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>登录</nav>
+		<img src="images/banner.png" />
+		<form id="loginForm">
+			<input type="text" id="id" name="stu_id" placeholder="三翼通行证/学号" v-model="id" / >
+			<input type="password" name="password" id="password" placeholder="通行证密码/教务管理系统密码" v-model="psw"/>
+			<div class="contact">
+				<input name="contact" type="checkbox" v-model="contact">
+				<label for="contact">同意《用户协议》</label>
+			</div>
+			<button type="button" id="login" class="mui-btn mui-btn-primary mui-btn-outlined" @click="login">登陆</button>
+		</form>
+	</body>
+	<script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="./js/login.js"></script>
+</html>

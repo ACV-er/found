@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link href="./css/style.css" rel="stylesheet">
+	    <link href="../css/header.css" rel="stylesheet">
+    	<script type="text/javascript" charset="utf-8">
+      		mui.init();
+    	</script>
+	</head>
+	<body>
+		
+		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>发布</nav>
+		<form id="find" class="head">
+		<div style="text-align: left;">
+			<span>
+				<input type="radio" name="type" value="1" v-model="type">
+				<label for="type">寻物 &nbsp;&nbsp;</label>
+			</span>
+			<span>
+				<input type="radio" name="type" value="0" v-model="type">
+				<label for="type">招领</label>
+			</span>
+		</div>
+		<div style="text-align: left;margin: 15px 0;">
+			<span>
+				<input type="radio" name="stu_card" value="1" v-model="stu_card">
+				<label for="stu_card">校园卡</label>
+			</span>
+			<span>
+				<input type="radio" name="stu_card" value="0"  v-model="stu_card">
+				<label for="stu_card">其他</label>
+			</span>
+		</div>
+		
+			<div class="thingInformation">
+				<input type="text" placeholder="标题" v-model="title">
+				<textarea id="detail" name="description" placeholder="简要描述物品信息" v-model="description"></textarea>
+				<div class="imgInformation">
+					<label for="img" class="file">+</label>
+					<span>添加图片</span>
+					<input id="fileBtn" type="file" name="img" v-on:change="upload('#fileBtn', '#img');" accept="image/*" capture="camera"/>
+					<img v-bind:src="src" id="img" />
+				</div>
+			</div>
+			
+			
+			<div class="personInformation">
+				
+				<br />
+				<span>时间</span>
+				<input type="date" v-model="date">
+				<br />
+				<span>地点</span>
+				<select id="address" v-model="address" @change="getCouponSelected">
+					<option v-for="item in addressAll">{{item}}</option>
+				</select>
+				<br />
+				<div>
+					<span>昵称</span>
+					<input type="text" name="nickname" placeholder="取一个昵称吧" style="margin-top: 20px;" v-model="nickname">
+					<br/>
+					<span>班级</span>
+					<input type="text" name="class" placeholder="年级专业班级" v-model="Class">
+					<br/>
+					<span>电话</span>
+					<input type="text" name="phone" placeholder="手机号" v-model="phone">
+					<br/>
+					<span>Q Q</span>
+					<input type="text" name="qq" placeholder="QQ号" v-model="qq">
+					<br/>
+					<span>微信</span>
+					<input type="text" name="wx" placeholder="微信号" v-model="weixin">
+				</div>
+			</div>
+			<button type="button" @click="submit">发布</button>
+		</form>
+	
+		
+	</body>
+	<script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="./js/update.js"></script>
+</html>

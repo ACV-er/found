@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link href="./css/style.css" rel="stylesheet">
+	    <link href="../css/header.css" rel="stylesheet">
+    	<script type="text/javascript" charset="utf-8">
+      		mui.init();
+    	</script>
+	</head>
+	<body>
+		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>招领</nav>
+		<input type="text" id="search" placeholder="请输入关键字" /><button type="button"><a href="../find/find.html">发布</a></button>
+		<div id="detail">
+			<section class="markDetail" v-for="item in detail" >
+				<a href="#">
+					<img v-bind:src="item.img" />
+					<div @click="getId" v-bind:data-id = "item.id" v-bind:data-type="item.type">
+						{{item.title}}
+						<p v-bind:data-id = "item.id" v-bind:data-type="item.type">时间：{{item.date}}</p>
+					</div>
+					
+				</a>
+			</section>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="./js/getList.js"></script>
+</html>

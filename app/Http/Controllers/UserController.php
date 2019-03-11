@@ -83,6 +83,7 @@
                     $result = $user->save();
                     if ($result) {
                         session(['login' => true, 'id' => $user->id]);
+                        $user = User::query()->where('stu_id', $data['stu_id'])->first(); //直接返回的￥user->info没有id信息,需要重新获取一遍
                         return $this->msg(0, $user->info());
                     } else {
                         return $this->msg(4, __LINE__);

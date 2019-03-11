@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+	    <link href="../css/mui.min.css" rel="stylesheet"/>
+	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link href="./css/style.css" rel="stylesheet">
+	    <link href="../css/header.css" rel="stylesheet">
+    	<script type="text/javascript" charset="utf-8">
+      		mui.init();
+    	</script>
+	</head>
+	<body>
+		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>个人中心</nav>
+		<section id="head" class="head">
+			<img v-bind:src="imgUrl">
+			<h2>{{nickname}}</h2>
+			<h3>{{id}}</h3>
+			<button><a href="../userChange/userChange.html">编辑个人资料</a></button>
+		</section>
+		
+		<div id="mainPage">
+			<section id="mark" class="mark">
+				<h3>我的</h3>
+				<ul>
+					<a href="#" v-for="item in detail" >
+						<li class="overhide" v-bind:data-id = "item.id" @click="getId">{{item.title}}</li><span>{{item.time}}</span><br/ >
+					</a>
+				</ul>
+			</section>
+			<div id="detail">
+				<section class="markDetail" v-for="item in detail" >
+					<h3 v-bind:data-id = "item.id" v-bind:data-type = "item.type" @click="getId">{{item.title}}</h3>
+					<img v-bind:src="item.img" />
+					<div v-bind:data-id = "item.id" v-bind:data-type = "item.type" @click="getId">{{item.description}}</div>
+					<p>时间：{{item.date}}</p>
+					<p>地点：{{item.address}}</p>
+					<h5>发布时间：{{item.created_at}}</h5>
+				</section>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="./js/user.js"></script>
+</html>

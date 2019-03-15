@@ -17,7 +17,7 @@
     });
 
 
-//    Route::group(['middleware' => 'cookie'], function () {
+    Route::group(['middleware' => 'cookie'], function () {
         Route::post('/login', 'UserController@login');
 
         Route::get('/laf', 'LAFController@postList');
@@ -44,5 +44,5 @@
 //        Route::group(['middleware' => 'checkInfo'], function () {
 
 
-//        });
+        });
 //    });

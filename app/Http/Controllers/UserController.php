@@ -43,7 +43,7 @@
         private function chechUser($sid, $password)
         {
             $api_url = "https://api.sky31.com/edu-new/student_info.php";
-            $api_url = $api_url . "?role=" . env('ROLE') . '&hash=' . env('HASH') . '&sid=' . $sid . '&password=' . $password;
+            $api_url = $api_url . "?role=" . env('ROLE') . '&hash=' . env('HASH') . '&sid=' . urlencode($sid) . '&password=' . urlencode($password);
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $api_url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

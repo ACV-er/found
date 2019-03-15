@@ -1,5 +1,4 @@
 
-
 var detail  = new Vue({
 	el:'#detail',
 	data:{
@@ -28,6 +27,7 @@ function search(){
 	search.addEventListener('keypress',function(e){
 		if(e.keyCode == 13)
 		{
+		    detail.detail = [];
 			var content = search.value;
 			strs=content.split(" "); //字符分割 
 			for (i=0;i<strs.length ;i++ ) 

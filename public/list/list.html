@@ -25,8 +25,9 @@
 				<a href="#">
 					<img v-bind:src="item.img" / >
 					<div @click="getId" v-bind:data-id = "item.id" v-bind:data-type="item.type">
-						{{item.title}}
+						<span>{{item.title}}</span>
 						<p v-bind:data-id = "item.id" v-bind:data-type="item.type"> 时间：{{item.date}}</p>
+						<p v-bind:data-id = "item.id" v-bind:data-type="item.type"> 发布者：{{item.user_id}}</p>
 					</div>
 					
 				</a>

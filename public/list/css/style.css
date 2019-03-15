@@ -49,13 +49,14 @@ nav{
 }
 button{
 	height: 30px;
-	width: 100px;
+	width: 80px;
 	color: #fff;
 	background-color:#5677FC ;
 	border-radius: 20px;
-	margin-left: 30px;
+	margin-left: 20px;
 	margin-top: 10px;
 }
+
 button a{
 	color: #fff;
 	
@@ -139,6 +140,14 @@ section li{
 	display: inline-block;
 	margin-top: 20px;
 	
+}
+.markDetail div span{
+
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
 }
 .markDetail p{
 	color:#2AC845;

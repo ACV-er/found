@@ -2,6 +2,7 @@
 
     namespace App\Http\Controllers;
 
+    use App\Manager;
     use App\Post;
     use Illuminate\Http\Request;
     use App\User;
@@ -71,7 +72,7 @@
             if (!$user) {
                 // 该用户未在数据库中 用户名错误 或 用户从未登录
                 //利用三翼api确定用户账号密码是否正确
-                $output = $this->chechUser(urlencode($data['stu_id']), $data['password']);
+                $output = $this->chechUser($data['stu_id'], $data['password']);
 
                 if ($output['code'] == 0) {
                     $info = array(
@@ -83,7 +84,6 @@
                     $result = $user->save();
                     if ($result) {
                         session(['login' => true, 'id' => $user->id]);
-                        $user = User::query()->where('stu_id', $data['stu_id'])->first(); //直接返回的￥user->info没有id信息,需要重新获取一遍
                         return $this->msg(0, $user->info());
                     } else {
                         return $this->msg(4, __LINE__);
@@ -98,7 +98,7 @@
                     session(['login' => true, 'id' => $user->id]);
                     return $this->msg(0, $user->info());
                 } else {
-                    $output = $this->chechUser(urlencode($data['stu_id']), $data['password']);
+                    $output = $this->chechUser($data['stu_id'], $data['password']);
                     if ($output['code'] == 0) {
                         $user->password = md5($data['password']);
                         $user->save();
@@ -185,8 +185,28 @@
             return $this->msg(0, $list);
         }
 
-        public function logintest()
+        public function manager_getUserPost(Request $request)
         {
-            return session('id');
+            $list = Post::query()->where('user_id', $request->route('id'))->get()->toArray();
+            return $this->msg(0, $list);
+        }
+
+        public function searchUser(Request $request)
+        {
+            if (!$request->has(['keyword'])) {
+                return $this->msg(1, __LINE__);
+            }
+
+            $keyword = preg_replace("/^\xef\xbb\xbf/", '', $request->only('keyword')['keyword']);
+            $keyword = json_decode($keyword, true);
+
+            if (!is_array($keyword) || count($keyword) > 5) {
+                return $this->msg(3, __LINE__);
+            }
+            $str = join('|', $keyword);
+
+            $result = Manager::query()->whereRaw("concat(`id`,`nickname`,`stu_id`, `qq`, `phone`, `wx`, `class`) REGEXP ?", array($str))->get()->toArray();
+
+            return $this->msg(0, $result);
         }
     }

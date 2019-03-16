@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'checkInfo' => \App\Http\Middleware\completeInfo::class,
         'loginCheck' => \App\Http\Middleware\loginCheck::class,
         'deduplicate' => \App\Http\Middleware\Deduplicate::class,
+        'managerCheck' => \App\Http\Middleware\ManagerCheck::class,
     ];
 
     /**

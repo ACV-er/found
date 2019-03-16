@@ -17,19 +17,13 @@
         public function msg($code, $msg)
         {
             $status = array(
-                0 => '成功',
-                1 => '缺失参数',
-                2 => '错误访问',
                 6 => '未登录',
-                7 => '未完善信息'
             );
-
             $result = array(
                 'code' => $code,
                 'status' => $status[$code],
                 'data' => $msg
             );
-
             return json_encode($result, JSON_UNESCAPED_UNICODE);
         }
 

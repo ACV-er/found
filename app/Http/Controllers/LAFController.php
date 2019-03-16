@@ -178,7 +178,7 @@
             if ($request->hasFile('img') && file_exists(public_path() . '/upload/laf/' . $result->img)) { //更新图片时删除以前的图片
                 unlink(public_path() . '/upload/laf/' . $result->img);
             }
-            $result->update($data);
+            $result = $result->update($data);
 
             return $result ? $this->msg(0, null) : $this->msg(3, __LINE__);
         }
@@ -189,7 +189,7 @@
             if (!$result->user_id == session('id')) {
                 return $this->msg(3, __LINE__);
             }
-            $result->update(["solve" => true]);
+            $result = $result->update(["solve" => true]);
 
             return $result ? $this->msg(0, null) : $this->msg(3, __LINE__);
         }
@@ -200,7 +200,7 @@
             if (!$result->user_id == session('id')) {
                 return $this->msg(3, __LINE__);
             }
-            $result->update(["mark" => true]);
+            $result = $result->update(["mark" => true]);
 
             return $result ? $this->msg(0, null) : $this->msg(3, __LINE__);
         }
@@ -209,7 +209,6 @@
             if(!$request->has(['keyword'])) {
                 return $this->msg(1, __LINE__);
             }
-
             $keyword = preg_replace("/^\xef\xbb\xbf/", '', $request->only('keyword')['keyword']);
             $keyword = json_decode($keyword, true);
 

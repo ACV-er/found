@@ -109,8 +109,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/ShowUser.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="158" column="16" lean-forward="true" selection-start-line="158" selection-start-column="16" selection-end-line="158" selection-end-column="16" />
+            <state relative-caret-position="323">
+              <caret line="171" column="71" lean-forward="true" selection-start-line="171" selection-start-column="71" selection-end-line="171" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -431,12 +431,12 @@
       <workItem from="1552637336007" duration="13722000" />
       <workItem from="1552654580982" duration="17738000" />
       <workItem from="1552793949890" duration="44000" />
-      <workItem from="1552794210141" duration="9065000" />
+      <workItem from="1552794210141" duration="9176000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207624000" />
+    <option name="totallyTimeSpent" value="207735000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1918" height="901" extended-state="6" />
@@ -809,8 +809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/ShowUser.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="158" column="16" lean-forward="true" selection-start-line="158" selection-start-column="16" selection-end-line="158" selection-end-column="16" />
+        <state relative-caret-position="323">
+          <caret line="171" column="71" lean-forward="true" selection-start-line="171" selection-start-column="71" selection-end-line="171" selection-end-column="71" />
         </state>
       </provider>
     </entry>

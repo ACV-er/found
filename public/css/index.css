@@ -5,7 +5,7 @@ body{
 	background-color: #fff;
 }
 nav{
-	
+	height: 100px;
 	box-sizing: border-box;
 	width: 100%;
 	padding-left: 6%;
@@ -22,9 +22,9 @@ nav>div{
 }
 nav>div>a>i{
 	
-	background-color: #3E8FDE;
+	background-color: #FFF;
 	border-radius: 50%;
-	color:#fff;
+	color:#3E8FDE;
 	border: 3px solid #3E8FDE;
 	padding: 15px;
 }
@@ -40,6 +40,11 @@ nav>div>a>p{
 	margin-top: 10px;
 	font-size: 16px;
 }
+.select{
+	transition: 0.3s;
+	background-color:#e6e6e6; 
+}
+
 #user
 {
 	background-repeat: no-repeat;
@@ -53,7 +58,7 @@ nav>div>a>p{
 #search{
 	background-color: #f3f4f5;
 	box-sizing: border-box;
-	background-image: url(../img/search.png);
+	/*background-image: url(../img/search.png);*/
 	background-size: 20px 20px;
 	background-position: 95% 50%;
 	background-repeat: no-repeat;
@@ -61,9 +66,9 @@ nav>div>a>p{
 	padding-top: 10px;
 	padding-bottom: 10px;
 	margin-top: 10px;
-	margin-left: 5%;
-	width: 70%;
-	border-radius: 15px;
+	
+	width: 75%;
+	border-radius: 17px;
 }
 button{
 	font-size: 16px;
@@ -85,16 +90,19 @@ section{
 	border: 1px solid #efeff4;
 }
 section ul{
-	padding-left: 3%;
+	padding-left: 0%;
+	margin: 5px;
+	
 }
 section li{
+	font-size: 16px;
 	float: left;
 	white-space: nowrap;
 	text-overflow:ellipsis;
 	overflow: hidden;
 	list-style-position: inside;
 	color:#000;
-	width:75%;
+	width:85%;
 	margin-right: 10px;
 }
 section a{
@@ -102,6 +110,7 @@ section a{
 }
 section a>h3{
 	position:relative;
+	margin-bottom: 15px;
 }
 section a>h3>span{
 	font-size:16px;
@@ -140,7 +149,7 @@ section a>h3>span{
 }
 #popover{
 	max-width: 600px;
-	width: 90%;
+	width: 95%;
 	padding-bottom: 20px;
 }
 .bar{
@@ -149,16 +158,31 @@ section a>h3>span{
 	background: #3E8FDE;
 }
 .selectOption{
+	transition:0.3s;
 	text-align: center;
-	color:#666666;
+	color:#333333;
 	margin-top: 10px;
 	display: inline-block;
 	width: 20%;
 	margin-left: 10%;
 	padding: 5px;
-	border:1px solid #666666;
-	border-radius: 5px;
+	border:1px solid #333333;
+	border-radius: 20px;
 	font-size:14px;
+}
+.selected{
+	transition:0.3s;
+	text-align: center;
+	margin-top: 10px;
+	display: inline-block;
+	width: 20%;
+	margin-left: 10%;
+	padding: 5px;
+	border-radius: 20px;
+	font-size:14px;
+	color:#fff;
+	background-color: #3e8fde;
+	border:1px solid #3e8fde;
 }
 .clearFloat{
 	clear:both;

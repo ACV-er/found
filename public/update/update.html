@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		
-		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>发布</nav>
+		<nav><i class="back mui-icon mui-icon-back" onclick="window.history.go(-1)"></i>发布</nav>
 		<form id="find" class="head">
 		<div style="text-align: left;">
 			<span>
@@ -25,16 +25,6 @@
 			<span>
 				<input type="radio" name="type" value="0" v-model="type">
 				<label for="type">招领</label>
-			</span>
-		</div>
-		<div style="text-align: left;margin: 15px 0;">
-			<span>
-				<input type="radio" name="stu_card" value="1" v-model="stu_card">
-				<label for="stu_card">校园卡</label>
-			</span>
-			<span>
-				<input type="radio" name="stu_card" value="0"  v-model="stu_card">
-				<label for="stu_card">其他</label>
 			</span>
 		</div>
 		
@@ -51,7 +41,17 @@
 			
 			
 			<div class="personInformation">
-				
+				<div >
+					<span>物品类型</span>
+					<span>
+						<input type="radio" name="stu_card" value="1" v-model="stu_card">
+						<label for="stu_card">校园卡</label>
+					</span>
+					<span>
+						<input type="radio" name="stu_card" value="0"  v-model="stu_card">
+						<label for="stu_card">其他</label>
+					</span>
+				</div>
 				<br />
 				<span>时间</span>
 				<input type="date" v-model="date">

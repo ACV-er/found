@@ -17,7 +17,7 @@
 	</head>
 	<body>
 		
-		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>规则说明</nav>
+		<nav><i class="back mui-icon mui-icon-back" onclick="window.history.go(-1)"></i>Q&A</nav>
 		<section id="qa">
 			<div class="title"><i class="fa fa-file fa-2x"></i>常见QA</div>
 			<ul v-for="item in qa">
@@ -26,14 +26,7 @@
 			
 			</ul>
 		</section>
-		<section id="contact">
-			<div class="title"><i class="fa fa-file fa-2x"></i>用户协议</div>
-			<ul v-for="item in contact">
-				<h3>{{item[0]}}</h3>
-				<ol v-for="str in item[1]">{{str}}</ol>
-			
-			</ul>
-		</section>
+		
 	</body>
 	<script type="text/javascript" src="../js/vue.js"></script>
     <script type="text/javascript" src="./js/contact.js"></script>

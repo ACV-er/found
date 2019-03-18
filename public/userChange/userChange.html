@@ -14,7 +14,7 @@
     	</script>
 	</head>
 	<body>
-		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>修改信息</nav>
+		<nav><i class="back mui-icon mui-icon-back" onclick="window.history.go(-1)"></i>修改信息</nav>
 		<div id="head">
 			<form id="avatar" class="head">
 				<input type="file" id="fileBtn" name="avatar" v-on:change="upload('#fileBtn', '#img');" accept="image/*" capture="camera"/ v-model="avatar" >
@@ -30,7 +30,7 @@
 				<span>电话</span>
 				<input type="text" name="phone" placeholder="手机号" v-model="phone">
 				<br/>
-				<span>Q Q</span>
+				<span>Q &nbspQ</span>
 				<input type="text" name="qq" placeholder="QQ号" v-model="qq">
 				<br/>
 				<span>微信</span>

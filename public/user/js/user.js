@@ -2,8 +2,8 @@ var head = new Vue({
 	el:'#head',
 	data:{
 		imgUrl:'',
-		id:'20170509xxxx',
-		nickname:'可爱的昊昊',
+		id:'',
+		nickname:'',
 	}
 })
 function next(){
@@ -21,6 +21,10 @@ function next(){
 					result[i].img ='../img/yuhan.jpg';
 				result[i].time = result[i].updated_at.substr(5,5);
 				detail.detail.push(result[i]);
+				if(result[i].mark == 1)
+				{
+					detail.mark.push(result[i]);
+				}
 			}
 			
 		}
@@ -60,7 +64,8 @@ window.onload = function(){
 var detail  = new Vue({
 	el:'#mainPage',
 	data:{
-		detail:[]
+		detail:[],
+		mark:[]
 	},
 	methods:{
 		getId:function(e){

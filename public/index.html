@@ -20,17 +20,17 @@
 		首页
 	</header>
 	<nav id="nav">
-		<div><a href="./contact/contact.html"><i class="fa fa-info" style="width:53px"></i><p>规则说明</p></a></div>
-		<div><a href="./find/find.html"><i class="fa fa-plus" style="width:53px"></i><p>发布</p></a></div>
-		<div v-if="login"><a href="./login/login.html" ><i class="fa fa-user" style="width:53px"></i><p>登录</p></a></div>
+		<div><a href="./contact/contact.html"><i class="fa fa-info fa-fw" style="width:53px"></i><p>Q&A</p></a></div>
+		<div><a href="./find/find.html"><i class="fa fa-plus fa-fw" style="width:60px;padding: 18px"></i><p>发布</p></a></div>
+		<div v-if="login"><a href="./login/login.html" ><i class="fa fa-user fa-fw" style="width:53px"></i><p>登录</p></a></div>
 		<div v-if="user"><a href="./user/user.html" ><i id="user" class="fa fa-user" v-bind:style="imgUrl"></i><p>个人中心</p></a></div>
 	</nav>
 	<div id="searchForm">
-		<a href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block hot" >热词</a>
+		<a href="#popover" id="openPopover" class="hot" ><i class="fa fa-filter"></i>筛选</a>
 		<input type="search" id="search" placeholder="输入关键字,多个词空格隔开" /  v-model="search">
 		<div id="popover" class="mui-popover  ">
-			<div class="floatLeft searchBar" @click="ObjectTab" >物品</div><div class="floatLeft searchBar" @click="AddressTab">地点</div>
-			<div class="bar" v-bind:style="float"></div>
+			<div class="floatLeft searchBar" @click="ObjectTab" v-bind:class="{'select':obj}">物品</div>
+			<div class="floatLeft searchBar" @click="AddressTab" v-bind:class="{'select':addr}">地点</div>
 			<div class="clearFloat"></div>
 			<span class="selectOption" v-for="item in hotObject" @click="addInSearch">{{item}}</span>
 		</div>

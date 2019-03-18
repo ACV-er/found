@@ -15,28 +15,20 @@
 	</head>
 	<body>
 		
-		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>发布</nav>
+		<nav><i class="back mui-icon mui-icon-back" onclick="window.location.href='../index.html'"></i>发布</nav>
 		<form id="find" class="head">
-		<div style="text-align: left;">
-			<span>
-				<input type="radio" name="type" value="1" v-model="type">
-				<label for="type">寻物 &nbsp;&nbsp;</label>
-			</span>
-			<span>
-				<input type="radio" name="type" value="0" v-model="type">
-				<label for="type">招领</label>
-			</span>
-		</div>
-		<div style="text-align: left;margin: 15px 0;">
-			<span>
-				<input type="radio" name="stu_card" value="1" v-model="stu_card">
-				<label for="stu_card">校园卡</label>
-			</span>
-			<span>
-				<input type="radio" name="stu_card" value="0"  v-model="stu_card">
-				<label for="stu_card">其他</label>
-			</span>
-		</div>
+	
+			<div style="text-align: left;margin: 15px 0;">
+				<span>
+						<input type="radio" name="type" value="1" v-model="type">
+						<label for="type">寻物 &nbsp;&nbsp;</label>
+				</span>
+		
+				<span>
+					<input type="radio" name="type" value="0" v-model="type">
+					<label for="type">招领</label>
+				</span>	
+			</div>
 		
 			<div class="thingInformation">
 				<input type="text" placeholder="标题" v-model="title">
@@ -51,7 +43,17 @@
 			
 			
 			<div class="personInformation">
-				
+				<div >
+					<span>物品类型</span>
+					<span>
+							<input type="radio" name="stu_card" value="1" v-model="stu_card">
+							<label for="stu_card">校园卡</label>
+						</span>
+						<span>
+							<input type="radio" name="stu_card" value="0"  v-model="stu_card">
+							<label for="stu_card">其他</label>
+						</span>
+				</div>
 				<br />
 				<span>时间</span>
 				<input type="date" v-model="date">
@@ -71,7 +73,7 @@
 					<span>电话</span>
 					<input type="text" name="phone" placeholder="手机号" v-model="phone">
 					<br/>
-					<span>Q Q</span>
+					<span>Q &nbspQ</span>
 					<input type="text" name="qq" placeholder="QQ号" v-model="qq">
 					<br/>
 					<span>微信</span>

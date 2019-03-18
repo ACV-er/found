@@ -1,4 +1,5 @@
 
+
 var detail  = new Vue({
 	el:'#detail',
 	data:{
@@ -14,7 +15,8 @@ var detail  = new Vue({
 			wx:'',
 			nickname:'',
 			'class':''
-		}
+		},
+		displaynone:true,
 	},
 	methods:{
 		mark:function(){
@@ -22,7 +24,7 @@ var detail  = new Vue({
 			ajax.onreadystatechange = function () {
 				if (ajax.readyState == 4 && ajax.status == 200) {
 				
-					var result = JSON.parse(ajax.responseText).data;
+					var result = JSON.parse(ajax.responseText);
 					
 					if(result.code == 6)
 					{
@@ -45,8 +47,16 @@ var detail  = new Vue({
 			ajax.open("GET", "http://found.myweb.com/mark/"+ localStorage.getItem("id"), true);//false同步    true异步
 			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			ajax.send();
+		},
+		showImg:function(){
+			var mask = mui.createMask(function(){
+				detail.displaynone = true;
+			});//callback为用户点击蒙版时自动执行的回调；
+			mask.show();//显示遮罩
+			this.displaynone = false;
 		}
-	}
+	},
+
 		
 })
 window.onload = function(){
@@ -63,7 +73,6 @@ window.onload = function(){
 			}
 			else{
 				result = result.data;
-				
 				if(result.img!=null)
 					result.img ='http://found.myweb.com/upload/laf/' + result.img;
 				else

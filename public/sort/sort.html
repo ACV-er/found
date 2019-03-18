@@ -18,37 +18,9 @@
 	<body>
 		
 		
-		<!--<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>分类查看</nav>-->
-		<form id="sortForm">
-			<section class="thing">
-				<div>物品类型</div>
-				<span v-for="item in thingButtons">
-					<input type="radio" name="thing" v-bind:value="item" v-model="thingSelect">
-					<label for="thing" >{{item}}</label>
-				</span>
-			</section>
-			<section class="address">
-				<div>物品类型<!--<button id="clear" type="button" v-on:click="clearAddress()">清空</button>--></div>
-				<span v-for="item in addressButtons">
-					<input type="checkbox" name="address" v-bind:value="item" v-model="addressSelect">
-					<label for="address" >{{item}}</label>
-				</span>
-			</section>
-			<section class="time">
-				<div>时间确定</div>
-				<select class="year" v-model="year" @change="getCouponSelected">
-					<option v-bind:value="item" v-for="item in y">{{item}}</option>
-				</select>年
-				<select  class="month" v-model="month" @change="getCouponSelected">
-					<option  v-bind:value="item" v-for="item in mo">{{item}}</option>
-				</select>&nbsp月
-				<select class="day" v-model="day" @change="getCouponSelected">
-					<option v-bind:value="item" v-for="item in d">{{item}}</option>
-				</select>&nbsp日
-			</section>
-			<button id="submit" type="button" v-on:click="Submit()">提交</button>
-		</form>
+
 	</body>
+	<script type="text/javascript" src="./js/sort.js"></script>
 	<script type="text/javascript" src="../js/vue.js"></script>
-    <script type="text/javascript" src="./js/sort.js"></script>
+    
 </html>

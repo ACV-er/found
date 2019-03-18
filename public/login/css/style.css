@@ -86,3 +86,28 @@ input[type="checkbox"] {
 	
 	background: rgb(230,241,252);
 }
+#contact{
+
+	z-index: 999;
+	position: fixed;
+	box-sizing: border-box;
+	width:90%;
+	left:5%;
+	top: 100px;
+	background-color: #f3f0f0;
+
+	padding: 5%;
+	height: 500px;
+	overflow-y:scroll;
+	
+}
+#contact>ul{
+	padding: 0
+}
+#contact>ul>p{
+	text-align: left;
+	color:#222222; 
+}
+.displayNone{
+	display: none;
+}

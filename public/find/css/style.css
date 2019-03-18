@@ -6,7 +6,7 @@ body {
 }
 .head{
 	text-align: center;
-	padding-top: 30px;
+	padding-top: 15px;
 	padding-bottom: 30px;;
 	background: #fff;
 	
@@ -88,7 +88,7 @@ textarea{
 	
 	border-radius: 50%;
 	text-align: center;
-	line-height: 25px;
+	line-height: 30px;
 	height: 30px;
 	width: 30px;
 	border:1px solid #bbbbbb;
@@ -141,8 +141,11 @@ input[type="radio"] {
 	font-size: 20px;
 }
 .personInformation{
+	
 	margin-top: 20px;
+	text-align:left;
 }
+
 .personInformation  input[type="text"]{
 	height: 30px;
 	width: 70%;
@@ -153,7 +156,6 @@ input[type="radio"] {
 }
 .personInformation  input[type="date"]{
 	border-radius: 15px;
-	margin-top: 20px;
 	height: 30px;
 	width: 70%;
 	margin-left: 10%;
@@ -164,7 +166,6 @@ input[type="radio"] {
 }
 #address{
 	border-radius: 15px;
-	margin-top: 20px;
 	height: 30px;
 	width: 70%;
 	margin-left: 10%;

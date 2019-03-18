@@ -1,3 +1,4 @@
+
 body {
 	font-family: '苹方 常规';
 	width: 100%;
@@ -48,17 +49,17 @@ nav{
 	top: 30%;
 }
 button{
+	line-height: 0px;
 	height: 30px;
-	width: 80px;
-	color: #fff;
-	background-color:#5677FC ;
+	width: 60px;
+	color: #5677FC;
+	background-color:#fff;
 	border-radius: 20px;
-	margin-left: 20px;
+	margin-left: 40px;
 	margin-top: 10px;
 }
-
 button a{
-	color: #fff;
+	color: #5677FC;
 	
 }
 #search{
@@ -66,11 +67,7 @@ button a{
 	border: 0;
 	background-color: #f3f4f5;
 	box-sizing: border-box;
-	background-image: url(../../img/search.png);
-	background-size: 20px 20px;
-	background-position: 3% 50%;
-	background-repeat: no-repeat;
-	padding-left: 10%;
+	
 	padding-top: 10px;
 	padding-bottom: 10px;
 	margin-top: 10px;
@@ -116,8 +113,8 @@ section li{
 .markDetail{
 	
 	box-sizing: border-box;
-	padding-left:10% ;
-	padding-right: 10%;
+	padding-left:5% ;
+	padding-right: 5%;
 	width: 100%;
 }
 .markDetail h3{
@@ -125,32 +122,36 @@ section li{
 }
 .markDetail img{
 	float: left;
-	margin-top: 20px;
+	margin-top: 10px;
 	width: 35%;
-	height: 100px;
+	height: 80px;
 	
 }
 .markDetail div{
 
 	overflow: hidden;
 	text-overflow: ellipsis;
-	height: 100px;
+	height: 80px;
 	width: 60%;
 	margin-left: 5%;
 	display: inline-block;
-	margin-top: 20px;
+	margin-top: 10px;
 	
 }
 .markDetail div span{
-
+	font-size: 0.85em;
 	display: inline-block;
+	height: 2.6em;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	white-space: nowrap;
+	
 
+	
 }
+
 .markDetail p{
+	font-size: 0.85em;
 	color:#2AC845;
-	margin: 10px 0;
+	margin: 0;
 }
 

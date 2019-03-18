@@ -16,6 +16,7 @@ var detail  = new Vue({
 			nickname:'',
 			'class':''
 		},
+		displaynone:true,
 	},
 	methods:{
 			finish:function(){
@@ -40,6 +41,13 @@ var detail  = new Vue({
 			},
 			change:function(){
 				window.location.href="../update/update.html"
+			},
+			showImg:function(){
+				var mask = mui.createMask(function(){
+					detail.displaynone = true;
+				});//callback为用户点击蒙版时自动执行的回调；
+				mask.show();//显示遮罩
+				this.displaynone = false;
 			}
 		}
 		

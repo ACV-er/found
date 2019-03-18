@@ -1,4 +1,5 @@
 
+
 var detail  = new Vue({
 	el:'#detail',
 	data:{
@@ -7,7 +8,6 @@ var detail  = new Vue({
 	methods:{
 		getId:function(e){
 			localStorage.setItem("id", e.target.dataset.id);
-	
 			window.location.href="../findDetail/findDetail.html";
 		}
 	}
@@ -27,7 +27,7 @@ function search(){
 	search.addEventListener('keypress',function(e){
 		if(e.keyCode == 13)
 		{
-		    detail.detail = [];
+			detail.detail = [];
 			var content = search.value;
 			strs=content.split(" "); //字符分割 
 			for (i=0;i<strs.length ;i++ ) 

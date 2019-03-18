@@ -15,20 +15,25 @@
 	</head>
 	<body>
 		
-		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>个人物品详情</nav>
+		<nav><i class="back mui-icon mui-icon-back" onclick="window.history.go(-1)"></i>个人物品详情</nav>
 		<div id="detail">
 			<section class="markDetail">
 				<h3>{{information.title}}</h3>
-				<img v-bind:src="information.img" />
-				<div>{{information.description}}</div>
-				<p>时间:{{information.date}}</p>
-				<p>地点:{{information.address}}</p>
-				<p>班级:{{information.class}}</p>
-				<p>联系电话:{{information.phone}}</p>
-				<p>qq:{{information.qq}}</p>
-				<p>微信:{{information.wx}}</p>
-				<h5>发布者：{{information.nickname}}</h5>
-				<h5>发布时间：{{information.updated_at}}</h5>
+				<div>
+					<img v-bind:src="information.img"  v-on:click="showImg" />
+					<div>{{information.description}}</div>
+				</div>
+				<img v-bind:src="information.img" id="bigImg" v-bind:class="{displaynone:displaynone }">
+				<div>
+					<p>时间:{{information.date}}</p>
+					<p>地点:{{information.address}}</p>
+					<p>班级:{{information.class}}</p>
+					<p>联系电话:{{information.phone}}</p>
+					<p>qq:{{information.qq}}</p>
+					<p>微信:{{information.wx}}</p>
+					<h5>发布者：{{information.nickname}}</h5>
+					<h5>发布时间：{{information.updated_at}}</h5>
+				</div>
 			</section>
 			<button id="mark" @click="finish">已找到</button>
 		<!--<button id="delete" @click="delete">删除</button>-->

@@ -100,21 +100,31 @@ section li{
 	font-size: 1.2em;
 }
 .markDetail img{
-	float: left;
-	margin-top: 20px;
-	width: 35%;
-	height: 100px;
+	width: 50%;
+	
 	
 }
-.markDetail div{
+#bigImg{
+	position: fixed;
+	width: 80%;
+	left: 10%;
+	top:0px;
+	bottom: 0px;
+	margin: auto;
+	z-index: 999; 
+}
+.markDetail>div{
+	margin-top: 20px;
+	width: 100%;
+}
+.markDetail>div>div{
 	color:#2AC845;
 	font-size:16px;
-	overflow-y:scroll ;
-	height: 100px;
-	width: 60%;
-	margin-left: 5%;
+	width: 45%;
+	overflow-y: scroll;
+	vertical-align: top;
 	display: inline-block;
-	margin-top: 20px;
+
 	
 }
 .markDetail p{
@@ -133,4 +143,16 @@ section li{
 	background-color: #3E8FDE;
 	margin-left: 37%;
 
+}
+.displaynone{
+	display: none;
+}
+.mui-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 998;
+    background-color: rgba(0,0,0,.66);
 }

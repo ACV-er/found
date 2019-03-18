@@ -14,7 +14,7 @@
     	</script>
 	</head>
 	<body>
-		<nav><i class="back fa fa-reply" onclick="window.history.go(-1)"></i>个人中心</nav>
+		<nav><i class="back mui-icon mui-icon-back" onclick="window.location.href='../index.html'"></i></i>个人中心</nav>
 		<section id="head" class="head">
 			<img v-bind:src="imgUrl">
 			<h2>{{nickname}}</h2>
@@ -24,18 +24,18 @@
 		
 		<div id="mainPage">
 			<section id="mark" class="mark">
-				<h3>我的</h3>
+				<h3>被标记的</h3> 
 				<ul>
-					<a href="#" v-for="item in detail" >
-						<li class="overhide" v-bind:data-id = "item.id" @click="getId">{{item.title}}</li><span>{{item.time}}</span><br/ >
+					<a href="#" v-for="item in mark" >
+						<li class="overhide" v-bind:data-id = "item.id" v-bind:data-type = "item.type" @click="getId">{{item.title}}</li><span>{{item.time}}</span><br/ >
 					</a>
 				</ul>
 			</section>
 			<div id="detail">
 				<section class="markDetail" v-for="item in detail" >
-					<h3 v-bind:data-id = "item.id" v-bind:data-type = "item.type" @click="getId">{{item.title}}</h3>
+					<h3 v-bind:data-id = "item.id" v-bind:data-type = "item.type" v-bind:data-type = "item.type" @click="getId">{{item.title}}</h3>
 					<img v-bind:src="item.img" />
-					<div v-bind:data-id = "item.id" v-bind:data-type = "item.type" @click="getId">{{item.description}}</div>
+					<div v-bind:data-id = "item.id" v-bind:data-type = "item.type" v-bind:data-type = "item.type" @click="getId">{{item.description}}</div>
 					<p>时间：{{item.date}}</p>
 					<p>地点：{{item.address}}</p>
 					<h5>发布时间：{{item.created_at}}</h5>

@@ -206,19 +206,29 @@
         }
 
         public function search(Request $request) {
-            if(!$request->has(['keyword'])) {
+            if (!$request->has(['keyword'])) {
                 return $this->msg(1, __LINE__);
             }
+
             $keyword = preg_replace("/^\xef\xbb\xbf/", '', $request->only('keyword')['keyword']);
             $keyword = json_decode($keyword, true);
 
-            if(!is_array($keyword) || count($keyword) > 5) {
+            if (!is_array($keyword) || count($keyword) > 5) {
                 return $this->msg(3, __LINE__);
             }
-            $str = join('|', $keyword);
-
-            $result = Post::query()->where('updated_at', '>', date('Y-m-d H:i:s', time() - 86400 * 7))//86400秒一天
-            ->where('solve', false)->whereRaw("concat(`address`,`title`,`description`) REGEXP ?", array($str))->get()->toArray();
+            for($i=0; $i<count($keyword); $i++) {
+                $keyword[$i] = "%".$keyword[$i]."%";
+            }
+            for($i=count($keyword); $i<5; $i++) {
+                $keyword[$i] = '%_%';
+            }
+            $result = Post::query()->whereRaw(
+                "concat(`address`,`title`,`description`) like ? AND ".
+                "concat(`address`,`title`,`description`) like ? AND ".
+                "concat(`address`,`title`,`description`) like ? AND ".
+                "concat(`address`,`title`,`description`) like ? AND ".
+                "concat(`address`,`title`,`description`) like ?",
+                $keyword)->get()->toArray();
 
             return $this->msg(0, $result);
         }

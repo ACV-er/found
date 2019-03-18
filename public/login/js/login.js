@@ -52,7 +52,7 @@ var loginForm = new Vue({
 					}
 				}
 				ajax.withCredentials = true;
-				ajax.open("POST", "https://found.sky31.com/login", true);//false同步    true异步
+				ajax.open("POST", "http://found.myweb.com/login", true);//false同步    true异步
 				ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				ajax.send(data);
 			}
@@ -66,7 +66,7 @@ var loginForm = new Vue({
 //					}
 //				}
 //				ajax.withCredentials = true;
-//				ajax.open("get", "https://found.sky31.com/logintest", true);//false同步    true异步
+//				ajax.open("get", "http://found.myweb.com/logintest", true);//false同步    true异步
 //				ajax.withCredentials = true;
 //				ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //				ajax.send(data);
@@ -81,7 +81,7 @@ var loginForm = new Vue({
 //				}
 //			}
 //			ajax.withCredentials = true;
-//			ajax.open("get", "https://found.sky31.com/user/lost", true);//false同步    true异步
+//			ajax.open("get", "http://found.myweb.com/user/lost", true);//false同步    true异步
 //			ajax.withCredentials = true;
 //			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //			ajax.send(data);

@@ -199,7 +199,6 @@
 
             $keyword = preg_replace("/^\xef\xbb\xbf/", '', $request->only('keyword')['keyword']);
             $keyword = json_decode($keyword, true);
-
             if (!is_array($keyword) || count($keyword) > 5) {
                 return $this->msg(3, __LINE__);
             }

@@ -104,7 +104,6 @@
         <div class="main">
             <table v-if="postShow">
                 <thead>
-
                 <tr>
                     <th>id</th>
                     <th>类型</th>

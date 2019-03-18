@@ -122,7 +122,7 @@ var head = new Vue({
 			}
 			}
 			ajax.withCredentials = true;
-			ajax.open("POST", "https://found.sky31.com/submit");//false同步    true异步
+			ajax.open("POST", "http://found.myweb.com/submit");//false同步    true异步
 			//ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			ajax.send(data);
 		}
@@ -153,7 +153,7 @@ window.onload = function(){
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "https://found.sky31.com/user/info", true);//false同步    true异步
+	ajax.open("GET", "http://found.myweb.com/user/info", true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 }

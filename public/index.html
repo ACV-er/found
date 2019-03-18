@@ -1,1 +1,58 @@
-hello
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="./js/mui.min.js"></script>
+    <link href="./css/mui.min.css" rel="stylesheet"/>
+    <link href="./css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
+    <link href="./css/header.css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    <script src="js/vue.js"></script>
+    
+</head>
+<body>
+	<header>
+		首页
+	</header>
+	<nav id="nav">
+		<div><a href="./contact/contact.html"><i class="fa fa-info" style="width:53px"></i><p>规则说明</p></a></div>
+		<div><a href="./find/find.html"><i class="fa fa-plus" style="width:53px"></i><p>发布</p></a></div>
+		<div v-if="login"><a href="./login/login.html" ><i class="fa fa-user" style="width:53px"></i><p>登录</p></a></div>
+		<div v-if="user"><a href="./user/user.html" ><i id="user" class="fa fa-user" v-bind:style="imgUrl"></i><p>个人中心</p></a></div>
+	</nav>
+	<div id="searchForm">
+		<a href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block hot" >热词</a>
+		<input type="search" id="search" placeholder="输入关键字,多个词空格隔开" /  v-model="search">
+		<div id="popover" class="mui-popover  ">
+			<div class="floatLeft searchBar" @click="ObjectTab" >物品</div><div class="floatLeft searchBar" @click="AddressTab">地点</div>
+			<div class="bar" v-bind:style="float"></div>
+			<div class="clearFloat"></div>
+			<span class="selectOption" v-for="item in hotObject" @click="addInSearch">{{item}}</span>
+		</div>
+	</div>
+	<section id="find">
+		<a href="#" class="more" ><h3>寻物<span data-type='1' @click="getType">更多></span></h3></a>
+		<ul v-for="item in findTitle">
+			<a href="#">
+				<li class="overhide" v-bind:data-id = "item.id" @click="getId">{{item.title}}</li>
+				<span> {{item.time}}</span><br/ >
+			</a>
+		</ul>
+	</section>
+	<section id="get">
+		<a href="#" class="more"><h3>招领<span data-type='0' @click="getType">更多></span></h3></a>
+		<ul v-for="item in getTitle">
+			<a href="#">
+				<li class="overhide" v-bind:data-id = "item.id" @click="getId">{{item.title}}</li>
+				<span>{{item.time}}</span>
+			</a>
+		</ul>
+	</section>
+</body>
+<script src="js/index.js"></script>
+</html>

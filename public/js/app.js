@@ -2191,9 +2191,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      keyword: '',
       posts: [],
       allInfoShow: false,
       allInfo: {}
@@ -2215,43 +2234,61 @@ __webpack_require__.r(__webpack_exports__);
       ajax.send();
       return true;
     },
-    getAllInfo: function getAllInfo(id) {
+    search: function search() {
       var _this = this;
 
-      window.axios.get('http://found.myweb.com/laf/' + id).then(function (_ref) {
+      var keyword = this.keyword.trim().split(/\s/);
+      window.axios.post("http://found.myweb.com/search", "keyword=" + JSON.stringify(keyword)).then(function (_ref) {
         var data = _ref.data;
-        _this.allInfo = data.data;
-        _this.allInfoShow = true;
+
+        if (data.code === 0) {
+          if (data.data.length === 0) {
+            alert("没有相关发布");
+          }
+
+          _this.posts = data.data;
+        } else {
+          alert('失败' + data.status + '\n' + data.data);
+        }
+      });
+    },
+    getAllInfo: function getAllInfo(id) {
+      var _this2 = this;
+
+      window.axios.get('http://found.myweb.com/laf/' + id).then(function (_ref2) {
+        var data = _ref2.data;
+        _this2.allInfo = data.data;
+        _this2.allInfoShow = true;
       });
     },
     updateInfo: function updateInfo() {
-      var _this2 = this;
+      var _this3 = this;
 
       var data = 'title=' + this.allInfo.title + '&description=' + this.allInfo.description;
-      window.axios.post("http://found.myweb.com/manager/post/update/" + this.allInfo.id, data).then(function (_ref2) {
-        var data = _ref2.data;
+      window.axios.post("http://found.myweb.com/manager/post/update/" + this.allInfo.id, data).then(function (_ref3) {
+        var data = _ref3.data;
 
         if (data.code === 0) {
-          _this2.allInfo = {};
-          _this2.allInfoShow = false;
+          _this3.allInfo = {};
+          _this3.allInfoShow = false;
 
-          _this2.getPost();
+          _this3.getPost();
         } else {
           alert('失败' + data.status + '\n' + data.data);
         }
       });
     },
     deletePost: function deletePost(id) {
-      var _this3 = this;
+      var _this4 = this;
 
       var r = confirm("你确认删除么?");
 
       if (r === true) {
-        window.axios.get('http://found.myweb.com/manager/post/delete/' + id).then(function (_ref3) {
-          var data = _ref3.data;
+        window.axios.get('http://found.myweb.com/manager/post/delete/' + id).then(function (_ref4) {
+          var data = _ref4.data;
 
           if (data.code === 0) {
-            _this3.getPost();
+            _this4.getPost();
 
             alert('成功');
           } else {
@@ -2493,7 +2530,7 @@ __webpack_require__.r(__webpack_exports__);
       nowUserId: -1,
       userShow: false,
       users: [],
-      keyword: [],
+      keyword: '',
       postShow: false,
       posts: [],
       allInfoShow: false,
@@ -2583,7 +2620,6 @@ __webpack_require__.r(__webpack_exports__);
           }
 
           _this4.users = data.data;
-          console.log(data.data);
           _this4.userShow = true;
         } else {
           alert('失败' + data.status + '\n' + data.data);
@@ -2645,7 +2681,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.operate[data-v-14865028] {\n    display: inline-block;\n    margin: 0 5px;\n    font-size: 12px;\n    color: rgb(0,193,222);\n    cursor:pointer;\n}\n.operate[data-v-14865028]:hover {\n    color: rgb(0, 177, 205);\n}\n.operate[data-v-14865028]:active {\n    color: rgb(0, 104, 128);\n}\nth[data-v-14865028] {\n    color: rgb(102,102,102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntable[data-v-14865028] {\n    display: inline-block;\n    margin-top: 40px;\n}\n.main[data-v-14865028] {\n    display: flex;\n    justify-content:center;\n    min-width: 1000px;\n}\n.title[data-v-14865028] {\n    max-width: 100px;\n}\n.description[data-v-14865028] {\n    max-width: 200px;\n}\n.title[data-v-14865028], .description[data-v-14865028] {\n    white-space:nowrap;\n    text-overflow:ellipsis;\n    overflow:hidden;\n}\n.allInfo[data-v-14865028] {\n    position: fixed;\n    top: 0; right: 0; bottom: 0; left: 0;\n    display: flex;\n    justify-content:center;\n    background-color: rgba(0,0,0,.3);\n}\n.m-allInfo[data-v-14865028] {\n    position: absolute;\n    margin: auto;\n    top: 0; right: 0; bottom: 0; left: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n\n    width: 500px;\n    height: 300px;\n    background-color: white;\n    border-radius: 5px;\n}\n.from_button[data-v-14865028] {\n    width: 50px;\n    height: 50px;\n    border: 0px;\n    background-color: #06C;\n    color: white;\n    border-radius: 50px;\n    margin:0 auto;\n}\n.title_input[data-v-14865028] {\n    height: 3em;\n}\n.description_input[data-v-14865028] {\n    height: 5em;\n}\n.title_input[data-v-14865028], .description_input[data-v-14865028] {\n    width: 60%;\n    margin:0 auto;\n}\n.button_box[data-v-14865028] {\n    width: 100%;\n    display: flex;\n    justify-content:center;\n}\n", ""]);
+exports.push([module.i, "\n.operate[data-v-14865028] {\n    display: inline-block;\n    margin: 0 5px;\n    font-size: 12px;\n    color: rgb(0,193,222);\n    cursor:pointer;\n}\n.operate[data-v-14865028]:hover {\n    color: rgb(0, 177, 205);\n}\n.operate[data-v-14865028]:active {\n    color: rgb(0, 104, 128);\n}\nth[data-v-14865028] {\n    color: rgb(102,102,102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntable[data-v-14865028] {\n    display: inline-block;\n    margin-top: 40px;\n}\n.main[data-v-14865028] {\n    display: flex;\n    justify-content:center;\n    min-width: 1000px;\n}\n.title[data-v-14865028] {\n    max-width: 100px;\n}\n.description[data-v-14865028] {\n    max-width: 200px;\n}\n.title[data-v-14865028], .description[data-v-14865028] {\n    white-space:nowrap;\n    text-overflow:ellipsis;\n    overflow:hidden;\n}\n.allInfo[data-v-14865028] {\n    position: fixed;\n    top: 0; right: 0; bottom: 0; left: 0;\n    display: flex;\n    justify-content:center;\n    background-color: rgba(0,0,0,.3);\n}\n.m-allInfo[data-v-14865028] {\n    position: absolute;\n    margin: auto;\n    top: 0; right: 0; bottom: 0; left: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n\n    width: 500px;\n    height: 300px;\n    background-color: white;\n    border-radius: 5px;\n}\n.from_button[data-v-14865028] {\n    width: 50px;\n    height: 50px;\n    border: 0px;\n    background-color: #06C;\n    color: white;\n    border-radius: 50px;\n    margin:0 auto;\n}\n.title_input[data-v-14865028] {\n    height: 3em;\n}\n.description_input[data-v-14865028] {\n    height: 5em;\n}\n.title_input[data-v-14865028], .description_input[data-v-14865028] {\n    width: 60%;\n    margin:0 auto;\n}\n.button_box[data-v-14865028] {\n    width: 100%;\n    display: flex;\n    justify-content:center;\n}\n#search[data-v-14865028] {\n    width: 100%;\n    padding: 0 40%;\n}\n.search[data-v-14865028] {\n    display: flex;\n    flex-direction: column;\n    justify-content:center;\n    min-width: 1000px;\n}\n\n", ""]);
 
 // exports
 
@@ -21289,6 +21325,48 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("div", { staticClass: "search" }, [
+      _c(
+        "form",
+        {
+          attrs: { action: "", id: "search" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              _vm.search()
+            }
+          }
+        },
+        [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.keyword,
+                expression: "keyword"
+              }
+            ],
+            attrs: {
+              width: "60px",
+              type: "search",
+              name: "keyword",
+              placeholder: "请输入查找关键字 id, nickname"
+            },
+            domProps: { value: _vm.keyword },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.keyword = $event.target.value
+              }
+            }
+          })
+        ]
+      )
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "main" }, [
       _c("table", [
         _vm._m(0),

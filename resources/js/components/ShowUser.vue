@@ -115,7 +115,7 @@
     <div>
         <div class="search">
             <form action="" id="search" v-on:submit.prevent="search()">
-                <input width="60px" type="search" name="keyword" v-model="keyword" placeholder="请输入查找关键字 id, nickname"">
+                <input width="60px" type="search" name="keyword" v-model="keyword" placeholder="请输入查找关键字 id, nickname">
             </form>
             <table v-if="userShow" style="display: table">
                 <thead>
@@ -212,7 +212,7 @@
                 nowUserId: -1,
                 userShow: false,
                 users: [],
-                keyword: [],
+                keyword: '',
                 postShow: false,
                 posts: [],
                 allInfoShow: false,
@@ -279,7 +279,6 @@
                             alert("查无此人");
                         }
                         this.users=data.data;
-                        console.log(data.data);
                         this.userShow=true;
                     } else {
                         alert('失败' + data.status + '\n' + data.data);

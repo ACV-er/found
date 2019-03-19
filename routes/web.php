@@ -55,6 +55,10 @@
             return view('manager.laf');
         });
 
+        Route::get('/manager', function (){
+            return view('manager.laf');
+        });
+
         Route::get('/manager/user', function (){
             return view('manager.user');
         });

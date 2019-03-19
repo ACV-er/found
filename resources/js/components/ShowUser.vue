@@ -72,7 +72,7 @@
     .from_button {
         width: 50px;
         height: 50px;
-        border: 0px;
+        border: 0;
         background-color: #06C;
         color: white;
         border-radius: 50px;
@@ -97,10 +97,58 @@
         display: flex;
         justify-content:center;
     }
+
+    #search {
+        width: 100%;
+        padding: 0 40%;
+    }
+
+    .search {
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        min-width: 1000px;
+    }
 </style>
 
 <template>
     <div>
+        <div class="search">
+            <form action="" id="search" v-on:submit.prevent="search()">
+                <input width="60px" type="search" name="keyword" v-model="keyword" placeholder="请输入查找关键字 id, nickname"">
+            </form>
+            <table v-if="userShow" style="display: table">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>昵称</th>
+                    <th>班级</th>
+                    <th>学号</th>
+                    <th>QQ</th>
+                    <th>Phone</th>
+                    <th>微信</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="user in users">
+                    <th>{{ user.id }}</th>
+                    <th>{{ user.nickname }}</th>
+                    <th>{{ user.class }}</th>
+                    <th>{{ user.stu_id }}</th>
+                    <th>{{ user.qq }}</th>
+                    <th>{{ user.phone }}</th>
+                    <th>{{ user.wx }}</th>
+                    <th>{{ user.black }}</th>
+                    <th>
+                        <div class="operate" v-on:click="black(user.id)">拉黑</div> |
+                        <div class="operate" v-on:click="getUserPost(user.id)">查看该用户所有帖子</div>
+                    </th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
         <div class="main">
             <table v-if="postShow">
                 <thead>
@@ -113,8 +161,9 @@
                     <th>地点</th>
                     <th>日期</th>
                     <th>标记</th>
+                    <th>解决</th>
                     <th>最后更新时间</th>
-                    <th>操作</th>
+                    <th>被拉黑次数</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -129,6 +178,8 @@
                     <th>{{ post.address }}</th>
                     <th>{{ post.date }}</th>
                     <th v-if="post.mark === 1">是</th>
+                    <th v-else>否</th>
+                    <th v-if="post.solve === 1">是</th>
                     <th v-else>否</th>
                     <th>{{ post.updated_at }}</th>
                     <th>
@@ -158,6 +209,10 @@
     export default {
         data() {
             return {
+                nowUserId: -1,
+                userShow: false,
+                users: [],
+                keyword: [],
                 postShow: false,
                 posts: [],
                 allInfoShow: false,
@@ -165,15 +220,20 @@
             }
         },
         methods: {
-            getPost() {
+            getUserPost(id) {
+                this.nowUserId = id;
+                this.postShow = true;
                 let obj = this;
                 let ajax = new XMLHttpRequest();
                 ajax.onreadystatechange = function () {
                     if (ajax.readyState === 4 && ajax.status === 200) {
                         obj.posts = JSON.parse(ajax.responseText).data;
+                        if( obj.posts.length ===  0) {
+                            alert("该用户还没有发过帖子呢");
+                        }
                     }
                 };
-                ajax.open("GET", "http://found.myweb.com/laf", true);//false同步    true异步
+                ajax.open("GET", "http://found.myweb.com/user/laf/"+id, true);//false同步    true异步
                 ajax.send();
                 return true;
             },
@@ -189,7 +249,7 @@
                     if(data.code === 0) {
                         this.allInfo={};
                         this.allInfoShow=false;
-                        this.getPost();
+                        this.getUserPost(this.nowUserId);
                     } else {
                         alert('失败' + data.status + '\n' + data.data);
                     }
@@ -200,7 +260,7 @@
                 if (r === true){
                     window.axios.get('http://found.myweb.com/manager/post/delete/' + id).then(({ data }) => {
                         if(data.code === 0) {
-                            this.getPost();
+                            this.getUserPost(this.nowUserId);
                             alert('成功');
                         } else {
                             alert(data.status + '\n' + data.data);
@@ -210,6 +270,35 @@
             },
             getUploader(id) {
                 alert('开发中,发布者id：' + id + ',请去用户搜索该用户!')
+            },
+            search(){
+                let keyword = this.keyword.trim().split(/\s/);
+                window.axios.post(`http://found.myweb.com/user/search` , "keyword="+JSON.stringify(keyword)).then(({ data }) => {
+                    if(data.code === 0) {
+                        if( data.data.length ===  0) {
+                            alert("查无此人");
+                        }
+                        this.users=data.data;
+                        console.log(data.data);
+                        this.userShow=true;
+                    } else {
+                        alert('失败' + data.status + '\n' + data.data);
+                    }
+
+                });
+            },
+            black(id) {
+                let r=confirm("你确认删除么?");
+                if (r === true){
+                    window.axios.get('http://found.myweb.com/user/black/' + id).then(({ data }) => {
+                        if(data.code === 0) {
+                            this.search();
+                            alert('成功');
+                        } else {
+                            alert(data.status + '\n' + data.data);
+                        }
+                    });
+                }
             }
         }
     }

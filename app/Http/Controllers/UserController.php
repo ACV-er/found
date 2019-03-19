@@ -2,7 +2,7 @@
 
     namespace App\Http\Controllers;
 
-    use App\Manager;
+
     use App\Post;
     use Illuminate\Http\Request;
     use App\User;
@@ -204,8 +204,22 @@
             }
             $str = join('|', $keyword);
 
-            $result = Manager::query()->whereRaw("concat(`id`,`nickname`,`stu_id`, `qq`, `phone`, `wx`, `class`) REGEXP ?", array($str))->get()->toArray();
+            $result = User::query()->whereRaw("concat(`id`,`nickname`) REGEXP ?", array($str))
+                ->get(['id', 'nickname', 'class', 'wx', 'qq', 'phone', 'stu_id', 'black'])->toArray();
 
             return $this->msg(0, $result);
+        }
+
+        public function blackUser(Request $request)
+        {
+            $user = User::query()->where('id', $request->id)->first();
+            $user->black = $user->black + 1;
+            $result = $user->save();
+
+            if ($result) {
+                return $this->msg(0, null);
+            } else {
+                return $this->msg(4, '失败,咨询管理员' . __LINE__);
+            }
         }
     }

@@ -23,6 +23,7 @@
                 $table->string('phone')->nullable();
                 $table->string('wx')->nullable();
                 $table->string('avatar', 15)->default('default.jpg');
+                $table->integer('black')->default(0);
                 $table->timestamps();
             });
         }

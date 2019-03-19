@@ -127,7 +127,7 @@
                     <th>QQ</th>
                     <th>Phone</th>
                     <th>微信</th>
-                    <th>状态</th>
+                    <th>被拉黑次数</th>
                     <th>操作</th>
                 </tr>
                 </thead>
@@ -163,7 +163,7 @@
                     <th>标记</th>
                     <th>解决</th>
                     <th>最后更新时间</th>
-                    <th>被拉黑次数</th>
+                    <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -288,7 +288,7 @@
                 });
             },
             black(id) {
-                let r=confirm("你确认删除么?");
+                let r=confirm("你确认拉黑么?");
                 if (r === true){
                     window.axios.get('http://found.myweb.com/user/black/' + id).then(({ data }) => {
                         if(data.code === 0) {

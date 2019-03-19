@@ -2593,7 +2593,7 @@ __webpack_require__.r(__webpack_exports__);
     black: function black(id) {
       var _this5 = this;
 
-      var r = confirm("你确认删除么?");
+      var r = confirm("你确认拉黑么?");
 
       if (r === true) {
         window.axios.get('http://found.myweb.com/user/black/' + id).then(function (_ref5) {
@@ -21801,7 +21801,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("微信")]),
         _vm._v(" "),
-        _c("th", [_vm._v("状态")]),
+        _c("th", [_vm._v("被拉黑次数")]),
         _vm._v(" "),
         _c("th", [_vm._v("操作")])
       ])
@@ -21833,7 +21833,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("最后更新时间")]),
         _vm._v(" "),
-        _c("th", [_vm._v("被拉黑次数")])
+        _c("th", [_vm._v("操作")])
       ])
     ])
   }

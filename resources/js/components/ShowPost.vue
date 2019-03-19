@@ -99,8 +99,8 @@
     }
 
     #search {
-        width: 100%;
-        padding: 0 40%;
+        position: relative;
+        margin-top: 20px;
     }
 
     .search {
@@ -110,12 +110,19 @@
         min-width: 1000px;
     }
 
+    #keyword {
+        width: 220px;
+        height: 30px;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        margin: auto;
+    }
 </style>
 <template>
     <div>
         <div class="search">
             <form action="" id="search" v-on:submit.prevent="search()">
-                <input width="60px" type="search" name="keyword" v-model="keyword" placeholder="请输入查找关键字 id, nickname">
+                <input id="keyword" type="search" name="keyword" v-model="keyword" placeholder="请输入查找关键字 id, nickname">
             </form>
         </div>
         <div class="main">

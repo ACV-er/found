@@ -2209,6 +2209,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2317,6 +2324,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2681,7 +2696,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.operate[data-v-14865028] {\n    display: inline-block;\n    margin: 0 5px;\n    font-size: 12px;\n    color: rgb(0,193,222);\n    cursor:pointer;\n}\n.operate[data-v-14865028]:hover {\n    color: rgb(0, 177, 205);\n}\n.operate[data-v-14865028]:active {\n    color: rgb(0, 104, 128);\n}\nth[data-v-14865028] {\n    color: rgb(102,102,102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntable[data-v-14865028] {\n    display: inline-block;\n    margin-top: 40px;\n}\n.main[data-v-14865028] {\n    display: flex;\n    justify-content:center;\n    min-width: 1000px;\n}\n.title[data-v-14865028] {\n    max-width: 100px;\n}\n.description[data-v-14865028] {\n    max-width: 200px;\n}\n.title[data-v-14865028], .description[data-v-14865028] {\n    white-space:nowrap;\n    text-overflow:ellipsis;\n    overflow:hidden;\n}\n.allInfo[data-v-14865028] {\n    position: fixed;\n    top: 0; right: 0; bottom: 0; left: 0;\n    display: flex;\n    justify-content:center;\n    background-color: rgba(0,0,0,.3);\n}\n.m-allInfo[data-v-14865028] {\n    position: absolute;\n    margin: auto;\n    top: 0; right: 0; bottom: 0; left: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n\n    width: 500px;\n    height: 300px;\n    background-color: white;\n    border-radius: 5px;\n}\n.from_button[data-v-14865028] {\n    width: 50px;\n    height: 50px;\n    border: 0px;\n    background-color: #06C;\n    color: white;\n    border-radius: 50px;\n    margin:0 auto;\n}\n.title_input[data-v-14865028] {\n    height: 3em;\n}\n.description_input[data-v-14865028] {\n    height: 5em;\n}\n.title_input[data-v-14865028], .description_input[data-v-14865028] {\n    width: 60%;\n    margin:0 auto;\n}\n.button_box[data-v-14865028] {\n    width: 100%;\n    display: flex;\n    justify-content:center;\n}\n#search[data-v-14865028] {\n    width: 100%;\n    padding: 0 40%;\n}\n.search[data-v-14865028] {\n    display: flex;\n    flex-direction: column;\n    justify-content:center;\n    min-width: 1000px;\n}\n\n", ""]);
+exports.push([module.i, "\n.operate[data-v-14865028] {\n    display: inline-block;\n    margin: 0 5px;\n    font-size: 12px;\n    color: rgb(0,193,222);\n    cursor:pointer;\n}\n.operate[data-v-14865028]:hover {\n    color: rgb(0, 177, 205);\n}\n.operate[data-v-14865028]:active {\n    color: rgb(0, 104, 128);\n}\nth[data-v-14865028] {\n    color: rgb(102,102,102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntable[data-v-14865028] {\n    display: inline-block;\n    margin-top: 40px;\n}\n.main[data-v-14865028] {\n    display: flex;\n    justify-content:center;\n    min-width: 1000px;\n}\n.title[data-v-14865028] {\n    max-width: 100px;\n}\n.description[data-v-14865028] {\n    max-width: 200px;\n}\n.title[data-v-14865028], .description[data-v-14865028] {\n    white-space:nowrap;\n    text-overflow:ellipsis;\n    overflow:hidden;\n}\n.allInfo[data-v-14865028] {\n    position: fixed;\n    top: 0; right: 0; bottom: 0; left: 0;\n    display: flex;\n    justify-content:center;\n    background-color: rgba(0,0,0,.3);\n}\n.m-allInfo[data-v-14865028] {\n    position: absolute;\n    margin: auto;\n    top: 0; right: 0; bottom: 0; left: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n\n    width: 500px;\n    height: 300px;\n    background-color: white;\n    border-radius: 5px;\n}\n.from_button[data-v-14865028] {\n    width: 50px;\n    height: 50px;\n    border: 0px;\n    background-color: #06C;\n    color: white;\n    border-radius: 50px;\n    margin:0 auto;\n}\n.title_input[data-v-14865028] {\n    height: 3em;\n}\n.description_input[data-v-14865028] {\n    height: 5em;\n}\n.title_input[data-v-14865028], .description_input[data-v-14865028] {\n    width: 60%;\n    margin:0 auto;\n}\n.button_box[data-v-14865028] {\n    width: 100%;\n    display: flex;\n    justify-content:center;\n}\n#search[data-v-14865028] {\n    position: relative;\n    margin-top: 20px;\n}\n.search[data-v-14865028] {\n    display: flex;\n    flex-direction: column;\n    justify-content:center;\n    min-width: 1000px;\n}\n#keyword[data-v-14865028] {\n    width: 220px;\n    height: 30px;\n    position: absolute;\n    top: 0; left: 0; bottom: 0; right: 0;\n    margin: auto;\n}\n", ""]);
 
 // exports
 
@@ -2700,7 +2715,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.operate[data-v-50f5d45a] {\n    display: inline-block;\n    margin: 0 5px;\n    font-size: 12px;\n    color: rgb(0,193,222);\n    cursor:pointer;\n}\n.operate[data-v-50f5d45a]:hover {\n    color: rgb(0, 177, 205);\n}\n.operate[data-v-50f5d45a]:active {\n    color: rgb(0, 104, 128);\n}\nth[data-v-50f5d45a] {\n    color: rgb(102,102,102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntable[data-v-50f5d45a] {\n    display: inline-block;\n    margin-top: 40px;\n}\n.main[data-v-50f5d45a] {\n    display: flex;\n    justify-content:center;\n    min-width: 1000px;\n}\n.title[data-v-50f5d45a] {\n    max-width: 100px;\n}\n.description[data-v-50f5d45a] {\n    max-width: 200px;\n}\n.title[data-v-50f5d45a], .description[data-v-50f5d45a] {\n    white-space:nowrap;\n    text-overflow:ellipsis;\n    overflow:hidden;\n}\n.allInfo[data-v-50f5d45a] {\n    position: fixed;\n    top: 0; right: 0; bottom: 0; left: 0;\n    display: flex;\n    justify-content:center;\n    background-color: rgba(0,0,0,.3);\n}\n.m-allInfo[data-v-50f5d45a] {\n    position: absolute;\n    margin: auto;\n    top: 0; right: 0; bottom: 0; left: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n\n    width: 500px;\n    height: 300px;\n    background-color: white;\n    border-radius: 5px;\n}\n.from_button[data-v-50f5d45a] {\n    width: 50px;\n    height: 50px;\n    border: 0;\n    background-color: #06C;\n    color: white;\n    border-radius: 50px;\n    margin:0 auto;\n}\n.title_input[data-v-50f5d45a] {\n    height: 3em;\n}\n.description_input[data-v-50f5d45a] {\n    height: 5em;\n}\n.title_input[data-v-50f5d45a], .description_input[data-v-50f5d45a] {\n    width: 60%;\n    margin:0 auto;\n}\n.button_box[data-v-50f5d45a] {\n    width: 100%;\n    display: flex;\n    justify-content:center;\n}\n#search[data-v-50f5d45a] {\n    width: 100%;\n    padding: 0 40%;\n}\n.search[data-v-50f5d45a] {\n    display: flex;\n    flex-direction: column;\n    justify-content:center;\n    min-width: 1000px;\n}\n", ""]);
+exports.push([module.i, "\n.operate[data-v-50f5d45a] {\n    display: inline-block;\n    margin: 0 5px;\n    font-size: 12px;\n    color: rgb(0,193,222);\n    cursor:pointer;\n}\n.operate[data-v-50f5d45a]:hover {\n    color: rgb(0, 177, 205);\n}\n.operate[data-v-50f5d45a]:active {\n    color: rgb(0, 104, 128);\n}\nth[data-v-50f5d45a] {\n    color: rgb(102,102,102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntable[data-v-50f5d45a] {\n    display: inline-block;\n    margin-top: 40px;\n}\n.main[data-v-50f5d45a] {\n    display: flex;\n    justify-content:center;\n    min-width: 1000px;\n}\n.title[data-v-50f5d45a] {\n    max-width: 100px;\n}\n.description[data-v-50f5d45a] {\n    max-width: 200px;\n}\n.title[data-v-50f5d45a], .description[data-v-50f5d45a] {\n    white-space:nowrap;\n    text-overflow:ellipsis;\n    overflow:hidden;\n}\n.allInfo[data-v-50f5d45a] {\n    position: fixed;\n    top: 0; right: 0; bottom: 0; left: 0;\n    display: flex;\n    justify-content:center;\n    background-color: rgba(0,0,0,.3);\n}\n.m-allInfo[data-v-50f5d45a] {\n    position: absolute;\n    margin: auto;\n    top: 0; right: 0; bottom: 0; left: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n\n    width: 500px;\n    height: 300px;\n    background-color: white;\n    border-radius: 5px;\n}\n.from_button[data-v-50f5d45a] {\n    width: 50px;\n    height: 50px;\n    border: 0;\n    background-color: #06C;\n    color: white;\n    border-radius: 50px;\n    margin:0 auto;\n}\n.title_input[data-v-50f5d45a] {\n    height: 3em;\n}\n.description_input[data-v-50f5d45a] {\n    height: 5em;\n}\n.title_input[data-v-50f5d45a], .description_input[data-v-50f5d45a] {\n    width: 60%;\n    margin:0 auto;\n}\n.button_box[data-v-50f5d45a] {\n    width: 100%;\n    display: flex;\n    justify-content:center;\n}\n#search[data-v-50f5d45a] {\n    position: relative;\n    margin-top: 20px;\n}\n.search[data-v-50f5d45a] {\n    display: flex;\n    flex-direction: column;\n    justify-content:center;\n    min-width: 1000px;\n}\n#keyword[data-v-50f5d45a] {\n    width: 220px;\n    height: 30px;\n    position: absolute;\n    top: 0; left: 0; bottom: 0; right: 0;\n    margin: auto;\n}\n", ""]);
 
 // exports
 
@@ -21348,7 +21363,7 @@ var render = function() {
               }
             ],
             attrs: {
-              width: "60px",
+              id: "keyword",
               type: "search",
               name: "keyword",
               placeholder: "请输入查找关键字 id, nickname"
@@ -21608,9 +21623,8 @@ var render = function() {
               }
             ],
             attrs: {
-              width: "60px",
+              id: "keyword",
               type: "search",
-              name: "keyword",
               placeholder: "请输入查找关键字 id, nickname"
             },
             domProps: { value: _vm.keyword },

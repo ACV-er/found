@@ -23,6 +23,7 @@ window.Vue = require('vue');
 Vue.component('show-post', require('./components/ShowPost.vue').default);
 Vue.component('show-manager', require('./components/ShowManager.vue').default);
 Vue.component('show-user', require('./components/ShowUser.vue').default);
+Vue.component('show-other', require('./components/ShowOther.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

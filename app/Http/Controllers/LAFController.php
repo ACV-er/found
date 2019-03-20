@@ -28,7 +28,8 @@
                 0 => '成功',
                 1 => '缺失参数',
                 3 => '错误访问',
-                4 => '未知错误'
+                4 => '未知错误',
+                12 => '包含敏感词'
             );
 
             $result = array(
@@ -51,11 +52,19 @@
         public function postList() // 获取帖子列表
         {
             $result = Post::query()->where('updated_at', '>', date('Y-m-d H:i:s', time() - 86400 * 7))//86400秒一天
-            ->where('solve', false)
-                ->orderBy('updated_at', 'desc')
-                ->get();
+            ->where('solve', false)->orderBy('updated_at', 'desc')->get()->toArray();
 
-            return $this->msg(0, $result);
+            $ids = array_column($result, 'user_id');
+
+            $nickname = User::query()->whereIn('id', $ids)->get(['id', 'nickname'])->toArray();
+            $nicknames = array();
+            foreach ($nickname as $item) {
+                $nicknames[$item['id']] = $item['nickname'];
+            }
+            return $this->msg(0, array(
+                'laf' => $result,
+                'nickname' => $nicknames
+            ));
         }
 
         protected function saveImg(UploadedFile $file = null) //保存图片
@@ -80,6 +89,8 @@
         private function dataHandle(Request $request = null) //处理帖子信息
         {
 
+            $dfa = new \DFA();
+
             // 在发布的时候可以更新个人信息 诡异写法, 本人拒绝
             $mod = array(
                 'nickname' => '/^[^\s]{2,30}$/',
@@ -88,6 +99,7 @@
                 'wx' => '/(^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$)|(^$)/',
                 'class' => '/(^[^\s]{5,60}$)|(^$)/'
             );
+
             if (!$request->has(['nickname', 'qq', 'wx', 'phone', 'class'])) {
                 return $this->msg(1, __LINE__);
             }
@@ -102,6 +114,13 @@
             if (!$this->check($mod, $data)) {
                 return $this->msg(3, '数据格式错误' . __LINE__);
             };
+
+            // 检测敏感词
+            $nickname = $dfa->check($data['nickname']."");
+            $class = $dfa->check($data['class']."");
+            if($nickname !== true || $class !== true) {
+                return $this->msg(12,  $nickname."\n".$class);
+            }
 
             $user = User::query()->where('id', $request->session()->get('id'))->update($data);
 
@@ -133,6 +152,13 @@
             if ($data['date'] > date('Y-m-d H:i:s', time())) {
                 return $this->msg(3, '数据格式错误' . __LINE__);
             }
+
+            $title = $dfa->check($data['title']);
+            $description = $dfa->check($data['description']);
+            if($title !== true || $description !== true) {
+                return $this->msg(12,  $title."\n".$description);
+            }
+
             if ($request->hasFile('img')) {
                 $path = $this->saveImg($request->file('img'));
                 if (!$path) {
@@ -156,7 +182,7 @@
             $result = new Post($data);
             $result = $result->save();
 
-            if($result){
+            if ($result) {
                 session(['time' => time()]); //防止重复提交
 
                 return $this->msg(0, $result);
@@ -205,7 +231,8 @@
             return $result ? $this->msg(0, null) : $this->msg(3, __LINE__);
         }
 
-        public function search(Request $request) {
+        public function search(Request $request)
+        {
             if (!$request->has(['keyword'])) {
                 return $this->msg(1, __LINE__);
             }
@@ -216,20 +243,31 @@
             if (!is_array($keyword) || count($keyword) > 5) {
                 return $this->msg(3, __LINE__);
             }
-            for($i=0; $i<count($keyword); $i++) {
-                $keyword[$i] = "%".$keyword[$i]."%";
+            for ($i = 0; $i < count($keyword); $i++) {
+                $keyword[$i] = "%" . $keyword[$i] . "%";
             }
-            for($i=count($keyword); $i<5; $i++) {
+            for ($i = count($keyword); $i < 5; $i++) {
                 $keyword[$i] = '%_%';
             }
             $result = Post::query()->whereRaw(
-                "concat(`address`,`title`,`description`) like ? AND ".
-                "concat(`address`,`title`,`description`) like ? AND ".
-                "concat(`address`,`title`,`description`) like ? AND ".
-                "concat(`address`,`title`,`description`) like ? AND ".
+                "concat(`address`,`title`,`description`) like ? AND " .
+                "concat(`address`,`title`,`description`) like ? AND " .
+                "concat(`address`,`title`,`description`) like ? AND " .
+                "concat(`address`,`title`,`description`) like ? AND " .
                 "concat(`address`,`title`,`description`) like ?",
-                $keyword)->get()->toArray();
+                $keyword)
+                ->where('updated_at', '>', date('Y-m-d H:i:s', time() - 86400 * 7))//86400秒一天
+                ->where('solve', false)->orderBy('updated_at', 'desc')->get()->toArray();
+            $ids = array_column($result, 'user_id');
 
-            return $this->msg(0, $result);
+            $nickname = User::query()->whereIn('id', $ids)->get(['id', 'nickname'])->toArray();
+            $nicknames = array();
+            foreach ($nickname as $item) {
+                $nicknames[$item['id']] = $item['nickname'];
+            }
+            return $this->msg(0, array(
+                'laf' => $result,
+                'nickname' => $nicknames
+            ));
         }
     }

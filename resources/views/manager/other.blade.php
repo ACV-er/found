@@ -2,13 +2,13 @@
 
 
 @section('activity')
-    #user {
+    #other {
         color: #06C;
     }
 @endsection
 @section('body')
     <div id="app">
-        <show-user></show-user>
+        <show-other></show-other>
     </div>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 @endsection

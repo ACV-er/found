@@ -175,4 +175,22 @@ class ManagerController extends Controller
         }
     }
 
+    public function addMgc(Request $request) {
+        $data = $request->only('keyword')['keyword'];
+        $data = json_decode($data);
+        $mgc = new \DFA();
+        foreach ($data as $item) {
+            $mgc->addWord($item);
+        }
+
+        return $this->msg(0, null);
+    }
+
+    public function initMgc() {
+        $a = new \DFA();
+        $a->init();
+
+        return $this->msg(0, null);
+    }
+
 }

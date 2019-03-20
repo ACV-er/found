@@ -32,7 +32,7 @@ var detail  = new Vue({
 					}
 				}
 				ajax.withCredentials = true;
-				ajax.open("GET", "http://found.myweb.com/finish/"+ localStorage.getItem("id"), true);//false同步    true异步
+				ajax.open("GET", "https://found.sky31.com/finish/"+ localStorage.getItem("id"), true);//false同步    true异步
 				ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				ajax.send();
 			},
@@ -69,7 +69,7 @@ function getuser(){
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "http://found.myweb.com/user/info", true);//false同步    true异步
+	ajax.open("GET", "https://found.sky31.com/user/info", true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 	
@@ -91,18 +91,17 @@ function getLaf(id){
 				return;
 			}
 			if(result.img!=null)
-				result.img ='http://found.myweb.com/upload/laf/' + result.img;
+				result.img ='https://found.sky31.com/upload/laf/' + result.img;
 			else
 				result.img ='../img/yuhan.jpg'
 			detail.information = result;
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "http://found.myweb.com/laf/"+ localStorage.getItem("id"), true);//false同步    true异步
+	ajax.open("GET", "https://found.sky31.com/laf/"+ localStorage.getItem("id"), true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 }
 window.onload = function(){
 	getuser();
-	
 }

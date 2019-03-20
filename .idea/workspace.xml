@@ -266,7 +266,7 @@
       <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="y" value="15" />
     <option name="width" value="800" />
     <option name="height" value="585" />
@@ -411,15 +411,15 @@
       <workItem from="1552793949890" duration="44000" />
       <workItem from="1552794210141" duration="23104000" />
       <workItem from="1553062105988" duration="8075000" />
-      <workItem from="1553086964261" duration="4813000" />
+      <workItem from="1553086964261" duration="4918000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234551000" />
+    <option name="totallyTimeSpent" value="234656000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1918" height="901" extended-state="6" />
+    <frame x="0" y="25" width="1918" height="901" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26256683" />

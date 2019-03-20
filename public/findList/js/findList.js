@@ -41,7 +41,7 @@ window.onload = function(){
 			for(var i=0;i<result.length;i++)
 			{
 				if(result[i].img != null)
-					result[i].img = "http://found.myweb.com/upload/laf/" + result[i].img;
+					result[i].img = "https://found.sky31.com/upload/laf/" + result[i].img;
 				else
 					result[i].img ='../img/yuhan.jpg';
 				result[i].time = result[i].updated_at.substr(5,5);
@@ -51,7 +51,7 @@ window.onload = function(){
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "http://found.myweb.com/laf", true);//false同步    true异步
+	ajax.open("GET", "https://found.sky31.com/laf", true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     

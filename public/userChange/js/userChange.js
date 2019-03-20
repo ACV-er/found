@@ -31,7 +31,7 @@ var head = new Vue({
 				}
 			}
 			ajax.withCredentials = true;
-			ajax.open("POST", "http://found.myweb.com/user/avatar", true);//false同步    true异步
+			ajax.open("POST", "https://found.sky31.com/user/avatar", true);//false同步    true异步
 			//ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			ajax.send(data);
      	},
@@ -117,7 +117,7 @@ var head = new Vue({
 				}
 			}
 			ajax.withCredentials = true;
-			ajax.open("POST", "http://found.myweb.com/user/update", true);//false同步    true异步
+			ajax.open("POST", "https://found.sky31.com/user/update", true);//false同步    true异步
 			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			ajax.send(data);
      	}
@@ -137,7 +137,7 @@ window.onload = function(){
 			}
 			else{
 				result = result.data;
-				head.imgUrl = 'http://found.myweb.com/upload/avatar/' + result.avatar;
+				head.imgUrl = 'https://found.sky31.com/upload/avatar/' + result.avatar;
 				head.nickname = result.nickname;
 				head.Class = result['class'];
 				head.qq = result.qq;
@@ -147,7 +147,7 @@ window.onload = function(){
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "http://found.myweb.com/user/info", true);//false同步    true异步
+	ajax.open("GET", "https://found.sky31.com/user/info", true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 }

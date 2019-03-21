@@ -70,18 +70,19 @@
         });
 
         Route::post('/user/search', 'UserController@searchUser');
-        Route::get('/user/laf/{id}', 'UserController@manager_getUserPost');
-        Route::get('/user/black/{id}', 'UserController@blackUser');
+        Route::get('/user/laf/{id}', 'UserController@manager_getUserPost')->where(["id"=>'[0-9]+']);
+        Route::get('/user/black/{id}', 'UserController@blackUser')->where(["id"=>'[0-9]+']);
 
         Route::post('/manager/add', 'ManagerController@managerAdd');
-        Route::get('/manager/delete/{id}', 'ManagerController@managerDelete');
+        Route::get('/manager/delete/{id}', 'ManagerController@managerDelete')->where(["id"=>'[0-9]+']);
         Route::get('/manager/list', 'ManagerController@managerList');
-        Route::post('manager/update/{id}', 'ManagerController@managerUpdate');
+        Route::post('manager/update/{id}', 'ManagerController@managerUpdate')->where(["id"=>'[0-9]+']);
 
-        Route::post('/manager/post/update/{id}', 'ManagerController@updatePost');
-        Route::get('/manager/post/delete/{id}', 'ManagerController@deletePost');
+        Route::post('/manager/post/update/{id}', 'ManagerController@updatePost')->where(["id"=>'[0-9]+']);
+        Route::get('/manager/post/delete/{id}', 'ManagerController@deletePost')->where(["id"=>'[0-9]+']);
 
         Route::post('/add/mgc', 'ManagerController@addMgc');
         Route::get('/init/mgc', 'ManagerController@initMgc');
+        Route::get('/posts/info/{time}', 'LAFController@postsInfo')->where(["time"=>'[0-9]+']); //路由参数 time 时间单位：天 返回统计信息
     });
 

@@ -4,6 +4,22 @@
     <list default="true" id="52ba9191-0ce8-4329-9c24-d31308c01ce5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LAFController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LAFController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/find/js/find.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/find/js/find.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/findDetail/js/findDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/findDetail/js/findDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/findList/js/findList.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/findList/js/findList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/getDetail/js/getDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/getDetail/js/getDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/getList/js/getList.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/getList/js/getList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/manager/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/manager/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/list/js/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/list/js/list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/login/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/login/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/update/js/update.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/update/js/update.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user/js/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/user/js/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/userChange/js/userChange.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/userChange/js/userChange.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ShowOther.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ShowOther.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ShowPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ShowPost.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,17 +49,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
-              <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
+            <state relative-caret-position="145">
+              <caret line="60" column="39" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LAFController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="138" column="55" lean-forward="true" selection-start-line="138" selection-start-column="55" selection-end-line="138" selection-end-column="55" />
+            <state relative-caret-position="258">
+              <caret line="59" column="48" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
               <folding>
                 <element signature="e#48#61#0#PHP" expanded="true" />
               </folding>
@@ -51,20 +67,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/ShowOther.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="306">
+              <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/ShowUser.vue">
+        <entry file="file://$PROJECT_DIR$/public/find/js/find.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4794">
-              <caret line="282" column="62" selection-start-line="282" selection-start-column="16" selection-end-line="282" selection-end-column="62" />
+            <state relative-caret-position="119">
+              <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -87,17 +103,19 @@
       <find>&quot;/^\d+$/&quot;</find>
       <find>User</find>
       <find>https://found.sky31.com</find>
-      <find>https://found.sky31</find>
       <find>getPost</find>
       <find>https:://found.sky31</find>
+      <find>https://found.sky31</find>
+      <find>x['stu_card']</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>'[0-9]+'</replace>
       <replace>Manager</replace>
       <replace>http://found.myweb.com</replace>
-      <replace>http://found.myweb</replace>
       <replace>getUserPost</replace>
+      <replace>http://found.myweb</replace>
+      <replace>Number(x['stu_card'])</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -149,17 +167,17 @@
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/ShowUser.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/ShowPost.vue" />
         <option value="$PROJECT_DIR$/resources/views/manager/user.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/manager/other.blade.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/public/mgc.json" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ManagerController.php" />
         <option value="$PROJECT_DIR$/app/helper/DFA.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/ShowOther.vue" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/ShowPost.vue" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/LAFController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/ShowOther.vue" />
       </list>
     </option>
   </component>
@@ -286,7 +304,38 @@
             <path>
               <item name="found" type="b2602c69:ProjectViewProjectNode" />
               <item name="found" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="found" type="b2602c69:ProjectViewProjectNode" />
+              <item name="found" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="found" type="b2602c69:ProjectViewProjectNode" />
+              <item name="found" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="found" type="b2602c69:ProjectViewProjectNode" />
+              <item name="found" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="found" type="b2602c69:ProjectViewProjectNode" />
+              <item name="found" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="find" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="found" type="b2602c69:ProjectViewProjectNode" />
+              <item name="found" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="find" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="found" type="b2602c69:ProjectViewProjectNode" />
@@ -408,18 +457,18 @@
       <workItem from="1552794210141" duration="23104000" />
       <workItem from="1553062105988" duration="8075000" />
       <workItem from="1553086964261" duration="4918000" />
-      <workItem from="1553100578486" duration="964000" />
+      <workItem from="1553100578486" duration="17931000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235620000" />
+    <option name="totallyTimeSpent" value="252587000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1918" height="901" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2657754" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2657754" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -434,7 +483,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50106955" side_tool="true" weight="0.25940338" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49893048" visible="true" weight="0.25940338" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49893048" visible="true" weight="0.25940338" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -467,20 +516,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Cookie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/vue.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -575,18 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/manager/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Manager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -653,16 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3454">
-          <caret line="216" column="36" selection-start-line="216" selection-start-column="36" selection-end-line="216" selection-end-column="36" />
-          <folding>
-            <element signature="e#49#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/ManagerCheck.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -674,13 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ShowPost.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1836">
-          <caret line="108" column="31" selection-start-line="108" selection-start-column="31" selection-end-line="108" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -764,34 +770,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/public/js/app.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
+        <state relative-caret-position="-306" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/manager/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/ShowUser.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4794">
-          <caret line="282" column="62" selection-start-line="282" selection-start-column="16" selection-end-line="282" selection-end-column="62" />
+        <state relative-caret-position="388">
+          <caret line="307" column="17" lean-forward="true" selection-start-line="297" selection-start-column="16" selection-end-line="307" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ShowOther.vue">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="2805">
+          <caret line="216" column="36" selection-start-line="216" selection-start-column="36" selection-end-line="216" selection-end-column="36" />
+          <folding>
+            <element signature="e#49#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/find/js/find.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ShowPost.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="65" column="21" lean-forward="true" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="60" column="39" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LAFController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="138" column="55" lean-forward="true" selection-start-line="138" selection-start-column="55" selection-end-line="138" selection-end-column="55" />
+        <state relative-caret-position="258">
+          <caret line="59" column="48" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
           <folding>
             <element signature="e#48#61#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ShowOther.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="71" column="43" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
         </state>
       </provider>
     </entry>

@@ -122,7 +122,7 @@ var head = new Vue({
 			}
 			}
 			ajax.withCredentials = true;
-			ajax.open("POST", "https://found.sky31.com/update/"+localStorage.getItem('id'), true);//false同步    true异步
+			ajax.open("POST", "http://found.myweb.com/update/"+localStorage.getItem('id'), true);//false同步    true异步
 			//ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			ajax.send(data);
 		}
@@ -142,11 +142,11 @@ function loadForm(){
 			head.addrss = result.address;
 			head.title = result.title;
 			head.description = result.description;
-			head.src='https://found.sky31.com/upload/laf/' + result.img;
+			head.src='http://found.myweb.com/upload/laf/' + result.img;
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "https://found.sky31.com/laf/"+localStorage.getItem('id'), true);//false同步    true异步
+	ajax.open("GET", "http://found.myweb.com/laf/"+localStorage.getItem('id'), true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 }
@@ -179,7 +179,7 @@ window.onload = function(){
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "https://found.sky31.com/user/info", true);//false同步    true异步
+	ajax.open("GET", "http://found.myweb.com/user/info", true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 	loadForm();

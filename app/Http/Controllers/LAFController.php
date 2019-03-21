@@ -6,6 +6,7 @@
     use Illuminate\Http\Request;
     use App\User;
 
+    use Illuminate\Support\Facades\DB;
     use Symfony\Component\HttpFoundation\File\UploadedFile;
 
     class LAFController extends Controller
@@ -116,10 +117,10 @@
             };
 
             // 检测敏感词
-            $nickname = $dfa->check($data['nickname']."");
-            $class = $dfa->check($data['class']."");
-            if($nickname !== true || $class !== true) {
-                return $this->msg(12,  $nickname."\n".$class);
+            $nickname = $dfa->check($data['nickname'] . "");
+            $class = $dfa->check($data['class'] . "");
+            if ($nickname !== true || $class !== true) {
+                return $this->msg(12, $nickname . "\n" . $class);
             }
 
             $user = User::query()->where('id', $request->session()->get('id'))->update($data);
@@ -155,8 +156,8 @@
 
             $title = $dfa->check($data['title']);
             $description = $dfa->check($data['description']);
-            if($title !== true || $description !== true) {
-                return $this->msg(12,  $title."\n".$description);
+            if ($title !== true || $description !== true) {
+                return $this->msg(12, $title . "\n" . $description);
             }
 
             if ($request->hasFile('img')) {
@@ -269,5 +270,17 @@
                 'laf' => $result,
                 'nickname' => $nicknames
             ));
+        }
+
+        public function postsInfo(Request $request)
+        {
+            $time = $request->route('time');
+
+
+            // 返回分析需要的数据  失误or招领 地点 是否解决 是否校园卡
+            $post = DB::select('select count(`id`) as count,`type`,`address`,sum(`solve`) as solve,sum(`stu_card`) as stu_card from posts ' .
+                'where created_at > ? Group By address,type', [date('Y-m-d H:i:s',time() - 86400 * $time)]);
+
+            return $this->msg(0, $post);
         }
     }

@@ -194,7 +194,7 @@
                 let ajax = new XMLHttpRequest();
                 ajax.onreadystatechange = function () {
                     if (ajax.readyState === 4 && ajax.status === 200) {
-                        obj.posts = JSON.parse(ajax.responseText).data;
+                        obj.posts = JSON.parse(ajax.responseText).data['laf'];
                     }
                 };
                 ajax.open("GET", "http://found.myweb.com/laf", true);//false同步    true异步
@@ -208,7 +208,7 @@
                         if( data.data.length ===  0) {
                             alert("没有相关发布");
                         }
-                        this.posts=data.data;
+                        this.posts=data.data['laf'];
                     } else {
                         alert('失败' + data.status + '\n' + data.data);
                     }

@@ -2500,7 +2500,7 @@ __webpack_require__.r(__webpack_exports__);
 
       ajax.onreadystatechange = function () {
         if (ajax.readyState === 4 && ajax.status === 200) {
-          obj.posts = JSON.parse(ajax.responseText).data;
+          obj.posts = JSON.parse(ajax.responseText).data['laf'];
         }
       };
 
@@ -2521,7 +2521,7 @@ __webpack_require__.r(__webpack_exports__);
             alert("没有相关发布");
           }
 
-          _this.posts = data.data;
+          _this.posts = data.data['laf'];
         } else {
           alert('失败' + data.status + '\n' + data.data);
         }

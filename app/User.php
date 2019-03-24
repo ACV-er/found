@@ -47,7 +47,8 @@
                 'qq' => $this->qq,
                 'wx' => $this->wx,
                 'phone' => $this->phone,
-                'avatar' => $this->avatar
+                'avatar' => $this->avatar,
+                'black' => $this->black
             );
 
             return $result;

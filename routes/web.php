@@ -31,14 +31,15 @@
 
             Route::get('/user/info', 'UserController@getUserInfo');
             Route::post('/user/avatar', 'UserController@saveAvatar');
+            Route::group(['middleware' => 'banCheck'], function (){
+                Route::match(['get', 'post'], '/mark/{id}', 'LAFController@markPost')->where(["id"=>'[0-9]+']);
 
-            Route::match(['get', 'post'], '/mark/{id}', 'LAFController@markPost')->where(["id"=>'[0-9]+']);
+                Route::post('/submit', 'LAFController@submitPost')->middleware('deduplicate');
 
-            Route::post('/submit', 'LAFController@submitPost')->middleware('deduplicate');
+                Route::post('/update/{id}', 'LAFController@updatePost')->where(["id"=>'[0-9]+']);
 
-            Route::post('/update/{id}', 'LAFController@updatePost')->where(["id"=>'[0-9]+']);
-
-            Route::match(['get', 'post'], '/finish/{id}', 'LAFController@finishPost')->where(["id"=>'[0-9]+']);
+                Route::match(['get', 'post'], '/finish/{id}', 'LAFController@finishPost')->where(["id"=>'[0-9]+']);
+            });
         });
 
     });

@@ -61,7 +61,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'cookie' => \App\Http\Middleware\Cookie::class,
-        'checkInfo' => \App\Http\Middleware\completeInfo::class,
+        'banCheck' => \App\Http\Middleware\banCheck::class,
         'loginCheck' => \App\Http\Middleware\loginCheck::class,
         'deduplicate' => \App\Http\Middleware\Deduplicate::class,
         'managerCheck' => \App\Http\Middleware\ManagerCheck::class,

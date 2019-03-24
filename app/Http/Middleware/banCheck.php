@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use App\User;
 
-class completeInfo
+class banCheck
 {
     /**
      * Handle an incoming request.
@@ -20,7 +20,7 @@ class completeInfo
             1 => '缺失参数',
             2 => '错误访问',
             6 => '未登录',
-            7 => '未完善信息'
+            7 => '已被拉黑，请联系管理员'
         );
 
         $result = array(
@@ -39,7 +39,7 @@ class completeInfo
         }
 
         $info = User::query()->where('id', session('id'))->first();
-        if($info->qq == null && $info->wx == null && $info->pnone == null) {
+        if($info->black > 1) {
             return response($this->msg(7, __LINE__), 200);
         }
 

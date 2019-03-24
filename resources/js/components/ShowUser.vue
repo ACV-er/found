@@ -160,7 +160,8 @@
                     <th>{{ user.wx }}</th>
                     <th>{{ user.black }}</th>
                     <th>
-                        <div class="operate" v-on:click="black(user.id)">拉黑</div> |
+                        <div v-if="users>1" class="operate" v-on:click="black(user.id)">拉黑</div>
+                        <div v-else class="operate" v-on:click="black(user.id)">拉黑</div> |
                         <div class="operate" v-on:click="getUserPost(user.id)">查看该用户所有帖子</div>
                     </th>
                 </tr>

@@ -13,7 +13,8 @@
         "ext-curl": "*",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "ext-gd": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -42,7 +43,8 @@
             "database/factories"
         ],
         "files": [
-            "app/helper/DFA.php"
+            "app/helper/DFA.php",
+            "app/helper/compress.php"
         ]
     },
     "autoload-dev": {

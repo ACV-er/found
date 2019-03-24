@@ -1930,6 +1930,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2037,6 +2047,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2305,6 +2325,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2807,6 +2837,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2945,7 +2985,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.operate[data-v-6e6a68d5] {\n    display: inline-block;\n    margin: 0 5px;\n    font-size: 12px;\n    color: rgb(0, 193, 222);\n    cursor: pointer;\n}\n.operate[data-v-6e6a68d5]:hover {\n    color: rgb(0, 177, 205);\n}\n.operate[data-v-6e6a68d5]:active {\n    color: rgb(0, 104, 128);\n}\nth[data-v-6e6a68d5] {\n    color: rgb(102, 102, 102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntable[data-v-6e6a68d5] {\n    display: inline-block;\n    margin-top: 40px;\n}\n.main[data-v-6e6a68d5] {\n    display: flex;\n    justify-content: center;\n    min-width: 1000px;\n}\n.add[data-v-6e6a68d5] {\n    position: fixed;\n    top: 0; right: 0; bottom: 0; left: 0;\n    display: flex;\n    justify-content:center;\n    background-color: rgba(0,0,0,.3);\n    color: rgb(42,62,80);\n}\n.m-add[data-v-6e6a68d5] {\n    position: absolute;\n    margin: auto;\n    top: 0; right: 0; bottom: 0; left: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n\n    width: 500px;\n    height: 300px;\n    background-color: white;\n    border-radius: 5px;\n}\n.from_button[data-v-6e6a68d5] {\n    width: 50px;\n    height: 50px;\n    border: 0;\n    background-color: #06C;\n    color: white;\n    border-radius: 50px;\n    margin:0 auto;\n}\n.input[data-v-6e6a68d5] {\n    display: block;\n    width: 60%;\n    height: 40px;\n    border: #656565 solid 1px;\n    border-radius: 5px;\n    margin: 0 100px;\n}\n.button_box[data-v-6e6a68d5] {\n    width: 100%;\n    display: flex;\n    justify-content:center;\n}\n.add_button[data-v-6e6a68d5] {\n    display: flex;\n    justify-content:center;\n}\n#add[data-v-6e6a68d5] {\n    width: 80px;\n    height: 40px;\n    border: 0px;\n    border-radius: 5px;\n    background-color: #0094fd;\n}\n.select[data-v-6e6a68d5] {\n    display: block;\n    margin: 0 auto;\n}\n", ""]);
+exports.push([module.i, "\n.operate[data-v-6e6a68d5] {\n    display: inline-block;\n    margin: 0 5px;\n    font-size: 12px;\n    color: rgb(0, 193, 222);\n    cursor: pointer;\n}\n.operate[data-v-6e6a68d5]:hover {\n    color: rgb(0, 177, 205);\n}\n.operate[data-v-6e6a68d5]:active {\n    color: rgb(0, 104, 128);\n}\nth[data-v-6e6a68d5] {\n    color: rgb(102, 102, 102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntr[data-v-6e6a68d5]:nth-child(odd), tr:nth-child(odd)>th[data-v-6e6a68d5]{\n    background-color: rgb(255,255,255);\n}\ntr[data-v-6e6a68d5]:nth-child(even), tr:nth-child(even)>th[data-v-6e6a68d5]{\n    background-color: rgb(242,242,242);\n}\ntable[data-v-6e6a68d5] {\n    display: inline-block;\n    border-collapse:collapse;\n    margin-top: 40px;\n}\n.main[data-v-6e6a68d5] {\n    display: flex;\n    justify-content: center;\n    min-width: 1000px;\n}\n.add[data-v-6e6a68d5] {\n    position: fixed;\n    top: 0; right: 0; bottom: 0; left: 0;\n    display: flex;\n    justify-content:center;\n    background-color: rgba(0,0,0,.3);\n    color: rgb(42,62,80);\n}\n.m-add[data-v-6e6a68d5] {\n    position: absolute;\n    margin: auto;\n    top: 0; right: 0; bottom: 0; left: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n\n    width: 500px;\n    height: 300px;\n    background-color: white;\n    border-radius: 5px;\n}\n.from_button[data-v-6e6a68d5] {\n    width: 50px;\n    height: 50px;\n    border: 0;\n    background-color: #06C;\n    color: white;\n    border-radius: 50px;\n    margin:0 auto;\n}\n.input[data-v-6e6a68d5] {\n    display: block;\n    width: 60%;\n    height: 40px;\n    border: #656565 solid 1px;\n    border-radius: 5px;\n    margin: 0 100px;\n}\n.button_box[data-v-6e6a68d5] {\n    width: 100%;\n    display: flex;\n    justify-content:center;\n}\n.add_button[data-v-6e6a68d5] {\n    display: flex;\n    justify-content:center;\n}\n#add[data-v-6e6a68d5] {\n    width: 80px;\n    height: 40px;\n    border: 0px;\n    border-radius: 5px;\n    background-color: #0094fd;\n}\n.select[data-v-6e6a68d5] {\n    display: block;\n    margin: 0 auto;\n}\n", ""]);
 
 // exports
 
@@ -2964,7 +3004,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody[data-v-d8f51a90] {\n    min-width: 1000px;\n}\nth[data-v-d8f51a90] {\n    color: rgb(102,102,102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntable[data-v-d8f51a90] {\n    display: inline-block;\n    margin-top: 40px;\n}\nform[data-v-d8f51a90] {\n    margin-right: 0;\n}\n.main[data-v-d8f51a90] {\n    display: flex;\n    justify-content:center;\n    min-width: 1000px;\n}\n#refresh[data-v-d8f51a90], #add[data-v-d8f51a90] {\n    position: relative;\n    margin-top: 20px;\n    margin-right: 0;\n    width: 48%;\n    height: 80px;\n}\n#refresh[data-v-d8f51a90] {\n    width: 48%;\n}\n.add[data-v-d8f51a90] {\n    display: flex;\n    justify-content:center;\n    margin-right: 0;\n    width: 100%;\n}\n#keyword[data-v-d8f51a90] {\n    width: 300px;\n    height: 30px;\n    position: absolute;\n    top: 0; left: 0; right: 0;\n    margin: auto;\n    border: rgb(102,102,102) solid 1px;\n    border-radius: 3px;\n}\n#time[data-v-d8f51a90] {\n    width: 50px;\n    height: 18px;\n    position: absolute;\n    top: 0; left: 0; right: 0;\n    margin: auto;\n}\n.button[data-v-d8f51a90], #button[data-v-d8f51a90] {\n    width: 60px;\n    height: 30px;\n    position: absolute;\n    left: 0; bottom: 0; right: 0;\n    margin: auto;\n    border: rgb(102,102,102) solid 1px;\n    border-radius: 3px;\n    background-color: rgb(254,254,254);\n}\n.button[data-v-d8f51a90] {\n    width: 120px;\n    bottom: 6px;\n}\n.bigHead[data-v-d8f51a90] {\n    font-size: 20px;\n}\n", ""]);
+exports.push([module.i, "\nbody[data-v-d8f51a90] {\n    min-width: 1000px;\n}\nth[data-v-d8f51a90] {\n    color: rgb(102,102,102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntr[data-v-d8f51a90]:nth-child(odd), tr:nth-child(odd)>th[data-v-d8f51a90]{\n    background-color: rgb(255,255,255);\n}\ntr[data-v-d8f51a90]:nth-child(even), tr:nth-child(even)>th[data-v-d8f51a90]{\n    background-color: rgb(242,242,242);\n}\ntable[data-v-d8f51a90] {\n    display: inline-block;\n    border-collapse:collapse;\n    margin-top: 40px;\n}\nform[data-v-d8f51a90] {\n    margin-right: 0;\n}\n.main[data-v-d8f51a90] {\n    display: flex;\n    justify-content:center;\n    min-width: 1000px;\n}\n#refresh[data-v-d8f51a90], #add[data-v-d8f51a90] {\n    position: relative;\n    margin-top: 20px;\n    margin-right: 0;\n    width: 48%;\n    height: 80px;\n}\n#refresh[data-v-d8f51a90] {\n    width: 48%;\n}\n.add[data-v-d8f51a90] {\n    display: flex;\n    justify-content:center;\n    margin-right: 0;\n    width: 100%;\n}\n#keyword[data-v-d8f51a90] {\n    width: 300px;\n    height: 30px;\n    position: absolute;\n    top: 0; left: 0; right: 0;\n    margin: auto;\n    border: rgb(102,102,102) solid 1px;\n    border-radius: 3px;\n}\n#time[data-v-d8f51a90] {\n    width: 50px;\n    height: 18px;\n    position: absolute;\n    top: 0; left: 0; right: 0;\n    margin: auto;\n}\n.button[data-v-d8f51a90], #button[data-v-d8f51a90] {\n    width: 60px;\n    height: 30px;\n    position: absolute;\n    left: 0; bottom: 0; right: 0;\n    margin: auto;\n    border: rgb(102,102,102) solid 1px;\n    border-radius: 3px;\n    background-color: rgb(254,254,254);\n}\n.button[data-v-d8f51a90] {\n    width: 120px;\n    bottom: 6px;\n}\n.bigHead[data-v-d8f51a90] {\n    font-size: 20px;\n}\n", ""]);
 
 // exports
 
@@ -2983,7 +3023,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.operate[data-v-14865028] {\n    display: inline-block;\n    margin: 0 5px;\n    font-size: 12px;\n    color: rgb(0,193,222);\n    cursor:pointer;\n}\n.operate[data-v-14865028]:hover {\n    color: rgb(0, 177, 205);\n}\n.operate[data-v-14865028]:active {\n    color: rgb(0, 104, 128);\n}\nth[data-v-14865028] {\n    color: rgb(102,102,102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntable[data-v-14865028] {\n    display: inline-block;\n    margin-top: 40px;\n}\n.main[data-v-14865028] {\n    display: flex;\n    justify-content:center;\n    min-width: 1000px;\n}\n.title[data-v-14865028] {\n    max-width: 100px;\n}\n.description[data-v-14865028] {\n    max-width: 200px;\n}\n.title[data-v-14865028], .description[data-v-14865028] {\n    white-space:nowrap;\n    text-overflow:ellipsis;\n    overflow:hidden;\n}\n.allInfo[data-v-14865028] {\n    position: fixed;\n    top: 0; right: 0; bottom: 0; left: 0;\n    display: flex;\n    justify-content:center;\n    background-color: rgba(0,0,0,.3);\n}\n.m-allInfo[data-v-14865028] {\n    position: absolute;\n    margin: auto;\n    top: 0; right: 0; bottom: 0; left: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n\n    width: 500px;\n    height: 300px;\n    background-color: white;\n    border-radius: 5px;\n}\n.from_button[data-v-14865028] {\n    width: 50px;\n    height: 50px;\n    border: 0px;\n    background-color: #06C;\n    color: white;\n    border-radius: 50px;\n    margin:0 auto;\n}\n.title_input[data-v-14865028] {\n    height: 3em;\n}\n.description_input[data-v-14865028] {\n    height: 5em;\n}\n.title_input[data-v-14865028], .description_input[data-v-14865028] {\n    width: 60%;\n    margin:0 auto;\n}\n.button_box[data-v-14865028] {\n    width: 100%;\n    display: flex;\n    justify-content:center;\n}\n#search[data-v-14865028] {\n    position: relative;\n    margin-top: 20px;\n}\n.search[data-v-14865028] {\n    display: flex;\n    flex-direction: column;\n    justify-content:center;\n    min-width: 1000px;\n}\n#keyword[data-v-14865028] {\n    width: 220px;\n    height: 30px;\n    position: absolute;\n    top: 0; left: 0; bottom: 0; right: 0;\n    margin: auto;\n}\n", ""]);
+exports.push([module.i, "\n.operate[data-v-14865028] {\n    display: inline-block;\n    margin: 0 5px;\n    font-size: 12px;\n    color: rgb(0,193,222);\n    cursor:pointer;\n}\n.operate[data-v-14865028]:hover {\n    color: rgb(0, 177, 205);\n}\n.operate[data-v-14865028]:active {\n    color: rgb(0, 104, 128);\n}\nth[data-v-14865028] {\n    color: rgb(102,102,102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntr[data-v-14865028]:nth-child(odd), tr:nth-child(odd)>th[data-v-14865028]{\n    background-color: rgb(255,255,255);\n}\ntr[data-v-14865028]:nth-child(even), tr:nth-child(even)>th[data-v-14865028]{\n    background-color: rgb(242,242,242);\n}\ntable[data-v-14865028] {\n    display: inline-block;\n    border-collapse:collapse;\n    margin-top: 40px;\n}\n.main[data-v-14865028] {\n    display: flex;\n    justify-content:center;\n    min-width: 1000px;\n}\n.title[data-v-14865028] {\n    max-width: 100px;\n}\n.description[data-v-14865028] {\n    max-width: 200px;\n}\n.title[data-v-14865028], .description[data-v-14865028] {\n    white-space:nowrap;\n    text-overflow:ellipsis;\n    overflow:hidden;\n}\n.allInfo[data-v-14865028] {\n    position: fixed;\n    top: 0; right: 0; bottom: 0; left: 0;\n    display: flex;\n    justify-content:center;\n    background-color: rgba(0,0,0,.3);\n}\n.m-allInfo[data-v-14865028] {\n    position: absolute;\n    margin: auto;\n    top: 0; right: 0; bottom: 0; left: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n\n    width: 500px;\n    height: 300px;\n    background-color: white;\n    border-radius: 5px;\n}\n.from_button[data-v-14865028] {\n    width: 50px;\n    height: 50px;\n    border: 0px;\n    background-color: #06C;\n    color: white;\n    border-radius: 50px;\n    margin:0 auto;\n}\n.title_input[data-v-14865028] {\n    height: 3em;\n}\n.description_input[data-v-14865028] {\n    height: 5em;\n}\n.title_input[data-v-14865028], .description_input[data-v-14865028] {\n    width: 60%;\n    margin:0 auto;\n}\n.button_box[data-v-14865028] {\n    width: 100%;\n    display: flex;\n    justify-content:center;\n}\n#search[data-v-14865028] {\n    position: relative;\n    margin-top: 20px;\n}\n.search[data-v-14865028] {\n    display: flex;\n    flex-direction: column;\n    justify-content:center;\n    min-width: 1000px;\n}\n#keyword[data-v-14865028] {\n    width: 220px;\n    height: 30px;\n    position: absolute;\n    top: 0; left: 0; bottom: 0; right: 0;\n    margin: auto;\n}\n", ""]);
 
 // exports
 
@@ -3002,7 +3042,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.operate[data-v-50f5d45a] {\n    display: inline-block;\n    margin: 0 5px;\n    font-size: 12px;\n    color: rgb(0,193,222);\n    cursor:pointer;\n}\n.operate[data-v-50f5d45a]:hover {\n    color: rgb(0, 177, 205);\n}\n.operate[data-v-50f5d45a]:active {\n    color: rgb(0, 104, 128);\n}\nth[data-v-50f5d45a] {\n    color: rgb(102,102,102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntable[data-v-50f5d45a] {\n    display: inline-block;\n    margin-top: 40px;\n}\n.main[data-v-50f5d45a] {\n    display: flex;\n    justify-content:center;\n    min-width: 1000px;\n}\n.title[data-v-50f5d45a] {\n    max-width: 100px;\n}\n.description[data-v-50f5d45a] {\n    max-width: 200px;\n}\n.title[data-v-50f5d45a], .description[data-v-50f5d45a] {\n    white-space:nowrap;\n    text-overflow:ellipsis;\n    overflow:hidden;\n}\n.allInfo[data-v-50f5d45a] {\n    position: fixed;\n    top: 0; right: 0; bottom: 0; left: 0;\n    display: flex;\n    justify-content:center;\n    background-color: rgba(0,0,0,.3);\n}\n.m-allInfo[data-v-50f5d45a] {\n    position: absolute;\n    margin: auto;\n    top: 0; right: 0; bottom: 0; left: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n\n    width: 500px;\n    height: 300px;\n    background-color: white;\n    border-radius: 5px;\n}\n.from_button[data-v-50f5d45a] {\n    width: 50px;\n    height: 50px;\n    border: 0;\n    background-color: #06C;\n    color: white;\n    border-radius: 50px;\n    margin:0 auto;\n}\n.title_input[data-v-50f5d45a] {\n    height: 3em;\n}\n.description_input[data-v-50f5d45a] {\n    height: 5em;\n}\n.title_input[data-v-50f5d45a], .description_input[data-v-50f5d45a] {\n    width: 60%;\n    margin:0 auto;\n}\n.button_box[data-v-50f5d45a] {\n    width: 100%;\n    display: flex;\n    justify-content:center;\n}\n#search[data-v-50f5d45a] {\n    position: relative;\n    margin-top: 20px;\n}\n.search[data-v-50f5d45a] {\n    display: flex;\n    flex-direction: column;\n    justify-content:center;\n    min-width: 1000px;\n}\n#keyword[data-v-50f5d45a] {\n    width: 220px;\n    height: 30px;\n    position: absolute;\n    top: 0; left: 0; bottom: 0; right: 0;\n    margin: auto;\n}\n", ""]);
+exports.push([module.i, "\n.operate[data-v-50f5d45a] {\n    display: inline-block;\n    margin: 0 5px;\n    font-size: 12px;\n    color: rgb(0,193,222);\n    cursor:pointer;\n}\n.operate[data-v-50f5d45a]:hover {\n    color: rgb(0, 177, 205);\n}\n.operate[data-v-50f5d45a]:active {\n    color: rgb(0, 104, 128);\n}\nth[data-v-50f5d45a] {\n    color: rgb(102,102,102);\n    font-size: 12px;\n    padding: 5px 10px 5px 4px;\n}\ntr[data-v-50f5d45a]:nth-child(odd), tr:nth-child(odd)>th[data-v-50f5d45a]{\n    background-color: rgb(255,255,255);\n}\ntr[data-v-50f5d45a]:nth-child(even), tr:nth-child(even)>th[data-v-50f5d45a]{\n    background-color: rgb(242,242,242);\n}\ntable[data-v-50f5d45a] {\n    display: inline-block;\n    border-collapse:collapse;\n    margin-top: 40px;\n}\n.main[data-v-50f5d45a] {\n    display: flex;\n    justify-content:center;\n    min-width: 1000px;\n}\n.title[data-v-50f5d45a] {\n    max-width: 100px;\n}\n.description[data-v-50f5d45a] {\n    max-width: 200px;\n}\n.title[data-v-50f5d45a], .description[data-v-50f5d45a] {\n    white-space:nowrap;\n    text-overflow:ellipsis;\n    overflow:hidden;\n}\n.allInfo[data-v-50f5d45a] {\n    position: fixed;\n    top: 0; right: 0; bottom: 0; left: 0;\n    display: flex;\n    justify-content:center;\n    background-color: rgba(0,0,0,.3);\n}\n.m-allInfo[data-v-50f5d45a] {\n    position: absolute;\n    margin: auto;\n    top: 0; right: 0; bottom: 0; left: 0;\n\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n\n    width: 500px;\n    height: 300px;\n    background-color: white;\n    border-radius: 5px;\n}\n.from_button[data-v-50f5d45a] {\n    width: 50px;\n    height: 50px;\n    border: 0;\n    background-color: #06C;\n    color: white;\n    border-radius: 50px;\n    margin:0 auto;\n}\n.title_input[data-v-50f5d45a] {\n    height: 3em;\n}\n.description_input[data-v-50f5d45a] {\n    height: 5em;\n}\n.title_input[data-v-50f5d45a], .description_input[data-v-50f5d45a] {\n    width: 60%;\n    margin:0 auto;\n}\n.button_box[data-v-50f5d45a] {\n    width: 100%;\n    display: flex;\n    justify-content:center;\n}\n#search[data-v-50f5d45a] {\n    position: relative;\n    margin-top: 20px;\n}\n.search[data-v-50f5d45a] {\n    display: flex;\n    flex-direction: column;\n    justify-content:center;\n    min-width: 1000px;\n}\n#keyword[data-v-50f5d45a] {\n    width: 220px;\n    height: 30px;\n    position: absolute;\n    top: 0; left: 0; bottom: 0; right: 0;\n    margin: auto;\n}\n", ""]);
 
 // exports
 

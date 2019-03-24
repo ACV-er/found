@@ -9,9 +9,19 @@
         padding: 5px 10px 5px 4px;
     }
 
+    tr:nth-child(odd), tr:nth-child(odd)>th{
+        background-color: rgb(255,255,255);
+    }
+
+    tr:nth-child(even), tr:nth-child(even)>th{
+        background-color: rgb(242,242,242);
+    }
+
     table {
         display: inline-block;
+        border-collapse:collapse;
         margin-top: 40px;
+
     }
 
     form {

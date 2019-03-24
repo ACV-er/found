@@ -80,7 +80,7 @@
                 $savePath = public_path() . '/upload/laf';
                 $filename = time() . rand(0, 100) . '.' . $extension;
                 $file->move($savePath, $filename);
-
+                compress($savePath."/".$filename);
                 return $filename;
             } else {
                 return false;

@@ -139,6 +139,7 @@
                 $savePath = public_path() . '/upload/avatar';
                 $filename = session('id') . '.jpg';
                 $file->move($savePath, $filename);
+                compress($savePath."/".$filename);
                 User::query()->where('id', session('id'))->update(['avatar' => $filename]);
                 return $this->msg(0, '成功');
             } else {

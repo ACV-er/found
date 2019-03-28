@@ -97,7 +97,7 @@
                 'nickname' => '/^[^\s]{2,30}$/',
                 'phone' => '/(^1[0-9]{10}$)|(^$)/', //后面的 |(^$) 用来匹配 null
                 'qq' => '/(^[0-9]{5,13}$)|(^$)/',
-                'wx' => '/(^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$)|(^$)/',
+                'wx' => '/(^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$)|(^1[0-9]{10}$)|(^$)/',
                 'class' => '/(^[^\s]{5,60}$)|(^$)/'
             );
 
@@ -169,6 +169,15 @@
             }
 
             $data['user_id'] = session('id');
+            if($data['stu_card'] === '1' && $data['type'] === '0') { //推送至校园卡丢失者手机
+                $api_url = "https://api.sky31.com/GongGong/set_lost_found_notice.php";
+                $api_url = $api_url . "?role=" . env('ROLE') . '&hash=' . env('HASH') . '&sid=' . $data['card_id'] . '&opt=push';
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $api_url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_exec($ch);
+                curl_close($ch);
+            }
 
             return $data;
         }
@@ -215,6 +224,18 @@
             $result = Post::query()->where('id', $request->route('id'))->first();
             if (!$result->user_id == session('id')) {
                 return $this->msg(3, __LINE__);
+            }
+
+            if($result->stu_card === 1 && $result->type === 0) {
+
+                $data['card_id'] = $result->card_id;
+                $api_url = "https://api.sky31.com/GongGong/set_lost_found_notice.php";
+                $api_url = $api_url . "?role=" . env('ROLE') . '&hash=' . env('HASH') . '&sid=' . $data['card_id'] . '&opt=cancel';
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $api_url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_exec($ch);
+                curl_close($ch);
             }
             $result = $result->update(["solve" => true]);
 

@@ -160,7 +160,7 @@
                     <th>{{ user.wx }}</th>
                     <th>{{ user.black }}</th>
                     <th>
-                        <div v-if="users>1" class="operate" v-on:click="black(user.id)">拉黑</div>
+                        <div v-if="user.black > 1" class="operate" v-on:click="unblack(user.id)">取消拉黑</div>
                         <div v-else class="operate" v-on:click="black(user.id)">拉黑</div> |
                         <div class="operate" v-on:click="getUserPost(user.id)">查看该用户所有帖子</div>
                     </th>
@@ -309,6 +309,19 @@
                 let r=confirm("你确认拉黑么?");
                 if (r === true){
                     window.axios.get('http://found.myweb.com/user/black/' + id).then(({ data }) => {
+                        if(data.code === 0) {
+                            this.search();
+                            alert('成功');
+                        } else {
+                            alert(data.status + '\n' + data.data);
+                        }
+                    });
+                }
+            },
+            unblack(id) {
+                let r=confirm("你确认取消拉黑么?");
+                if (r === true){
+                    window.axios.get('http://found.myweb.com/user/unblack/' + id).then(({ data }) => {
                         if(data.code === 0) {
                             this.search();
                             alert('成功');

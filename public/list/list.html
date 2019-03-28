@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
+		<title>翼起找呀-物品列表</title>
 		<script src="../js/mui.min.js"></script>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
 	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -22,18 +22,17 @@
 		</div>
 		<div id="detail">
 			<section class="markDetail" v-for="item in detail" >
-				<a href="#">
-					<img v-bind:src="item.img" / >
-					<div @click="getId" v-bind:data-id = "item.id" v-bind:data-type="item.type">
-						<span v-bind:data-id = "item.id" v-bind:data-type="item.type">{{item.title}}</span>
-						<p v-bind:data-id = "item.id" v-bind:data-type="item.type"> 时间：{{item.date}}</p>
-						<p v-bind:data-id = "item.id" v-bind:data-type="item.type"> 发布者：{{item.user_id}}</p>
-					</div>
-					
-				</a>
+				<img v-bind:src="item.img" v-bind:data-id = "item.id" v-bind:data-type = "item.type" v-bind:data-type = "item.type" @click="getId"/>
+				<div @click="getId" v-bind:data-id = "item.id" v-bind:data-type="item.type">
+					<span v-bind:data-id = "item.id" v-bind:data-type="item.type">{{item.title}}</span>
+					<p v-bind:data-id = "item.id" v-bind:data-type="item.type"> 时间：{{item.date}}</p>
+					<p v-bind:data-id = "item.id" v-bind:data-type="item.type"> 发布者：{{item.nickname}}</p>
+				</div>
 			</section>
 		</div>
 	</body>
-	<script type="text/javascript" src="../js/vue.js"></script>
+	<script type="text/javascript" src="../js/checkStage.js"></script>
+<script type="text/javascript" src="../js/cookie.js"></script>
+ <script type="text/javascript" src="../js/vue.js"></script>
     <script type="text/javascript" src="./js/list.js"></script>
 </html>

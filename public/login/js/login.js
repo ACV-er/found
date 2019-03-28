@@ -10,9 +10,9 @@ var loginForm = new Vue({
 		JsonToString:function(FormData){
 			var data = "";
 			Object.keys(FormData).forEach(function(key){
-		     	console.log(key,FormData[key]);
+		     	//console.log(key,FormData[key]);
 		     	data += key + '=' + FormData[key] + '&';
-		     	//console.log(data);
+		     	////console.log(data);
 			});
 			data = data.substr(0,data.length-1);
 			return data;
@@ -34,13 +34,18 @@ var loginForm = new Vue({
 					password:this.psw
 				};
 				var data = this.JsonToString(FormData);
-				//console.log(data);
+				////console.log(data);
 				ajax.onreadystatechange = function () {
 					if (ajax.readyState == 4 && ajax.status == 200) {
 						var result = JSON.parse(ajax.responseText);
+						//console.log(result);
 						if(result.code == 2)
 						{
 							mui.alert("账号密码错误");
+						}
+						else if(result.code == 3)
+						{
+							mui.alert("学号或密码格式错误");
 						}
 						else if(result.code != 0)
 						{
@@ -68,7 +73,7 @@ var loginForm = new Vue({
 //				var data = "stu_id=201705550820&password=qq1246009411";
 //				ajax.onreadystatechange = function () {
 //					if (ajax.readyState == 4 && ajax.status == 200) {
-//						console.log(ajax.responseText);
+//						//console.log(ajax.responseText);
 //					}
 //				}
 //				ajax.withCredentials = true;
@@ -83,7 +88,7 @@ var loginForm = new Vue({
 //			var data = "stu_id=201705550820&password=qq1246009411";
 //			ajax.onreadystatechange = function () {
 //				if (ajax.readyState == 4 && ajax.status == 200) {
-//					console.log(ajax.responseText);
+//					//console.log(ajax.responseText);
 //				}
 //			}
 //			ajax.withCredentials = true;
@@ -172,3 +177,6 @@ var contact = new Vue({
 }
 )
 
+window.onload = function(){
+	checkStage();
+}

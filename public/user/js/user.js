@@ -12,7 +12,7 @@ function next(){
 		if (ajax.readyState == 4 && ajax.status == 200) {
 		
 			var result = JSON.parse(ajax.responseText).data;
-			console.log(result);
+			//console.log(result);
 			for(var i=0;i<result.length;i++)
 			{
 				if(result[i].img != null)
@@ -35,10 +35,11 @@ function next(){
 	ajax.send();
 }
 window.onload = function(){
+      checkStage();
 	var ajax = new XMLHttpRequest();
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4 && ajax.status == 200) {
-			console.log(ajax.responseText);
+			//console.log(ajax.responseText);
 			var result = JSON.parse(ajax.responseText);
 		
 			if(result.code == 6)
@@ -69,8 +70,9 @@ var detail  = new Vue({
 	},
 	methods:{
 		getId:function(e){
-			localStorage.setItem("id", e.target.dataset.id);
-			localStorage.setItem("type", e.target.dataset.type);
+		
+			setCookie("id", e.target.dataset.id);
+			setCookie("type", e.target.dataset.type);
 			window.location.href="../getDetail/getDetail.html";
 		}
 	}

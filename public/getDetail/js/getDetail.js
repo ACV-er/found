@@ -14,7 +14,9 @@ var detail  = new Vue({
 			qq:'',
 			wx:'',
 			nickname:'',
-			'class':''
+			'class':'',
+			stu_card:"",
+			card_id:""
 		},
 		displaynone:true,
 	},
@@ -24,7 +26,7 @@ var detail  = new Vue({
 				ajax.onreadystatechange = function () {
 					if (ajax.readyState == 4 && ajax.status == 200) {
 							var result = JSON.parse(ajax.responseText).data;
-							console.log(result);
+							//console.log(result);
 							mui.alert("完璧归赵~皆大欢喜",function(){
 								window.history.go(-1);
 							})
@@ -32,7 +34,7 @@ var detail  = new Vue({
 					}
 				}
 				ajax.withCredentials = true;
-				ajax.open("GET", "http://found.myweb.com/finish/"+ localStorage.getItem("id"), true);//false同步    true异步
+				ajax.open("GET", "http://found.myweb.com/finish/"+ getCookie("id"), true);//false同步    true异步
 				ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				ajax.send();
 			},
@@ -76,13 +78,13 @@ function getuser(){
 }
 function getLaf(id){
 	var ajax = new XMLHttpRequest();
-	console.log("!!!")
+	//console.log("!!!")
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4 && ajax.status == 200) {
 		
 			var result = JSON.parse(ajax.responseText).data;
-			console.log(id);
-			console.log(result.user_id);
+			//console.log(id);
+			//console.log(result.user_id);
 			if(id != result.user_id)
 			{
 				mui.alert("非法访问！",function(){
@@ -98,10 +100,12 @@ function getLaf(id){
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "http://found.myweb.com/laf/"+ localStorage.getItem("id"), true);//false同步    true异步
+	ajax.open("GET", "http://found.myweb.com/laf/"+ getCookie("id"), true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 }
 window.onload = function(){
+      checkStage();
 	getuser();
+	
 }

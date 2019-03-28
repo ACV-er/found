@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
+		<title>翼起找呀-物品详情</title>
 		<script src="../js/mui.min.js"></script>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
 	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -25,6 +25,7 @@
 				</div>
 				<img v-bind:src="information.img" id="bigImg" v-bind:class="{displaynone:displaynone }">
 				<div>
+					<p v-bind:class={displaynone:!information.stu_card}>卡号:{{information.card_id}}</p>
 					<p>时间:{{information.date}}</p>
 					<p>地点:{{information.address}}</p>
 					<p>班级:{{information.class}}</p>
@@ -40,6 +41,8 @@
 		
 		  
 	</body>
-	<script type="text/javascript" src="../js/vue.js"></script>
+	<script type="text/javascript" src="../js/checkStage.js"></script>
+<script type="text/javascript" src="../js/cookie.js"></script>
+ <script type="text/javascript" src="../js/vue.js"></script>
     <script type="text/javascript" src="./js/findDetail.js"></script>
 </html>

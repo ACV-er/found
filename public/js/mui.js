@@ -1997,7 +1997,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 
 	function handleScroll(wrapper, iframe) {
 		var key = 'MUI_SCROLL_POSITION_' + document.location.href + '_' + iframe.src;
-		var scrollTop = (parseFloat(localStorage.getItem(key)) || 0);
+		var scrollTop = (parseFloat(getCookie(key)) || 0);
 		if (scrollTop) {
 			(function(y) {
 				iframe.onload = function() {
@@ -2008,7 +2008,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 		setInterval(function() {
 			var _scrollTop = window.scrollY;
 			if (scrollTop !== _scrollTop) {
-				localStorage.setItem(key, _scrollTop + '');
+				setCookie(key, _scrollTop + '');
 				scrollTop = _scrollTop;
 			}
 		}, 100);
@@ -2723,7 +2723,7 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 				//					a.href = 'http://ask.dcloud.net.cn/article/113';
 				//					err.appendChild(a);
 				//					document.body.appendChild(err);
-				//					console.log('在该浏览器下，不支持创建子页面');
+				//					//console.log('在该浏览器下，不支持创建子页面');
 				//				}
 
 			}

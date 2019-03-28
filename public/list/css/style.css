@@ -18,12 +18,7 @@ body {
 	border-radius: 50%;
 	
 }
-.head>img:before{
-	content: '+';
-	font-size:20px;
-	position:absolute;
-	bottom: 0px;
-}
+
 .head h2{
 	margin: 10px 0px;
 	font-size:1.5em;
@@ -40,7 +35,7 @@ nav{
 	background-color: #3E8FDE;
 	color:#fff;
 	text-align: center;
-	font-size: 20px;
+	font-size: 16px;
 	height: 50px;
 }
 .back{
@@ -121,27 +116,28 @@ section li{
 	font-size: 1.2em;
 }
 .markDetail img{
-	float: left;
+	/*float: left;*/
 	margin-top: 10px;
 	width: 35%;
-	height: 80px;
+	/*height: 85px;*/
 	
 }
 .markDetail div{
-
+	vertical-align: bottom;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	height: 80px;
-	width: 60%;
+	/*height: 80px;*/
 	margin-left: 5%;
 	display: inline-block;
 	margin-top: 10px;
 	
 }
 .markDetail div span{
-	font-size: 0.85em;
+	position: absolute;
+	top: 20px;
+	font-size: 1em;
 	display: inline-block;
-	height: 2.6em;
+	height: 2.8em;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	
@@ -150,7 +146,7 @@ section li{
 }
 
 .markDetail p{
-	font-size: 0.85em;
+	font-size: 0.8em;
 	color:#2AC845;
 	margin: 0;
 }

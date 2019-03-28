@@ -51,12 +51,14 @@ var find = new Vue({
 	},
 	methods:{
 		getId:function(e){
-			localStorage.setItem("id", e.target.dataset.id);
+			setCookie("id",e.target.dataset.id);
+	
 			window.location.href="./findDetail/findDetail.html";
 		},
 		getType:function(e){
-			localStorage.setItem("type", e.target.dataset.type);
+			setCookie("type",e.target.dataset.type);
 			window.location.href="./list/list.html";
+
 		}
 	}
 	
@@ -68,13 +70,13 @@ var get = new Vue({
 	},
 	methods:{
 		getId:function(e){
-			localStorage.setItem("id", e.target.dataset.id);
-			
+			setCookie("id",e.target.dataset.id);
 			window.location.href="./findDetail/findDetail.html";
 		},
 		getType:function(e){
-			localStorage.setItem("type", e.target.dataset.type);
+			setCookie("type",e.target.dataset.type);
 			window.location.href="./list/list.html";
+			
 		}
 	}
 })
@@ -82,18 +84,27 @@ function laf(){
 	var ajax = new XMLHttpRequest();
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4 && ajax.status == 200) {
-			console.log(ajax.responseText);
-			var result = JSON.parse(ajax.responseText).data;
-			console.log(result);
-			for(var i=0;i<Math.min(result.length,8);i++)
+			//console.log(ajax.responseText);
+			var result = JSON.parse(ajax.responseText).data.laf;
+			//console.log(result);
+			var a=0,b=0;
+			for(var i=0;i<result.length;i++)
 			{
 				//if(result.img != null)
 				//result.img = "http://found.myweb.com/upload/laf/" + result.lost[i].img;
 				result[i].time = result[i].updated_at.substr(5,5);
-				if(result[i].type==1)
+				if(result[i].type==1&&a<8){
 					find.findTitle.push(result[i]);
-				else
+					a++;
+				}
+				else if(result[i].type==0&&b<8){
 					get.getTitle.push(result[i]);
+					b++
+				}
+				else{
+					break;
+				}
+					
 			}
 			
 		}
@@ -117,18 +128,40 @@ function search(){
 					strs.splice(i,1);
 				
 			} 
-			localStorage.setItem('keyword',strs);
-			localStorage.setItem('type',2);
+			setCookie('keyword',strs);
+			setCookie('type',2);
 			window.location.href = "./list/list.html";
 		}		
 	})
 }
+function checkStage(){
+	var str ="GongGong Webview";
+	//console.log(navigator.userAgent);
+	if(navigator.userAgent.indexOf(str) != -1)
+	{
+		document.querySelector("header").style.display = 'none'
+	}
+	var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+	var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+	if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM)) {
+      mui.alert("pc端使用体验较差,部分功能无法使用.建议使用移动端");
+	}
+
+}
 window.onload = function(){
+	checkStage();
 	search();
 	var ajax = new XMLHttpRequest();
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4 && ajax.status == 200) {
-			console.log(ajax.responseText);
+			//console.log(ajax.responseText);
 			var result = JSON.parse(ajax.responseText);
 			
 			if(result.code == 6)

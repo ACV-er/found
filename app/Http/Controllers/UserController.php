@@ -139,7 +139,7 @@
                 $savePath = public_path() . '/upload/avatar';
                 $filename = session('id') . '.jpg';
                 $file->move($savePath, $filename);
-                compress($savePath."/".$filename);
+//                compress($savePath."/".$filename);
                 User::query()->where('id', session('id'))->update(['avatar' => $filename]);
                 return $this->msg(0, '成功');
             } else {
@@ -154,7 +154,7 @@
                 'nickname' => '/^[^\s]{2,30}$/',
                 'phone' => '/(^1[0-9]{10}$)|(^$)/',
                 'qq' => '/(^[0-9]{5,13}$)|(^$)/',
-                'wx' => '/(^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$)|(^$)/',
+                'wx' => '/(^[a-zA-Z]{1}[-_a-zA-Z0-9]{5,19}$)|(^1[0-9]{10}$)|(^$)/',
                 'class' => '/^[^\s]{5,60}$/'
             );
             if (!$request->has(['nickname'])) {
@@ -182,7 +182,7 @@
 
         public function getUserPost()
         {
-            $list = Post::query()->where('user_id', session('id'))->get();
+            $list = Post::query()->where('user_id', session('id'))->orderBy('updated_at', 'desc')->get();
             return $this->msg(0, $list);
         }
 
@@ -215,6 +215,19 @@
         {
             $user = User::query()->where('id', $request->id)->first();
             $user->black = $user->black + 1;
+            $result = $user->save();
+
+            if ($result) {
+                return $this->msg(0, null);
+            } else {
+                return $this->msg(4, '失败,咨询管理员' . __LINE__);
+            }
+        }
+
+        public function unblackUser(Request $request)
+        {
+            $user = User::query()->where('id', $request->id)->first();
+            $user->black = 0;
             $result = $user->save();
 
             if ($result) {

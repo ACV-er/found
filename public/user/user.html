@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
+		<title>翼起找呀-个人中心</title>
 		<script src="../js/mui.min.js"></script>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
 	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@
 			<section id="mark" class="mark">
 				<h3>被标记的</h3> 
 				<ul>
-					<a href="#" v-for="item in mark" >
+					<a v-for="item in mark" >
 						<li class="overhide" v-bind:data-id = "item.id" v-bind:data-type = "item.type" @click="getId">{{item.title}}</li><span>{{item.time}}</span><br/ >
 					</a>
 				</ul>
@@ -34,7 +34,7 @@
 			<div id="detail">
 				<section class="markDetail" v-for="item in detail" >
 					<h3 v-bind:data-id = "item.id" v-bind:data-type = "item.type" v-bind:data-type = "item.type" @click="getId">{{item.title}}</h3>
-					<img v-bind:src="item.img" />
+					<img v-bind:src="item.img"  v-bind:data-id = "item.id" v-bind:data-type = "item.type" v-bind:data-type = "item.type" @click="getId"/>
 					<div v-bind:data-id = "item.id" v-bind:data-type = "item.type" v-bind:data-type = "item.type" @click="getId">{{item.description}}</div>
 					<p>时间：{{item.date}}</p>
 					<p>地点：{{item.address}}</p>
@@ -44,6 +44,8 @@
 		</div>
 		
 	</body>
+	<script type="text/javascript" src="../js/checkStage.js"></script>
+	<script type="text/javascript" src="../js/cookie.js"></script>
 	<script type="text/javascript" src="../js/vue.js"></script>
     <script type="text/javascript" src="./js/user.js"></script>
 </html>

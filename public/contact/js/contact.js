@@ -47,4 +47,6 @@ var qa = new Vue({
 	]
 	}
 })
-
+window.onload = function(){
+	checkStage();
+}

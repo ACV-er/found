@@ -2847,6 +2847,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2960,6 +2961,25 @@ __webpack_require__.r(__webpack_exports__);
 
           if (data.code === 0) {
             _this5.search();
+
+            alert('成功');
+          } else {
+            alert(data.status + '\n' + data.data);
+          }
+        });
+      }
+    },
+    unblack: function unblack(id) {
+      var _this6 = this;
+
+      var r = confirm("你确认取消拉黑么?");
+
+      if (r === true) {
+        window.axios.get('http://found.myweb.com/user/unblack/' + id).then(function (_ref6) {
+          var data = _ref6.data;
+
+          if (data.code === 0) {
+            _this6.search();
 
             alert('成功');
           } else {
@@ -22211,18 +22231,31 @@ var render = function() {
                   _c("th", [_vm._v(_vm._s(user.black))]),
                   _vm._v(" "),
                   _c("th", [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "operate",
-                        on: {
-                          click: function($event) {
-                            _vm.black(user.id)
-                          }
-                        }
-                      },
-                      [_vm._v("拉黑")]
-                    ),
+                    user.black > 1
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "operate",
+                            on: {
+                              click: function($event) {
+                                _vm.unblack(user.id)
+                              }
+                            }
+                          },
+                          [_vm._v("取消拉黑")]
+                        )
+                      : _c(
+                          "div",
+                          {
+                            staticClass: "operate",
+                            on: {
+                              click: function($event) {
+                                _vm.black(user.id)
+                              }
+                            }
+                          },
+                          [_vm._v("拉黑")]
+                        ),
                     _vm._v(" |\n                    "),
                     _c(
                       "div",

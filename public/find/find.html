@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title></title>
+		<title>翼起找呀-发布物品</title>
 		<script src="../js/mui.min.js"></script>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
 	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
 				<div class="imgInformation">
 					<label for="img" class="file">+</label>
 					<span>添加图片</span>
-					<input id="fileBtn" type="file" name="img" v-on:change="upload('#fileBtn', '#img');" accept="image/*" capture="camera"/>
+					<input id="fileBtn" type="file" name="img" v-on:change="upload('#fileBtn', '#img');" accept="image/*"  multiple="multiple"/ >
 					<img src="" v-bind:src="src" id="img" />
 				</div>
 			</div>
@@ -55,8 +55,11 @@
 						</span>
 				</div>
 				<br />
+				<span v-bind:class='{displaynone:none}' v-model="card_id">卡号</span>
+				<input id="card_id" name="card_id"  type="text" v-model="card_id" v-bind:class='{displaynone:none}'>
+				<br/>
 				<span>时间</span>
-				<input type="date" v-model="date">
+				<input id="date" type="date" v-model="date" >
 				<br />
 				<span>地点</span>
 				<select id="address" v-model="address" @change="getCouponSelected">
@@ -79,12 +82,15 @@
 					<span>微信</span>
 					<input type="text" name="wx" placeholder="微信号" v-model="weixin">
 				</div>
+				<p>PS.默认值为个人中心所填信息</p>
 			</div>
 			<button type="button" @click="submit">发布</button>
 		</form>
 	
 		
 	</body>
-	<script type="text/javascript" src="../js/vue.js"></script>
+	<script type="text/javascript" src="../js/checkStage.js"></script>
+<script type="text/javascript" src="../js/cookie.js"></script>
+ <script type="text/javascript" src="../js/vue.js"></script>
     <script type="text/javascript" src="./js/find.js"></script>
 </html>

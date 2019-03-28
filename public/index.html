@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title></title>
+    <title>翼起找呀-首页</title>
     <script src="./js/mui.min.js"></script>
     <link href="./css/mui.min.css" rel="stylesheet"/>
     <link href="./css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -11,8 +11,10 @@
     <link href="./css/header.css" rel="stylesheet">
     <script type="text/javascript" charset="utf-8">
       	mui.init();
-    </script>
-    <script src="js/vue.js"></script>
+	</script>
+
+	<script src="js/cookie.js"></script>
+	<script src="js/vue.js"></script>
     
 </head>
 <body>
@@ -36,18 +38,20 @@
 		</div>
 	</div>
 	<section id="find">
-		<a href="#" class="more" ><h3>寻物<span data-type='1' @click="getType">更多></span></h3></a>
+		<a  class="more" ><h3>寻物<span data-type='1' @click="getType">更多></span></h3></a>
 		<ul v-for="item in findTitle">
-			<a href="#">
-				<li class="overhide" v-bind:data-id = "item.id" @click="getId">{{item.title}}</li>
+			<a>
+				<li class="overhide" v-bind:data-id = "item.id" @click="getId">{{item.title}}
+					<span class="signCard" v-bind:class={displayInline:item.stu_card}>校园卡</span>
+				</li>
 				<span> {{item.time}}</span><br/ >
 			</a>
 		</ul>
 	</section>
 	<section id="get">
-		<a href="#" class="more"><h3>招领<span data-type='0' @click="getType">更多></span></h3></a>
+		<a  class="more"><h3>招领<span data-type='0' @click="getType">更多></span></h3></a>
 		<ul v-for="item in getTitle">
-			<a href="#">
+			<a>
 				<li class="overhide" v-bind:data-id = "item.id" @click="getId">{{item.title}}</li>
 				<span>{{item.time}}</span>
 			</a>

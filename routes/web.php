@@ -73,6 +73,7 @@
         Route::post('/user/search', 'UserController@searchUser');
         Route::get('/user/laf/{id}', 'UserController@manager_getUserPost')->where(["id"=>'[0-9]+']);
         Route::get('/user/black/{id}', 'UserController@blackUser')->where(["id"=>'[0-9]+']);
+        Route::get('/user/unblack/{id}', 'UserController@unblackUser')->where(["id"=>'[0-9]+']);
 
         Route::post('/manager/add', 'ManagerController@managerAdd');
         Route::get('/manager/delete/{id}', 'ManagerController@managerDelete')->where(["id"=>'[0-9]+']);

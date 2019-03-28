@@ -1,7 +1,7 @@
 <?php
     function compress($src_img) {
-        $dst_w = 300;
-        $dst_h = 200;
+        $dst_w = 900;
+        $dst_h = 600;
         list($src_w,$src_h)=getimagesize($src_img);  // 获取原图尺寸
 
         $dst_scale = $dst_h/$dst_w; //目标图像长宽比
@@ -23,7 +23,22 @@
         }
 
 // 剪裁
-        $source=imagecreatefromjpeg($src_img);
+        $type = exif_imagetype($src_img);
+
+        switch($type) {
+            case IMAGETYPE_JPEG :
+                $source = imagecreatefromjpeg($src_img);
+                break;
+            case IMAGETYPE_PNG :
+                $source = imagecreatefrompng($src_img);
+                break;
+            case IMAGETYPE_GIF :
+                $source = imagecreatefromgif($src_img);
+                break;
+            default:
+                $source=imagecreatefromjpeg($src_img);
+                break;
+        }
         $croped=imagecreatetruecolor($w, $h);
         imagecopy($croped,$source,0,0,$x,$y,$src_w,$src_h);
 
@@ -36,7 +51,20 @@
 
 // 保存
         unlink($src_img);
-        imagejpeg($target, $src_img);
+        switch($type) {
+            case IMAGETYPE_JPEG :
+                imagejpeg($target, $src_img); // 存储图像
+                break;
+            case IMAGETYPE_PNG :
+                imagepng($target, $src_img);
+                break;
+            case IMAGETYPE_GIF :
+                imagegif($target, $src_img);
+                break;
+            default:
+                imagejpeg($target, $src_img);
+                break;
+        }
         imagedestroy($target);
     }
 

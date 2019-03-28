@@ -42,7 +42,7 @@ var sortForm = new Vue({
 		},
 		getCouponSelected:function(){
             //获取选中的优惠券
-            console.log(this.couponSelected)
+            //console.log(this.couponSelected)
        },
 		Submit:function(){
 			

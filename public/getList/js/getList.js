@@ -22,19 +22,20 @@ function search(){
 			strs=content.split(" "); //字符分割 
 			for (i=0;i<strs.length ;i++ ) 
 			{ 
-				console.log(strs[i]); //分割后的字符输出 
+				//console.log(strs[i]); //分割后的字符输出 
 			} 
 		}		
 	})
 }
 window.onload = function(){
+      checkStage();
 	search();
 	var ajax = new XMLHttpRequest();
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4 && ajax.status == 200) {
-			console.log(ajax.responseText);
+			//console.log(ajax.responseText);
 			var result = JSON.parse(ajax.responseText).data;
-			console.log(result);
+			//console.log(result);
 			for(var i=0;i<result.length;i++)
 			{
 				if(result[i].img != null)

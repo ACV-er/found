@@ -14,7 +14,9 @@ var detail  = new Vue({
 			qq:'',
 			wx:'',
 			nickname:'',
-			'class':''
+			'class':'',
+			stu_card:"",
+			card_id:""
 		},
 		displaynone:true,
 	},
@@ -44,7 +46,7 @@ var detail  = new Vue({
 				}
 			}
 			ajax.withCredentials = true;
-			ajax.open("GET", "http://found.myweb.com/mark/"+ localStorage.getItem("id"), true);//false同步    true异步
+			ajax.open("GET", "http://found.myweb.com/mark/"+ getCookie("id"), true);//false同步    true异步
 			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			ajax.send();
 		},
@@ -59,7 +61,9 @@ var detail  = new Vue({
 
 		
 })
+
 window.onload = function(){
+      checkStage();
 	var ajax = new XMLHttpRequest();
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4 && ajax.status == 200) {
@@ -82,7 +86,7 @@ window.onload = function(){
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "http://found.myweb.com/laf/"+ localStorage.getItem("id"), true);//false同步    true异步
+	ajax.open("GET", "http://found.myweb.com/laf/"+ getCookie("id"), true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 }

@@ -203,9 +203,16 @@
             if (!is_array($keyword) || count($keyword) > 5) {
                 return $this->msg(3, __LINE__);
             }
+            $num_array = array(-1);
+            foreach ($keyword as $value) {
+                if( preg_match('/^\d+$/', $value) ) {
+                    array_push($num_array, $value);
+                }
+            }
             $str = join('|', $keyword);
-
-            $result = User::query()->whereRaw("concat(`id`,`nickname`) REGEXP ?", array($str))
+            $num = join(',', $num_array);
+            $result = User::query()->whereRaw("`nickname` REGEXP ?", array($str))
+                ->orWhereRaw("`stu_id` IN (?) or `id` IN (?)", array($num, $num))
                 ->get(['id', 'nickname', 'class', 'wx', 'qq', 'phone', 'stu_id', 'black'])->toArray();
 
             return $this->msg(0, $result);

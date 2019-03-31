@@ -260,6 +260,8 @@
             }
 
             $keyword = preg_replace("/^\xef\xbb\xbf/", '', $request->only('keyword')['keyword']);
+            $id = (session()->has('login') && session('login') == true)?session('id'):-1;
+            DB::insert('INSERT INTO `keyword` (`keyword`, `user_id`) VALUES (?, ?)', [$keyword, $id]);
             $keyword = json_decode($keyword, true);
 
             if (!is_array($keyword) || count($keyword) > 5) {

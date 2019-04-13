@@ -6,12 +6,15 @@
 		<title>翼起找呀-发布物品</title>
 		<script src="../js/mui.min.js"></script>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/nav.css" rel="stylesheet"/>
 	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	    <link href="./css/style.css" rel="stylesheet">
-	    <link href="../css/header.css" rel="stylesheet">
+		<link href="../css/header.css" rel="stylesheet">
+		<link href="https:////at.alicdn.com/t/font_680097_c18g88pvmeku766r.css" rel="stylesheet">
     	<script type="text/javascript" charset="utf-8">
       		mui.init();
-    	</script>
+		</script>
+		 <script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1276795472&web_id=1276795472"></script>
 	</head>
 	<body>
 		
@@ -46,13 +49,13 @@
 				<div >
 					<span>物品类型</span>
 					<span>
-							<input type="radio" name="stu_card" value="1" v-model="stu_card">
-							<label for="stu_card">校园卡</label>
-						</span>
-						<span>
-							<input type="radio" name="stu_card" value="0"  v-model="stu_card">
-							<label for="stu_card">其他</label>
-						</span>
+						<input type="radio" name="stu_card" value="1" v-model="stu_card">
+						<label for="stu_card">校园卡</label>
+					</span>
+					<span>
+						<input type="radio" name="stu_card" value="0"  v-model="stu_card">
+						<label for="stu_card">其他</label>
+					</span>
 				</div>
 				<br />
 				<span v-bind:class='{displaynone:none}' v-model="card_id">卡号</span>

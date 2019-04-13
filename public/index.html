@@ -8,13 +8,15 @@
     <link href="./css/mui.min.css" rel="stylesheet"/>
     <link href="./css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="./css/index.css" rel="stylesheet">
-    <link href="./css/header.css" rel="stylesheet">
+	<link href="./css/header.css" rel="stylesheet">
+	<link href="./css/iconfont/iconfont.css" rel="stylesheet">
     <script type="text/javascript" charset="utf-8">
       	mui.init();
 	</script>
-
 	<script src="js/cookie.js"></script>
 	<script src="js/vue.js"></script>
+    <script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1276795472&web_id=1276795472"></script>
+	
     
 </head>
 <body>
@@ -22,40 +24,68 @@
 		首页
 	</header>
 	<nav id="nav">
-		<div><a href="./contact/contact.html"><i class="fa fa-info fa-fw" style="width:53px"></i><p>Q&A</p></a></div>
-		<div><a href="./find/find.html"><i class="fa fa-plus fa-fw" style="width:60px;padding: 18px"></i><p>发布</p></a></div>
-		<div v-if="login"><a href="./login/login.html" ><i class="fa fa-user fa-fw" style="width:53px"></i><p>登录</p></a></div>
+		<div><a href="./contact/contact.html"><i class="iconfont icon-gantanhao" ></i><p>规则说明</p></a></div>
+		<div><a href="./find/find.html"><i class="iconfont icon-plus"></i><p>发布</p></a></div>
+		<div v-if="login"><a href="./login/login.html" ><i class="fa fa-user"></i><p>登录</p></a></div>
 		<div v-if="user"><a href="./user/user.html" ><i id="user" class="fa fa-user" v-bind:style="imgUrl"></i><p>个人中心</p></a></div>
 	</nav>
 	<div id="searchForm">
-		<a href="#popover" id="openPopover" class="hot" ><i class="fa fa-filter"></i>筛选</a>
-		<input type="search" id="search" placeholder="输入关键字,多个词空格隔开" /  v-model="search">
+		<a href="#popover" id="openPopover" class="hot" >筛选<i class="iconfont icon-list"></i></a>
+		<input type="search" id="search" placeholder="输入关键字,多个词空格隔开"   v-model="search" />
+		<span id="search-icon" class="fa fa-search search-icon"></span>
 		<div id="popover" class="mui-popover  ">
-			<div class="floatLeft searchBar" @click="ObjectTab" v-bind:class="{'select':obj}">物品</div>
-			<div class="floatLeft searchBar" @click="AddressTab" v-bind:class="{'select':addr}">地点</div>
+			<div class="floatLeft searchBar" @click="ObjectTab" v-bind:class="{'select':obj}" style="border-top-left-radius: 7px;">物品</div>
+			<div class="floatLeft searchBar" @click="AddressTab" v-bind:class="{'select':addr}" style="border-top-right-radius: 7px;">地点</div>
 			<div class="clearFloat"></div>
-			<span class="selectOption" v-for="item in hotObject" @click="addInSearch">{{item}}</span>
+			<div class="selectBox">
+				<div class="box" v-bind:class="{displayNone:!left,left:!left}">
+					<span class="selectOption" v-for="item in hotObject" @click="addInSearch">{{item}}</span>
+				</div>
+				<div class="box" v-bind:class="{displayNone:left,left:left}">
+					<span class="selectOption" v-for="item in hotAddress" @click="addInSearch">{{item}}</span>
+				</div>
+			</div>
 		</div>
 	</div>
 	<section id="find">
-		<a  class="more" ><h3>寻物<span data-type='1' @click="getType">更多></span></h3></a>
-		<ul v-for="item in findTitle">
+		<h3><i class="iconfont icon-compass"></i>寻物</h3>
+		<ul  v-for="item in findTitle">
 			<a>
 				<li class="overhide" v-bind:data-id = "item.id" @click="getId">{{item.title}}
-					<span class="signCard" v-bind:class={displayInline:item.stu_card}>校园卡</span>
+					<span class="signCard" v-bind:class={displayInline:item.stu_card} v-bind:data-id = "item.id" @click="getId">校园卡</span>
 				</li>
 				<span> {{item.time}}</span><br/ >
 			</a>
 		</ul>
+		<div class="markDetail" v-for="item in findTitle" >
+			<img v-bind:src="item.img" v-bind:data-id = "item.id" v-bind:data-type = "item.type" v-bind:data-type = "item.type" @click="getId"/>
+			<div @click="getId" v-bind:data-id = "item.id" v-bind:data-type="item.type">
+				<span v-bind:data-id = "item.id" v-bind:data-type="item.type"><span v-bind:data-id = "item.id" v-bind:data-type="item.type" class="signCardB" v-bind:class={displayInline:item.stu_card}>校园卡</span>{{item.title}}</span>
+				<p v-bind:data-id = "item.id" v-bind:data-type="item.type"> 时间：{{item.date}}</p>
+				<p v-bind:data-id = "item.id" v-bind:data-type="item.type"> 发布者：{{item.nickname}}</p>
+			</div>
+		</div>
+		<span data-type='1' @click="getType">查看更多></span>
 	</section>
 	<section id="get">
-		<a  class="more"><h3>招领<span data-type='0' @click="getType">更多></span></h3></a>
-		<ul v-for="item in getTitle">
+		<h3><i class="iconfont icon-flag"></i>招领</h3>
+		<ul  v-for="item in getTitle">
 			<a>
-				<li class="overhide" v-bind:data-id = "item.id" @click="getId">{{item.title}}</li>
+				<li class="overhide" v-bind:data-id = "item.id" @click="getId">{{item.title}}
+					<span class="signCard" v-bind:class={displayInline:item.stu_card} v-bind:data-id = "item.id" @click="getId">校园卡</span>
+				</li>
 				<span>{{item.time}}</span>
 			</a>
 		</ul>
+		<div class="markDetail" v-for="item in getTitle" >
+			<img v-bind:src="item.img" v-bind:data-id = "item.id" v-bind:data-type = "item.type" v-bind:data-type = "item.type" @click="getId"/>
+			<div @click="getId" v-bind:data-id = "item.id" v-bind:data-type="item.type">
+				<span v-bind:data-id = "item.id" v-bind:data-type="item.type"><span v-bind:data-id = "item.id" v-bind:data-type="item.type" class="signCardB" v-bind:class={displayInline:item.stu_card}>校园卡</span>{{item.title}}</span>
+				<p v-bind:data-id = "item.id" v-bind:data-type="item.type"> 时间：{{item.date}}</p>
+				<p v-bind:data-id = "item.id" v-bind:data-type="item.type"> 发布者：{{item.nickname}}</p>
+			</div>
+		</div>
+		<span data-type='0' @click="getType">查看更多></span>
 	</section>
 </body>
 <script src="js/index.js"></script>

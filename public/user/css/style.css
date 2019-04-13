@@ -11,9 +11,13 @@ body {
 	background: #fff;
 
 }
-.head>img{
-	width: 20%;
+.head>div{
+	width: 80px;
+	height: 80px;
 	border-radius: 50%;
+	margin: 20px auto;
+	background-size: cover;
+	background-position: 50% 50%;
 	
 }
 
@@ -22,37 +26,24 @@ body {
 	font-size:1.5em;
 }
 .head h3{
-	color:#4CD964; 
+	color:#f39f85; 
 	font-weight: normal;
 	margin: 10px 0px;
 	font-size:1.2em;
 }
-nav{
-	position: relative;
-	line-height: 50px;
-	background-color: #3E8FDE;
-	color:#fff;
-	text-align: center;
-	font-size: 16px;
-	height: 50px;
-}
-.back{
-	position:absolute;
-	left:5%;
-	top: 30%;
-}
+
 section{
 	background-color: #fff;
 	position:relative;
 	box-shadow: border-box;
 	padding: 3%;
 	width: 100%;
-	border-top: 10px solid #fff5ff;
+	border-top: 10px solid #efefef;
 }
 .head>button{
 	
 	margin-top: 30px;
-	border:1px solid #007AFF;
+	border:1px solid #859af3;
 	
 }
 .head>button:hover{
@@ -60,7 +51,7 @@ section{
 }
 .head a{
 	width: 100%;
-	color:#007AFF;
+	color:#859af3;
 }
 section ul{
 	padding-left: 3%;
@@ -78,35 +69,47 @@ section li{
 .markDetail{
 	
 	box-sizing: border-box;
-	padding-left:10% ;
-	padding-right: 10%;
+	padding-left:5% ;
+	padding-right: 5%;
 	width: 100%;
 }
-.markDetail>h3{
+.markDetail h3{
 	font-size: 1.2em;
 }
-.markDetail>img{
-	float: left;
-	margin-top: 20px;
+.markDetail img{
+	/*float: left;*/
+	margin-top: 10px;
 	width: 35%;
-	height: 100px;
+	/*height: 85px;*/
 	
 }
-.markDetail>div{
-	color:#2AC845;
+.markDetail div{
+	vertical-align: top;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	height: 100px;
-	width: 60%;
+	/*height: 80px;*/
+	width: 50%;
+	height: 80px;
 	margin-left: 5%;
 	display: inline-block;
-	margin-top: 20px;
+	margin-top: 10px;
 	
 }
-.markDetail>p{
-	margin: 10px 0;
+.markDetail div>span{
+	position: absolute;
+	top: 20px;
+	font-size: 1em;
+	display: inline-block;
+	height: 2.8em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	
+
+	
 }
-.markDetail h5{
-	color:#2AC845;
-	text-align: right;
+
+.markDetail p{
+	font-size: 0.8em;
+	color:#006699;
+	margin: 0;
 }

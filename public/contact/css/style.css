@@ -1,20 +1,7 @@
 *{
 	font-family: '苹方 常规';
 }
-nav{
-	position: relative;
-	line-height: 50px;
-	background-color: #3E8FDE;
-	color:#fff;
-	text-align: center;
-	font-size: 16px;
-	height: 50px;
-}
-.back{
-	position:absolute;
-	left:5%;
-	top: 30%;
-}
+
 section{
 	font-weight: bold;
 	box-sizing: border-box;
@@ -34,7 +21,11 @@ section>ul{
 	width: 100%;
 }
 section>ul>li{
-	margin:15px 0;
+	font-weight: normal;
+	
+}
+section>ul>li:nth-child(1){
+	color:#3e859f;
 }
 #contact>ul{
 	padding: 0;

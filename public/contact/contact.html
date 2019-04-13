@@ -3,9 +3,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>翼起找呀-Q&A</title>
+		<title>翼起找呀-规则说明</title>
 		<script src="../js/mui.min.js"></script>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/nav.css" rel="stylesheet"/>
 	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	    <link href="./css/style.css" rel="stylesheet">
 	    <link href="../css/header.css" rel="stylesheet">
@@ -13,15 +14,16 @@
     	<script type="text/javascript" charset="utf-8">
       		mui.init();
     	</script>
+        <script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1276795472&web_id=1276795472"></script>
     	
 	</head>
 	<body>
 		
-		<nav><i class="back mui-icon mui-icon-back" onclick="window.history.go(-1)"></i>Q&A</nav>
+		<nav><i class="back mui-icon mui-icon-back" onclick="window.history.go(-1)"></i>规则说明</nav>
 		<section id="qa">
 			<div class="title"><i class="fa fa-file fa-2x"></i>常见QA</div>
 			<ul v-for="item in qa">
-				<li style="color:#0062CC">{{item.Q}}</li>
+				<li>{{item.Q}}</li>
 				<li>{{item.A}}</li>
 			
 			</ul>

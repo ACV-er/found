@@ -2,7 +2,7 @@ var head = new Vue({
 	el:'#find',
 	data:{
 		address:"",
-		addressAll:['金翰林','琴湖','北苑','南苑','逸夫楼','一教','三教'],
+		addressAll:['一教','二教','三教','一田','二田','逸夫楼','经管楼','兴湘','学活','坑里','联建','金翰林','琴湖','南苑','北苑','北五','乐园','雅苑'],
 		nickname:'',
 		Class:'',
 		phone:'',
@@ -16,6 +16,14 @@ var head = new Vue({
 		src:'../img/yuhan.jpg',
 		none:true,
 		card_id:null
+	},
+	watch:{
+		stu_card(val, oldVal){//普通的watch监听
+			if(val == 0)
+				this.none = true;
+			else if(val == 1)
+				this.none = false;
+        },
 	},
 	methods:{
 		upload:function(c,d){
@@ -90,7 +98,8 @@ var head = new Vue({
 				stu_card:this.stu_card,
 				address:this.address,
 				date:this.date,
-				img:document.querySelector('#fileBtn').files[0]
+				img:document.querySelector('#fileBtn').files[0],
+				card_id:this.card_id
 			}
 			//console.log(Formdata);
 			
@@ -107,19 +116,20 @@ var head = new Vue({
 			ajax.onreadystatechange = function () {
 				if(ajax.readyState == 1)
 				{
-					mui.toast("文件上传中,请稍后",{duration:100000})
+					mui.toast("发布中,请稍后",{duration:100000})
 				}
 				if (ajax.readyState == 4 && ajax.status == 200) {
 					var result = JSON.parse(ajax.responseText);
 					//console.log(result);
+			
 					//console.log(head.type);
-					if(result.code == 0&&this.type == 1)
+					if(result.code == 0 && head.type == 1)
 					{
 						setCookie('type',1)
 						window.location.href = "../list/list.html"
 					}
 						
-					else if(result.code == 0&&this.type == 0)
+					else if(result.code == 0 && head.type == 0)
 					{
 						setCookie('type',0)
 						window.location.href = "../list/list.html"
@@ -138,7 +148,7 @@ var head = new Vue({
 				}
 			}
 			ajax.withCredentials = true;
-			ajax.open("POST", "http://found.myweb.com/update/"+getCookie('id'), true);//false同步    true异步
+			ajax.open("POST", "https://found.sky31.com/update/"+getCookie('id'), true);//false同步    true异步
 			//ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			ajax.send(data);
 		}
@@ -158,12 +168,12 @@ function loadForm(){
 			head.addrss = result.address;
 			head.title = result.title;
 			head.description = result.description;
-			head.src='http://found.myweb.com/upload/laf/' + result.img;
+			head.src='https://found.sky31.com/upload/laf/' + result.img;
 			head.card_id = result.card_id
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "http://found.myweb.com/laf/"+getCookie('id'), true);//false同步    true异步
+	ajax.open("GET", "https://found.sky31.com/laf/"+getCookie('id'), true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 }
@@ -212,7 +222,7 @@ window.onload = function(){
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "http://found.myweb.com/user/info", true);//false同步    true异步
+	ajax.open("GET", "https://found.sky31.com/user/info", true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 	loadForm();

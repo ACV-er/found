@@ -6,17 +6,19 @@
 		<title>翼起找呀-个人中心</title>
 		<script src="../js/mui.min.js"></script>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/nav.css" rel="stylesheet"/>
 	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	    <link href="./css/style.css" rel="stylesheet">
 	    <link href="../css/header.css" rel="stylesheet">
     	<script type="text/javascript" charset="utf-8">
       		mui.init();
     	</script>
+        <script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1276795472&web_id=1276795472"></script>
 	</head>
 	<body>
 		<nav><i class="back mui-icon mui-icon-back" onclick="window.location.href='../index.html'"></i></i>个人中心</nav>
 		<section id="head" class="head">
-			<img v-bind:src="imgUrl">
+			<div v-bind:style="imgUrl" id="img" ></div>
 			<h2>{{nickname}}</h2>
 			<h3>{{id}}</h3>
 			<button><a href="../userChange/userChange.html">编辑个人资料</a></button>

@@ -6,19 +6,23 @@
 		<title>翼起找呀-修改个人信息</title>
 		<script src="../js/mui.min.js"></script>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
+        <link href="../css/nav.css" rel="stylesheet"/>
 	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	    <link href="./css/style.css" rel="stylesheet">
 	    <link href="../css/header.css" rel="stylesheet">
     	<script type="text/javascript" charset="utf-8">
       		mui.init();
     	</script>
+        <script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1276795472&web_id=1276795472"></script>
 	</head>
 	<body>
 		<nav><i class="back mui-icon mui-icon-back" onclick="window.history.go(-1)"></i>修改信息</nav>
 		<div id="head">
 			<form id="avatar" class="head">
 				<input type="file" id="fileBtn" name="avatar" v-on:change="upload('#fileBtn', '#img');" accept="image/*" multiple="multiple" v-model="avatar" >
-				<img v-bind:src="imgUrl" id="img" >
+				<div v-bind:style="bgimgUrl">
+					<img v-bind:src="imgUrl" id="img" style="width:100%;height: auto;opacity: 0;">
+				</div>
 			</form>
 			<form class="head" style="padding-top:0px ;">
 				<span>昵称</span>

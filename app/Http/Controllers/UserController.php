@@ -203,19 +203,19 @@
             if (!is_array($keyword) || count($keyword) > 5) {
                 return $this->msg(3, __LINE__);
             }
-            $num_array = array(-1);
+            $num_array = array(-1); //如果持续为空 会导致 下面的sql 出现 {`stu_id` IN ()} 小括号内为空的情况
             foreach ($keyword as $value) {
                 if( preg_match('/^\d+$/', $value) ) {
                     array_push($num_array, $value);
                 }
             }
             $str = join('|', $keyword);
-            $num = join(',', $num_array);
+			$num = join(',', $num_array);
             $result = User::query()->whereRaw("`nickname` REGEXP ?", array($str))
-                ->orWhereRaw("`stu_id` IN (?) or `id` IN (?)", array($num, $num))
+                ->orWhereRaw("`stu_id` IN ($num) or `id` IN ($num)")
                 ->get(['id', 'nickname', 'class', 'wx', 'qq', 'phone', 'stu_id', 'black'])->toArray();
-
-            return $this->msg(0, $result);
+			
+			return $this->msg(0, $result);
         }
 
         public function blackUser(Request $request)

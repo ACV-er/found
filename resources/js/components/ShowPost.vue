@@ -207,13 +207,13 @@
                         obj.posts = JSON.parse(ajax.responseText).data['laf'];
                     }
                 };
-                ajax.open("GET", "http://found.myweb.com/laf", true);//false同步    true异步
+                ajax.open("GET", "https://found.sky31.com/laf", true);//false同步    true异步
                 ajax.send();
                 return true;
             },
             search(){
                 let keyword = this.keyword.trim().split(/\s/);
-                window.axios.post(`http://found.myweb.com/search` , "keyword="+JSON.stringify(keyword)).then(({ data }) => {
+                window.axios.post(`https://found.sky31.com/search` , "keyword="+JSON.stringify(keyword)).then(({ data }) => {
                     if(data.code === 0) {
                         if( data.data.length ===  0) {
                             alert("没有相关发布");
@@ -226,14 +226,14 @@
                 });
             },
             getAllInfo(id) {
-                window.axios.get('http://found.myweb.com/laf/' + id).then(({ data }) => {
+                window.axios.get('https://found.sky31.com/laf/' + id).then(({ data }) => {
                     this.allInfo = data.data;
                     this.allInfoShow = true;
                 });
             },
             updateInfo() {
                 let data = 'title='+this.allInfo.title+'&description='+this.allInfo.description;
-                window.axios.post(`http://found.myweb.com/manager/post/update/` + this.allInfo.id, data).then(({ data }) => {
+                window.axios.post(`https://found.sky31.com/manager/post/update/` + this.allInfo.id, data).then(({ data }) => {
                     if(data.code === 0) {
                         this.allInfo={};
                         this.allInfoShow=false;
@@ -246,7 +246,7 @@
             deletePost(id) {
                 let r=confirm("你确认删除么?");
                 if (r === true){
-                    window.axios.get('http://found.myweb.com/manager/post/delete/' + id).then(({ data }) => {
+                    window.axios.get('https://found.sky31.com/manager/post/delete/' + id).then(({ data }) => {
                         if(data.code === 0) {
                             this.getPost();
                             alert('成功');

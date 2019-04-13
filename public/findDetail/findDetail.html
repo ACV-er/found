@@ -6,36 +6,50 @@
 		<title>翼起找呀-物品详情</title>
 		<script src="../js/mui.min.js"></script>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/nav.css" rel="stylesheet"/>
 	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	    <link href="./css/style.css" rel="stylesheet">
-	    <link href="../css/header.css" rel="stylesheet">
+		<link href="../css/header.css" rel="stylesheet">
+		<link href="../css/iconfont/iconfont.css" rel="stylesheet">
     	<script type="text/javascript" charset="utf-8">
       		mui.init();
     	</script>
+        <script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1276795472&web_id=1276795472"></script>
 	</head>
 	<body>
 		
 		<nav><i class="back mui-icon mui-icon-back" onclick="window.history.go(-1)"></i>详情</nav>
 		<div id="detail">
 			<section class="markDetail">
-				<h3>{{information.title}}</h3>
+				<h3>
+					{{information.title}}
+					<div class="ring"></div>
+				</h3>
 				<div>
-					<img v-bind:src="information.img"  v-on:click="showImg" />
-					<div>{{information.description}}</div>
+					<div class="avatar" v-bind:style="information.avatar">
+
+					</div>
+					<span>{{information.nickname}}</span>
+					<br/>
+					<span style="font-size:13px;">发布时间:{{information.updated_at}}</span>
 				</div>
+				<div>
+					<span>{{information.description}}</span>
+				</div>
+				<div style="font-size:14px;color:#787878;min-height: 0px;">图片示意</div>
+				<div><img v-bind:src="information.img"  v-on:click="showImg" id="smallImg"/></div>
 				<img v-bind:src="information.img" id="bigImg" v-bind:class="{displaynone:displaynone }">
-				<div>
-					<p v-bind:class={displaynone:!information.stu_card}>卡号:{{information.card_id}}</p>
-					<p>时间:{{information.date}}</p>
-					<p>地点:{{information.address}}</p>
-					<p>班级:{{information.class}}</p>
-					<p>联系电话:{{information.phone}}</p>
-					<p>qq:{{information.qq}}</p>
-					<p>微信:{{information.wx}}</p>
-					<h5>发布者：{{information.nickname}}</h5>
-					<h5>发布时间：{{information.updated_at}}</h5>
-				</div>
+				
 			</section>
+			<div>
+				<p v-bind:class={displaynone:!information.stu_card}><i class="iconfont icon-card"></i>卡号:{{information.card_id}}</p>
+				<p><i class="iconfont icon-clock"></i>时间:{{information.date}}</p>
+				<p><i class="iconfont icon-address"></i>地点:{{information.address}}</p>
+				<!-- <p><i class="iconfont icon-clock"></i>班级:{{information.class}}</p> -->
+				<p><i class="iconfont icon-phone"></i>联系电话:{{information.phone}}</p>
+				<p><i class="iconfont icon-QQ"></i>QQ:{{information.qq}}</p>
+				<p><i class="iconfont icon-weixin"></i>微信:{{information.wx}}</p>
+			</div>
 			<button id="mark" @click="mark">标记</button>
 		</div>
 		

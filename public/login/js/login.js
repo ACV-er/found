@@ -5,6 +5,7 @@ var loginForm = new Vue({
 		id:'',
 		psw:'',
 		contact:'',
+		pc:true
 	},
 	methods:{
 		JsonToString:function(FormData){
@@ -39,13 +40,9 @@ var loginForm = new Vue({
 					if (ajax.readyState == 4 && ajax.status == 200) {
 						var result = JSON.parse(ajax.responseText);
 						//console.log(result);
-						if(result.code == 2)
+						if(result.code == 2||result.code == 3)
 						{
 							mui.alert("账号密码错误");
-						}
-						else if(result.code == 3)
-						{
-							mui.alert("学号或密码格式错误");
 						}
 						else if(result.code != 0)
 						{
@@ -56,7 +53,7 @@ var loginForm = new Vue({
 					}
 				}
 				ajax.withCredentials = true;
-				ajax.open("POST", "http://found.myweb.com/login", true);//false同步    true异步
+				ajax.open("POST", "https://found.sky31.com/login", true);//false同步    true异步
 				ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				ajax.send(data);
 			}
@@ -77,7 +74,7 @@ var loginForm = new Vue({
 //					}
 //				}
 //				ajax.withCredentials = true;
-//				ajax.open("get", "http://found.myweb.com/logintest", true);//false同步    true异步
+//				ajax.open("get", "https://found.sky31.com/logintest", true);//false同步    true异步
 //				ajax.withCredentials = true;
 //				ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //				ajax.send(data);
@@ -92,7 +89,7 @@ var loginForm = new Vue({
 //				}
 //			}
 //			ajax.withCredentials = true;
-//			ajax.open("get", "http://found.myweb.com/user/lost", true);//false同步    true异步
+//			ajax.open("get", "https://found.sky31.com/user/lost", true);//false同步    true异步
 //			ajax.withCredentials = true;
 //			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //			ajax.send(data);
@@ -178,5 +175,9 @@ var contact = new Vue({
 )
 
 window.onload = function(){
-	checkStage();
+	var stage = checkStage();
+	if(stage == 'pc')
+		loginForm.pc = true;
+	else
+		loginForm.pc = false;
 }

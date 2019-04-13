@@ -10,7 +10,7 @@ body {
 .mui-content{height: 100%;}
 img{
 	max-width: 800px;
-	width: 100%;
+	width: 90%;
 	margin: 80px auto 30px;	
 }
 #id,#password{
@@ -20,25 +20,15 @@ img{
 	border-radius: 0;
 }
 .contact{
-	
+	height: 30px;
 	margin: 20px 0;
 }
-nav{
-	position: relative;
-	line-height: 50px;
-	background-color: #3E8FDE;
-	color:#fff;
-	text-align: center;
-	font-size: 16px;
-	height: 50px;
-}
-.back{
-	position:absolute;
-	left:5%;
-	top: 30%;
-}
+
 input[type="checkbox"]{
-	vertical-align: middle;
+	width: 20px;
+    height: 20px;
+	
+
 	
 }
 input[type="checkbox"] + label::before {
@@ -46,7 +36,7 @@ input[type="checkbox"] + label::before {
 	bottom: 2px;
     content: "\a0"; /*不换行空格*/
     display: inline-block;
-    vertical-align: middle;
+	vertical-align: sub;
     font-size: 18px;
     width: 0.9em;
     height: 0.9em;
@@ -57,20 +47,19 @@ input[type="checkbox"] + label::before {
     line-height: 1; 
 }
 input[type="checkbox"]:checked + label::before {
-	border: 1px solid #007AFF;
-    background-color: #007AFF;
+	border: 1px solid #000;
+    background-color: #000;
     background-clip: content-box;
-   
+   vertical-align: bottom;
     width: 0.6em;
     height: 0.6em;
     padding: 0.15em;
 }
 input[type="checkbox"]:checked + label{
-	color:#007AFF;
+	color:#808080;
+
 }
-input[type="checkbox"] {
-   display: none;
-}
+
 .contact>label{
 	vertical-align: middle;
 	
@@ -109,5 +98,5 @@ input[type="checkbox"] {
 	color:#222222; 
 }
 .displayNone{
-	display: none;
+	display: none!important;
 }

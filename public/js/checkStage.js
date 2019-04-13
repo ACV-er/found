@@ -15,7 +15,8 @@ function checkStage(){
     var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
 	var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
 	if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM)) {
-      mui.alert("pc端使用体验较差,部分功能无法使用.建议使用移动端");
+	  mui.alert("pc端使用体验较差,部分功能无法使用.建议使用移动端");
+	  return "pc";
 	}
-
+	return 'mobile';
 }

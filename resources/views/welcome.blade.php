@@ -12,7 +12,7 @@
         <!-- Styles -->
 
         <script language="javascript" type="text/javascript">
-            window.location.href="http://found.myweb.com/index.html";
+            window.location.href="https://found.sky31.com/index.html";
         </script>
         {{--<style>--}}
             {{--html, body {--}}

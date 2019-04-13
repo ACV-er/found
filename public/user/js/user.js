@@ -16,7 +16,7 @@ function next(){
 			for(var i=0;i<result.length;i++)
 			{
 				if(result[i].img != null)
-					result[i].img = "http://found.myweb.com/upload/laf/" + result[i].img;
+					result[i].img = "https://found.sky31.com/upload/laf/" + result[i].img;
 				else
 					result[i].img ='../img/yuhan.jpg';
 				result[i].time = result[i].updated_at.substr(5,5);
@@ -30,7 +30,7 @@ function next(){
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "http://found.myweb.com/user/laf", true);//false同步    true异步
+	ajax.open("GET", "https://found.sky31.com/user/laf", true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 }
@@ -40,6 +40,7 @@ window.onload = function(){
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4 && ajax.status == 200) {
 			//console.log(ajax.responseText);
+			var random = Math.round(Math.random()*100);
 			var result = JSON.parse(ajax.responseText);
 		
 			if(result.code == 6)
@@ -51,12 +52,12 @@ window.onload = function(){
 				head.id = result.data.stu_id;
 		
 				head.nickname = result.data.nickname;
-				head.imgUrl = 'http://found.myweb.com/upload/avatar/' + result.data.avatar;
+				head.imgUrl = "background-image:url('https://found.sky31.com/upload/avatar/" + result.data.avatar + '?a='+ random + "');";
 			}
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "http://found.myweb.com/user/info", true);//false同步    true异步
+	ajax.open("GET", "https://found.sky31.com/user/info", true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 	next();

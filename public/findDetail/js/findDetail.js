@@ -6,7 +6,8 @@ var detail  = new Vue({
 		information:{
 			title:'',
 			description:'',
-			img:'../img/yuhan.jpg',
+			img:"../img/yuhan.jpg",
+			avatar:"",
 			date:'',
 			updated_at:'',
 			address:'',
@@ -46,7 +47,7 @@ var detail  = new Vue({
 				}
 			}
 			ajax.withCredentials = true;
-			ajax.open("GET", "http://found.myweb.com/mark/"+ getCookie("id"), true);//false同步    true异步
+			ajax.open("GET", "https://found.sky31.com/mark/"+ getCookie("id"), true);//false同步    true异步
 			ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			ajax.send();
 		},
@@ -67,9 +68,9 @@ window.onload = function(){
 	var ajax = new XMLHttpRequest();
 	ajax.onreadystatechange = function () {
 		if (ajax.readyState == 4 && ajax.status == 200) {
-		
+			var random = Math.round(Math.random()*100);
 			var result = JSON.parse(ajax.responseText);
-			
+			console.log(result);
 			if(result.code == 6)
 			{
 				mui.alert("请先登录");
@@ -78,15 +79,18 @@ window.onload = function(){
 			else{
 				result = result.data;
 				if(result.img!=null)
-					result.img ='http://found.myweb.com/upload/laf/' + result.img;
+					result.img ='https://found.sky31.com/upload/laf/' + result.img;
 				else
 					result.img ='../img/yuhan.jpg'
+
+				if(result.avatar!=null)
+					result.avatar = "background-image:url('https://found.sky31.com/upload/avatar/" + result.avatar + '?a='+ random + "')";
 				detail.information = result;
 			}
 		}
 	}
 	ajax.withCredentials = true;
-	ajax.open("GET", "http://found.myweb.com/laf/"+ getCookie("id"), true);//false同步    true异步
+	ajax.open("GET", "https://found.sky31.com/laf/"+ getCookie("id"), true);//false同步    true异步
 	ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	ajax.send();
 }

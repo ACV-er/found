@@ -165,7 +165,7 @@
                 let keyword = this.keyword.trim().split(/\s/);
                 let r=confirm("你要添加的关键词如下：\n"+JSON.stringify(keyword)+"\n确定添加吗？");
                 if (r === true){
-                    window.axios.post(`http://found.myweb.com/add/mgc` , "keyword="+JSON.stringify(keyword)).then(({ data }) => {
+                    window.axios.post(`https://found.sky31.com/add/mgc` , "keyword="+JSON.stringify(keyword)).then(({ data }) => {
                         if(data.code === 0) {
                                 alert("成功");
                         } else {
@@ -176,7 +176,7 @@
                 }
             },
             getposts() {
-                window.axios.get(`http://found.myweb.com/posts/info/`+this.time).then(({ data }) => {
+                window.axios.get(`https://found.sky31.com/posts/info/`+this.time).then(({ data }) => {
                     let result = {};
                     result['总计'] = this.post_model('总计');
                     let type = ['found', 'lost'];

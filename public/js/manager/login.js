@@ -26,12 +26,12 @@ function login() {
             } else if(result.code != 0) {
                 error.innerHTML = "未知错误，联系技术部";
             } else {
-                window.location.href = "http://found.myweb.com/manager/post";
+                window.location.href = "https://found.sky31.com/manager/post";
             }
         }
     };
 
-    ajax.open("POST", "http://found.myweb.com/manager/login", true);
+    ajax.open("POST", "https://found.sky31.com/manager/login", true);
 
     ajax.send(data);
 }

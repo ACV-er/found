@@ -6,7 +6,7 @@ body {
 }
 .head{
 	text-align: center;
-	padding-top: 30px;
+	padding-top: 15px;
 	padding-bottom: 30px;;
 	background: #fff;
 	
@@ -23,20 +23,7 @@ body {
 	position:absolute;
 	bottom: 0px;
 }
-nav{
-	position: relative;
-	line-height: 50px;
-	background-color: #3E8FDE;
-	color:#fff;
-	text-align: center;
-	font-size: 16px;
-	height: 50px;
-}
-.back{
-	position:absolute;
-	left:5%;
-	top: 30%;
-}
+
 form{
 	background-color: #fff;
 	position:relative;
@@ -122,15 +109,15 @@ input[type="radio"] + label::before {
     line-height: 1; 
 }
 input[type="radio"]:checked + label::before {
-	border: 1px solid #007AFF;
-    background-color: #007AFF;
+	border: 1px solid #859af3;
+    background-color: #859af3;
     background-clip: content-box;
     width: 0.6em;
     height: 0.6em;
     padding: 0.15em;
 }
 input[type="radio"]:checked + label{
-	color:#007AFF;
+	color:#859af3;
 }
 input[type="radio"] {
    visibility: hidden;
@@ -139,8 +126,11 @@ input[type="radio"] {
 	font-size: 20px;
 }
 .personInformation{
+	
 	margin-top: 20px;
+	text-align:left;
 }
+
 .personInformation  input[type="text"]{
 	height: 30px;
 	width: 70%;
@@ -151,7 +141,6 @@ input[type="radio"] {
 }
 .personInformation  input[type="date"]{
 	border-radius: 15px;
-	margin-top: 20px;
 	height: 30px;
 	width: 70%;
 	margin-left: 10%;
@@ -162,7 +151,6 @@ input[type="radio"] {
 }
 #address{
 	border-radius: 15px;
-	margin-top: 20px;
 	height: 30px;
 	width: 70%;
 	margin-left: 10%;
@@ -175,7 +163,7 @@ button{
 	margin-top: 30px;
 	width: 30%;
 	color:#fff;
-	background-color: #3E8FDE;
+	background-color: #859af3;
 	border-radius: 15px;
 	
 }

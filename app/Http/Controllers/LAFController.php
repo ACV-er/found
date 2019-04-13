@@ -211,7 +211,7 @@
             if (!$result->user_id == session('id')) {
                 return $this->msg(3, __LINE__);
             }
-            if ($request->hasFile('img') && file_exists(public_path() . '/upload/laf/' . $result->img)) { //更新图片时删除以前的图片
+            if ($request->hasFile('img') && is_file(public_path() . '/upload/laf/' . $result->img)) { //更新图片时删除以前的图片
                 unlink(public_path() . '/upload/laf/' . $result->img);
             }
             $result = $result->update($data);

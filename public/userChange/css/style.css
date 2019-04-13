@@ -9,33 +9,18 @@ body {
 	padding-top: 50px;
 }
 
-.head>img{
+#head>form>div{
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
-	margin-bottom: 20px;
+	margin: 20px auto;
+	overflow: hidden;
+	background-size: cover;
+	background-position: 50% 50%;
 	
 }
-.head>img:before{
-	content: '+';
-	font-size:20px;
-	position:absolute;
-	bottom: 0px;
-}
-nav{
-	position: relative;
-	line-height: 50px;
-	background-color: #3E8FDE;
-	color:#fff;
-	text-align: center;
-	font-size: 16px;
-	height: 50px;
-}
-.back{
-	position:absolute;
-	left:5%;
-	top: 30%;
-}
+
+
 form{
 	background-color: #fff;
 	position:relative;
@@ -49,12 +34,13 @@ form{
 	font-size: 20px;
 }
 input[type="file"]{
+	z-index: 999;
 	display: inline-block;
 	position: absolute;
 	left: 40%;
 	width: 20%;
 	top:70px;
-	height: 50px;
+	height: 80px;
 	opacity: 0;
 	
 	
@@ -68,6 +54,6 @@ button{
 	width: 30%;
 	color:#fff;
 	border-radius: 15px;
-	background-color: #3E8FDE;
+	background-color: #859af3;
 	
 }

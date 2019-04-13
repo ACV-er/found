@@ -1,5 +1,6 @@
 <?php
     function compress($src_img) {
+        ini_set('memory_limit','256M');
         $dst_w = 900;
         $dst_h = 600;
         list($src_w,$src_h)=getimagesize($src_img);  // 获取原图尺寸
@@ -41,14 +42,14 @@
         }
         $croped=imagecreatetruecolor($w, $h);
         imagecopy($croped,$source,0,0,$x,$y,$src_w,$src_h);
-
+        imagedestroy($source);
 // 缩放
         $scale = $dst_w/$w;
         $target = imagecreatetruecolor($dst_w, $dst_h);
         $final_w = intval($w*$scale);
         $final_h = intval($h*$scale);
         imagecopyresampled($target,$croped,0,0,0,0,$final_w,$final_h,$w,$h);
-
+        imagedestroy($croped);
 // 保存
         unlink($src_img);
         switch($type) {

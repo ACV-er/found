@@ -6,6 +6,7 @@
 		<title>翼起找呀-登录</title>
 		<script src="../js/mui.min.js"></script>
 	    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/nav.css" rel="stylesheet"/>
 	    <link href="../css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	    <link href="./css/style.css" rel="stylesheet">
 	    <link href="../css/header.css" rel="stylesheet">
@@ -13,6 +14,7 @@
     	<script type="text/javascript" charset="utf-8">
       		mui.init();
     	</script>
+        <script type="text/javascript" src="https://s23.cnzz.com/z_stat.php?id=1276795472&web_id=1276795472"></script>
     	
 	</head>
 	<body>
@@ -30,10 +32,10 @@
 			<input type="text" id="id" name="stu_id" placeholder="三翼通行证/学号" v-model="id" / >
 			<input type="password" name="password" id="password" placeholder="通行证密码/教务管理系统密码" v-model="psw"/>
 			<div class="contact">
-				<input name="contact" type="checkbox" v-model="contact">
-				<label for="contact"></label><span href="./sort/sort.html" @click="showContact">同意《用户协议》<span>
+				<input name="contact" type="checkbox" v-model="contact" v-bind:class="{displayNone:!pc}">
+				<label for="contact" v-bind:class="{displayNone:pc}"></label><span @click="showContact" style="vertical-align:middle">同意《用户协议》<span>
 			</div>
-			<button type="button" id="login" class="mui-btn mui-btn-primary mui-btn-outlined" @click="login">登陆</button>
+			<button type="button" id="login" class="mui-btn mui-btn-primary mui-btn-outlined" @click="login">登录</button>
 		</form>
 	</body>
 	<script type="text/javascript" src="../js/checkStage.js"></script>

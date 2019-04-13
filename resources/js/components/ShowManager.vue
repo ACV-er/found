@@ -196,13 +196,13 @@
                         obj.managers = JSON.parse(ajax.responseText).data;
                     }
                 };
-                ajax.open("GET", "http://found.myweb.com/manager/list", true);//false同步    true异步
+                ajax.open("GET", "https://found.sky31.com/manager/list", true);//false同步    true异步
                 ajax.send();
             },
             deleteManager(id) {
                 let r = confirm("你确认删除么?");
                 if (r === true) {
-                    window.axios.get('http://found.myweb.com/manager/delete/' + id).then(({data}) => {
+                    window.axios.get('https://found.sky31.com/manager/delete/' + id).then(({data}) => {
                         if (data.code === 0) {
                             this.getManager();
                             alert('成功');
@@ -217,7 +217,7 @@
             addManager() {
                 let data = 'stu_id='+this.add.stu_id+'&power='+this.add.power;
                 console.log(data);
-                window.axios.post(`http://found.myweb.com/manager/add`, data).then(({ data }) => {
+                window.axios.post(`https://found.sky31.com/manager/add`, data).then(({ data }) => {
                     if(data.code === 0) {
                         this.addShow=false;
                         this.getManager();
@@ -228,7 +228,7 @@
             },
             updateManager(id) {
                 let data = 'stu_id='+this.update.stu_id+'&power='+this.update.power;
-                window.axios.post(`http://found.myweb.com/manager/update/`+id, data).then(({ data }) => {
+                window.axios.post(`https://found.sky31.com/manager/update/`+id, data).then(({ data }) => {
                     if(data.code === 0) {
                         this.updateShow=false;
                         this.getManager();
